@@ -1,0 +1,1457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{06561CCB-8947-49F7-85E9-FBFBE5ACF858}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApplication2</RootNamespace>
+    <AssemblyName>WebApplication2</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44360</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SubSonic, Version=2.1.0.0, Culture=neutral, PublicKeyToken=eadb47849839a332, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\SubSonic\SubSonic 2.1 Final\SubSonic (Sql Server Only)\SubSonic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Design">
+      <HintPath>bin\Telerik.Web.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2021.3.914.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Telerik.Web.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>bin\Telerik.Web.UI.Skins.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.CMapUtils, Version=2021.3.1109.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for ASP.NET AJAX R3 2021\AdditionalLibraries\Bin45\Telerik.Windows.Documents.CMapUtils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=15.2.21.1125, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.OpenXmlRendering.2.7.2, Version=15.2.21.1125, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi, Version=15.2.21.1125, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=15.2.21.1125, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Html5.WebForms, Version=15.2.21.1125, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="ActualizarCorrespondencia.aspx" />
+    <Content Include="App_Data\TelerikVSX.mdf" />
+    <Content Include="bin\WebApplication2.dll" />
+    <Content Include="bin\WebApplication2.pdb" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="CorresHome.aspx" />
+    <Content Include="CSS\kendo.blueopal.min.css" />
+    <Content Include="CSS\kendo.common.min.css" />
+    <Content Include="Detalle.aspx" />
+    <Content Include="ExpedienteInsidencia.aspx" />
+    <Content Include="ExpedPases.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FileCorrespondencia.aspx" />
+    <Content Include="files\ArchivoDigital\171357\33062.jpg" />
+    <Content Include="files\ArchivoDigital\171358\32930.png" />
+    <Content Include="files\ArchivoDigital\171358\64226.jpg" />
+    <Content Include="files\ArchivoDigital\171358\67995.jpg" />
+    <Content Include="files\ArchivoDigital\171358\85811.jpg" />
+    <Content Include="files\ArchivoDigital\171358\90392.jpg" />
+    <Content Include="files\ArchivoDigital\171358\94973.jpg" />
+    <Content Include="files\ArchivoDigital\171361\51471.jpg" />
+    <Content Include="files\ArchivoDigital\171361\56052.jpg" />
+    <Content Include="files\ArchivoDigital\171361\77638.jpg" />
+    <Content Include="files\ArchivoDigital\171362\13217.jfif" />
+    <Content Include="files\ArchivoDigital\171362\21087.jpg" />
+    <Content Include="files\ArchivoDigital\171362\27154.png" />
+    <Content Include="files\ArchivoDigital\171362\52383.jpg" />
+    <Content Include="files\ArchivoDigital\171362\73969.jpg" />
+    <Content Include="files\ArchivoDigital\171362\78549.jpg" />
+    <Content Include="files\ArchivoDigital\171363\27339.jfif" />
+    <Content Include="files\ArchivoDigital\171363\39118.jpg" />
+    <Content Include="files\ArchivoDigital\171363\65285.jpg" />
+    <Content Include="files\ArchivoDigital\171363\69866.jpg" />
+    <Content Include="files\ArchivoDigital\171363\99001.jpg" />
+    <Content Include="files\ArchivoDigital\171365\35156.jpg" />
+    <Content Include="files\ArchivoDigital\171365\74770.jpg" />
+    <Content Include="files\ArchivoDigital\171368\37667.png" />
+    <Content Include="files\ArchivoDigital\171368\59253.jpg" />
+    <Content Include="files\ArchivoDigital\171368\6371.jfif" />
+    <Content Include="files\ArchivoDigital\171368\80194.jpg" />
+    <Content Include="files\ArchivoDigital\171368\80838.jpg" />
+    <Content Include="files\PERSONAL\1022\76821.jpg" />
+    <Content Include="files\PERSONAL\1022\98406.jpg" />
+    <Content Include="files\PERSONAL\1026\30731.jpg" />
+    <Content Include="files\PERSONAL\1026\32569.jpg" />
+    <Content Include="files\PERSONAL\2031\24391.jpg" />
+    <Content Include="files\PERSONAL\2031\62302.jpg" />
+    <Content Include="files\PERSONAL\2031\9468.jpg" />
+    <Content Include="files\PERSONAL\2\23522.jpg" />
+    <Content Include="files\PERSONAL\2\6189.png" />
+    <Content Include="files\PERSONAL\2\74869.jpg" />
+    <Content Include="files\PERSONAL\2\PROPUESTA 1.jpg" />
+    <Content Include="FileUploadarchivo.aspx" />
+    <Content Include="Final.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Html5ReportViewer2.html" />
+    <Content Include="images\bg-01.jpg" />
+    <Content Include="images\bg.jpg" />
+    <Content Include="images\icons\favicon.ico" />
+    <Content Include="images\icons\map-marker.png" />
+    <Content Include="images\icons\next.gif" />
+    <Content Include="images\icons\prev.gif" />
+    <Content Include="ImageUploader.aspx" />
+    <Content Include="IMG\1.png" />
+    <Content Include="IMG\2.png" />
+    <Content Include="IMG\3.png" />
+    <Content Include="IMG\3copia.png" />
+    <Content Include="IMG\5.png" />
+    <Content Include="IMG\adduser.png" />
+    <Content Include="IMG\alert.png" />
+    <Content Include="IMG\back.png" />
+    <Content Include="IMG\bitacora.png" />
+    <Content Include="IMG\cargando.gif" />
+    <Content Include="IMG\cargando1.gif" />
+    <Content Include="IMG\cargando3.gif" />
+    <Content Include="IMG\cargando4.gif" />
+    <Content Include="IMG\cintillo.png" />
+    <Content Include="IMG\COMISION.png" />
+    <Content Include="IMG\complete.png" />
+    <Content Include="IMG\copy.png" />
+    <Content Include="IMG\cut.png" />
+    <Content Include="IMG\default-delete.png" />
+    <Content Include="IMG\derecha.jpg" />
+    <Content Include="IMG\Docorres.png" />
+    <Content Include="IMG\down.png" />
+    <Content Include="IMG\download.png" />
+    <Content Include="IMG\download1 %282%29.png" />
+    <Content Include="IMG\download1.png" />
+    <Content Include="IMG\download2.png" />
+    <Content Include="IMG\EDIT.png" />
+    <Content Include="IMG\excel.png" />
+    <Content Include="IMG\exit.png" />
+    <Content Include="IMG\extensiones\.doc.png" />
+    <Content Include="IMG\extensiones\.docx.png" />
+    <Content Include="IMG\extensiones\.jpg.png" />
+    <Content Include="IMG\extensiones\.pdf.png" />
+    <Content Include="IMG\extensiones\.png" />
+    <Content Include="IMG\extensiones\.xls.png" />
+    <Content Include="IMG\extensiones\.xlsx.png" />
+    <Content Include="IMG\extensiones\1.png" />
+    <Content Include="IMG\extensiones\reply.png" />
+    <Content Include="IMG\fileadjunto.png" />
+    <Content Include="IMG\folders.png" />
+    <Content Include="IMG\garbage.png" />
+    <Content Include="IMG\Grid\img\arrow.png" />
+    <Content Include="IMG\Grid\img\arrowRight.png" />
+    <Content Include="IMG\Grid\img\first.png" />
+    <Content Include="IMG\Grid\img\last.png" />
+    <Content Include="IMG\home.png" />
+    <Content Include="IMG\images-3-554x330.jpeg" />
+    <Content Include="IMG\izquierda.jpg" />
+    <Content Include="IMG\izquierda.png" />
+    <Content Include="IMG\juridicos.png" />
+    <Content Include="IMG\log.png" />
+    <Content Include="IMG\login\escudo.png" />
+    <Content Include="IMG\login\izquierdo.png" />
+    <Content Include="IMG\login\sintillo.png" />
+    <Content Include="IMG\login\sintillo2.png" />
+    <Content Include="IMG\logo.png" />
+    <Content Include="IMG\lookpad.png" />
+    <Content Include="IMG\menu.gif" />
+    <Content Include="IMG\menu.png" />
+    <Content Include="IMG\Metadata.png" />
+    <Content Include="IMG\metadato.png" />
+    <Content Include="IMG\Naranja.jpg" />
+    <Content Include="IMG\Naranja.png" />
+    <Content Include="IMG\new.png" />
+    <Content Include="IMG\newdocument.png" />
+    <Content Include="IMG\newuser.png" />
+    <Content Include="IMG\New_Folder_2-128.png" />
+    <Content Include="IMG\next.png" />
+    <Content Include="IMG\notfound.png" />
+    <Content Include="IMG\NUEVO.png" />
+    <Content Include="IMG\Paste.png" />
+    <Content Include="IMG\paz.jpg" />
+    <Content Include="IMG\qr.png" />
+    <Content Include="IMG\question.png" />
+    <Content Include="IMG\refres.png" />
+    <Content Include="IMG\refresh.png" />
+    <Content Include="IMG\reply.png" />
+    <Content Include="IMG\RH.png" />
+    <Content Include="IMG\search.png" />
+    <Content Include="IMG\secretariado.png" />
+    <Content Include="IMG\security.png" />
+    <Content Include="IMG\show.png" />
+    <Content Include="IMG\stados\false.png" />
+    <Content Include="IMG\stados\true.png" />
+    <Content Include="IMG\statuscorrespondencia\022_042_lock_padlock_password_secure_private_protection_ok_check-256.jpg" />
+    <Content Include="IMG\statuscorrespondencia\1.png" />
+    <Content Include="IMG\statuscorrespondencia\10.png" />
+    <Content Include="IMG\statuscorrespondencia\11.png" />
+    <Content Include="IMG\statuscorrespondencia\12.png" />
+    <Content Include="IMG\statuscorrespondencia\2.png" />
+    <Content Include="IMG\statuscorrespondencia\3.png" />
+    <Content Include="IMG\statuscorrespondencia\TEM.png" />
+    <Content Include="IMG\tejido.jpg" />
+    <Content Include="IMG\tejido.png" />
+    <Content Include="IMG\TEM.PNG" />
+    <Content Include="IMG\titulo.jpg" />
+    <Content Include="IMG\up.png" />
+    <Content Include="IMG\upload.png" />
+    <Content Include="IMG\uploading.png" />
+    <Content Include="IMG\uploadpdf.png" />
+    <Content Include="IMG\users.png" />
+    <Content Include="IMG\Users\14427.jpg" />
+    <Content Include="IMG\Users\144_1.jpg" />
+    <Content Include="IMG\Users\cajonera11769.jpg" />
+    <Content Include="IMG\Users\cajonera121.jpg" />
+    <Content Include="IMG\Users\zote7249.jpg" />
+    <Content Include="IMG\Users\zote9803.jpg" />
+    <Content Include="IMG\vacaciones.png" />
+    <Content Include="IMG\VACATIONS.png" />
+    <Content Include="Index.aspx" />
+    <Content Include="javasscript\Funcs.js" />
+    <Content Include="javasscript\jszip.min.js" />
+    <Content Include="javasscript\pdf.js" />
+    <Content Include="javasscript\pdf.worker.js" />
+    <Content Include="javasscript\scripts.js" />
+    <Content Include="kendo.common.min.css" />
+    <Content Include="LoadExpediente.aspx" />
+    <Content Include="login.aspx" />
+    <Content Include="LogOff.aspx" />
+    <Content Include="MINDEX.aspx" />
+    <Content Include="NewFoto.aspx" />
+    <Content Include="obj\Debug\WebApplication2.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebApplication2.dll" />
+    <Content Include="obj\Debug\webapplication2.dll.licenses" />
+    <Content Include="obj\Debug\WebApplication2.pdb" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll" />
+    <Content Include="packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.pdb" />
+    <Content Include="packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net40\AspNet.ScriptManager.bootstrap.dll" />
+    <Content Include="packages\AspNet.ScriptManager.bootstrap.3.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll" />
+    <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net40\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\lib\net45\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.js" />
+    <Content Include="packages\bootstrap.3.4.1\content\Scripts\bootstrap.min.js" />
+    <Content Include="packages\bootstrap.3.4.1\LICENSE.txt" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net35\DocumentFormat.OpenXml.dll" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net35\DocumentFormat.OpenXml.xml" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.xml" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.xml" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\netstandard1.3\DocumentFormat.OpenXml.dll" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\lib\netstandard1.3\DocumentFormat.OpenXml.xml" />
+    <Content Include="App_Code\generated\SKM_C55822120913520.docx" />
+    <None Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1-vsdoc.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="packages\jQuery.3.4.1\Tools\jquery-3.4.1.intellisense.js" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\readme.txt" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\es\Microsoft.AspNet.FriendlyUrls.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\es\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net40\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\es\Microsoft.AspNet.FriendlyUrls.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\es\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\lib\net40\es\Microsoft.AspNet.FriendlyUrls.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\lib\net40\es\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\lib\net45\es\Microsoft.AspNet.FriendlyUrls.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\lib\net45\es\Microsoft.AspNet.FriendlyUrls.xml" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\content\Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\DetailsView.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\Focus.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\GridView.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\Menu.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\MenuStandards.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\SmartNav.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\TreeView.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebForms.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebParts.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\content\Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\es\System.Web.Optimization.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.es.1.1.3\lib\net40\es\System.Web.Optimization.resources.dll" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.xml" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Win32.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.AppContext.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Collections.Immutable.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Console.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Diagnostics.StackTrace.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Globalization.Calendars.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.Compression.ZipFile.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Net.Sockets.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Reflection.Metadata.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Text.Encoding.CodePages.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.ValueTuple.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.ReaderWriter.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XmlDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\System.Xml.XPath.XDocument.dll" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.xml" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.xml" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="packages\Modernizr.2.8.3\Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\WebGrease.1.6.0\lib\WebGrease.dll" />
+    <Content Include="packages\WebGrease.1.6.0\tools\WG.EXE" />
+    <Content Include="Pases.aspx" />
+    <Content Include="Reports\SampleReport.trdp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RH.aspx" />
+    <Content Include="RHArchivoDigital.aspx" />
+    <Content Include="PermisosyPases.aspx" />
+    <Content Include="RHDefault.aspx" />
+    <Content Include="RHHome.aspx" />
+    <Content Include="SoporteTecnico.aspx" />
+    <Content Include="TEAM.aspx" />
+    <Content Include="TelerikWebForm.aspx" />
+    <Content Include="TelerikWebForm1.aspx" />
+    <Content Include="TelerikWebForm2.aspx" />
+    <Content Include="TelerikWebForm3.aspx" />
+    <Content Include="UploadCorrespondencia.aspx" />
+    <Content Include="vacaciones.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
+    <Content Include="Handler.ashx" />
+    <Content Include="WebForm4.aspx" />
+    <Content Include="WebForm5.aspx" />
+    <Content Include="files\Correspondencia\167238.pdf" />
+    <Content Include="files\Correspondencia\168242.pdf" />
+    <Content Include="files\Correspondencia\168243.pdf" />
+    <Content Include="files\Correspondencia\168244.pdf" />
+    <Content Include="files\Correspondencia\168245.pdf" />
+    <Content Include="files\Correspondencia\168248.pdf" />
+    <Content Include="files\Correspondencia\168250.pdf" />
+    <Content Include="files\Correspondencia\168251.pdf" />
+    <Content Include="files\Correspondencia\169251.pdf" />
+    <Content Include="files\Correspondencia\169252.pdf" />
+    <Content Include="files\Correspondencia\169254.pdf" />
+    <Content Include="files\Correspondencia\169255.pdf" />
+    <Content Include="files\Correspondencia\169256.pdf" />
+    <Content Include="files\Correspondencia\169257.pdf" />
+    <Content Include="files\Correspondencia\169258.pdf" />
+    <Content Include="files\Correspondencia\169259.pdf" />
+    <Content Include="files\Correspondencia\169260.docx" />
+    <Content Include="IMG\extensiones\1.heic" />
+    <Content Include="IMG\statuscorrespondencia\new.webp" />
+    <Content Include="images\1111-1111.pdf.exclude" />
+    <Content Include="images\patent.tif.exclude" />
+    <Content Include="WebForm6.aspx" />
+    <Content Include="_UpgradeWizard_Files\Error.png" />
+    <Content Include="_UpgradeWizard_Files\Success.png" />
+    <Content Include="_UpgradeWizard_Files\UpgradeWizardLog.css" />
+    <Content Include="_UpgradeWizard_Files\UpgradeWizardLog.xslt" />
+    <Content Include="_UpgradeWizard_Files\Warning.png" />
+    <Content Include="obj\Debug\build.force" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\WebApplication2.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Debug\WebApplication2.csproj.CopyComplete" />
+    <Content Include="obj\Debug\WebApplication2.csproj.CoreCompileInputs.cache" />
+    <Content Include="packages\Antlr.3.5.0.2\.signature.p7s" />
+    <Content Include="packages\Antlr.3.5.0.2\Antlr.3.5.0.2.nupkg" />
+    <Content Include="packages\AspNet.ScriptManager.bootstrap.3.4.1\.signature.p7s" />
+    <Content Include="packages\AspNet.ScriptManager.bootstrap.3.4.1\AspNet.ScriptManager.bootstrap.3.4.1.nupkg" />
+    <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\.signature.p7s" />
+    <Content Include="packages\AspNet.ScriptManager.jQuery.3.4.1\AspNet.ScriptManager.jQuery.3.4.1.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\.signature.p7s" />
+    <Content Include="packages\bootstrap.3.4.1\bootstrap.3.4.1.nupkg" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\contentFiles\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap-theme.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\Content\bootstrap.min.css.map" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="packages\bootstrap.3.4.1\content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\.signature.p7s" />
+    <Content Include="packages\DocumentFormat.OpenXml.2.7.2\DocumentFormat.OpenXml.2.7.2.nupkg" />
+    <Content Include="packages\jQuery.3.4.1\.signature.p7s" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.min.map" />
+    <Content Include="packages\jQuery.3.4.1\Content\Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="packages\jQuery.3.4.1\jQuery.3.4.1.nupkg" />
+    <Content Include="packages\jQuery.3.4.1\Tools\common.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\install.ps1" />
+    <Content Include="packages\jQuery.3.4.1\Tools\uninstall.ps1" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\App_Start\RouteConfig.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\Site.Mobile.Master.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\Site.Mobile.Master.designer.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\Site.Mobile.Master.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\ViewSwitcher.ascx.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\ViewSwitcher.ascx.designer.cs.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Content\ViewSwitcher.ascx.pp" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.1.0.2\Microsoft.AspNet.FriendlyUrls.1.0.2.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\Microsoft.AspNet.FriendlyUrls.Core.1.0.2.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2\Microsoft.AspNet.FriendlyUrls.Core.es.1.0.2.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\Microsoft.AspNet.ScriptManager.WebForms.5.0.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.es.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.es.1.1.3\Microsoft.AspNet.Web.Optimization.es.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\content\web.config.transform" />
+    <Content Include="packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\Microsoft.AspNet.WebApi.Client.4.0.30506.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\content\web.config.transform" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\Microsoft.AspNet.WebApi.Core.4.0.30506.0.nupkg" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\.signature.p7s" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.Extensions.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net45\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\app.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.install.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\content\net46\web.config.uninstall.xdt" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1.nupkg" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\install.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\net45\uninstall.ps1" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\Roslyn45\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\csi.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.CSharp.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.Managed.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.exe.config" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\vbc.rsp" />
+    <Content Include="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\tools\RoslynLatest\VBCSCompiler.exe.config" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\lib\net45\_._" />
+    <Content Include="packages\Microsoft.Net.Http.2.0.20710.0\Microsoft.Net.Http.2.0.20710.0.nupkg" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\.signature.p7s" />
+    <Content Include="packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\.signature.p7s" />
+    <Content Include="packages\Modernizr.2.8.3\Modernizr.2.8.3.nupkg" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\common.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\install.ps1" />
+    <Content Include="packages\Modernizr.2.8.3\Tools\uninstall.ps1" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\.signature.p7s" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\LICENSE.md" />
+    <Content Include="packages\Newtonsoft.Json.12.0.2\Newtonsoft.Json.12.0.2.nupkg" />
+    <Content Include="packages\WebGrease.1.6.0\.signature.p7s" />
+    <Content Include="packages\WebGrease.1.6.0\WebGrease.1.6.0.nupkg" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Html5ReportViewer1.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Site.Master" />
+    <Content Include="Web.config" />
+    <Content Include="Bundle.config" />
+    <Content Include="Site.Mobile.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualizarCorrespondencia.aspx.cs">
+      <DependentUpon>ActualizarCorrespondencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActualizarCorrespondencia.aspx.designer.cs">
+      <DependentUpon>ActualizarCorrespondencia.aspx</DependentUpon>
+    </Compile>
+    <Content Include="App_Code\generated\AllStructs.cs" />
+    <Content Include="App_Code\generated\Anexo.cs" />
+    <Content Include="App_Code\generated\AnexoController.cs" />
+    <Content Include="App_Code\generated\Arbolado.cs" />
+    <Content Include="App_Code\generated\ArboladoGrid.cs" />
+    <Content Include="App_Code\generated\ArboladoGridCorrespondencium.cs" />
+    <Content Include="App_Code\generated\ArchivoCorrespondencium.cs" />
+    <Content Include="App_Code\generated\ArchivoCorrespondenciumController.cs" />
+    <Content Include="App_Code\generated\CatAbogadoActor.cs" />
+    <Content Include="App_Code\generated\CatAbogadoActorController.cs" />
+    <Content Include="App_Code\generated\CatAcceso.cs" />
+    <Content Include="App_Code\generated\CatAccesoController.cs" />
+    <Content Include="App_Code\generated\CatActor.cs" />
+    <Content Include="App_Code\generated\CatActorController.cs" />
+    <Content Include="App_Code\generated\CatAdscripcionRh.cs" />
+    <Content Include="App_Code\generated\CatAdscripcionRhController.cs" />
+    <Content Include="App_Code\generated\CatAnoVacacionesRh.cs" />
+    <Content Include="App_Code\generated\CatAnoVacacionesRhController.cs" />
+    <Content Include="App_Code\generated\CatArchivoDigitalRh.cs" />
+    <Content Include="App_Code\generated\CatArchivoDigitalRhController.cs" />
+    <Content Include="App_Code\generated\CatAutocaso.cs" />
+    <Content Include="App_Code\generated\CatAutocasoController.cs" />
+    <Content Include="App_Code\generated\CatCapituloInventario.cs" />
+    <Content Include="App_Code\generated\CatCapituloInventarioController.cs" />
+    <Content Include="App_Code\generated\CatCarpetum.cs" />
+    <Content Include="App_Code\generated\CatCarpetumController.cs" />
+    <Content Include="App_Code\generated\CatCategoriaRh.cs" />
+    <Content Include="App_Code\generated\CatCategoriaRhController.cs" />
+    <Content Include="App_Code\generated\CatConceptoInventario.cs" />
+    <Content Include="App_Code\generated\CatConceptoInventarioController.cs" />
+    <Content Include="App_Code\generated\CatDemandado.cs" />
+    <Content Include="App_Code\generated\CatDemandadoController.cs" />
+    <Content Include="App_Code\generated\CatDepeEjecutoriaInventario.cs" />
+    <Content Include="App_Code\generated\CatDepeEjecutoriaInventarioController.cs" />
+    <Content Include="App_Code\generated\CatDestinoCorrespondencium.cs" />
+    <Content Include="App_Code\generated\CatDestinoCorrespondenciumController.cs" />
+    <Content Include="App_Code\generated\CatEjeInvetario.cs" />
+    <Content Include="App_Code\generated\CatEjeInvetarioController.cs" />
+    <Content Include="App_Code\generated\CatEjercicioInventario.cs" />
+    <Content Include="App_Code\generated\CatEjercicioInventarioController.cs" />
+    <Content Include="App_Code\generated\CatEstatusCorrespondencium.cs" />
+    <Content Include="App_Code\generated\CatEstatusCorrespondenciumController.cs" />
+    <Content Include="App_Code\generated\CatExpedienteTecnicoInventario.cs" />
+    <Content Include="App_Code\generated\CatExpedienteTecnicoInventarioController.cs" />
+    <Content Include="App_Code\generated\CatJefeAdscripcionRH.cs" />
+    <Content Include="App_Code\generated\CatJefeAdscripcionRHController.cs" />
+    <Content Include="App_Code\generated\CatOrigenCorrespondencium.cs" />
+    <Content Include="App_Code\generated\CatOrigenCorrespondenciumController.cs" />
+    <Content Include="App_Code\generated\CatPartidaEspecificaInventario.cs" />
+    <Content Include="App_Code\generated\CatPartidaEspecificaInventarioController.cs" />
+    <Content Include="App_Code\generated\CatPartidaGenericaInvenatario.cs" />
+    <Content Include="App_Code\generated\CatPartidaGenericaInvenatarioController.cs" />
+    <Content Include="App_Code\generated\CatPeriodoVAcaionesRh.cs" />
+    <Content Include="App_Code\generated\CatPeriodoVAcaionesRhController.cs" />
+    <Content Include="App_Code\generated\CatProgramaPrioridadNacionalInventario.cs" />
+    <Content Include="App_Code\generated\CatProgramaPrioridadNacionalInventarioController.cs" />
+    <Content Include="App_Code\generated\CatRHJustificar.cs" />
+    <Content Include="App_Code\generated\CatRHJustificarController.cs" />
+    <Content Include="App_Code\generated\CatRHTipoInsidencium.cs" />
+    <Content Include="App_Code\generated\CatRHTipoInsidenciumController.cs" />
+    <Content Include="App_Code\generated\CatStatusMinutum.cs" />
+    <Content Include="App_Code\generated\CatStatusMinutumController.cs" />
+    <Content Include="App_Code\generated\CatStatusTitular.cs" />
+    <Content Include="App_Code\generated\CatStatusTitularController.cs" />
+    <Content Include="App_Code\generated\CatSubprogramaInvenatario.cs" />
+    <Content Include="App_Code\generated\CatSubprogramaInvenatarioController.cs" />
+    <Content Include="App_Code\generated\CatTipoArchivoInventario.cs" />
+    <Content Include="App_Code\generated\CatTipoArchivoInventarioController.cs" />
+    <Content Include="App_Code\generated\CatTipoContenido.cs" />
+    <Content Include="App_Code\generated\CatTipoContenidoController.cs" />
+    <Content Include="App_Code\generated\CatTipoExpediente.cs" />
+    <Content Include="App_Code\generated\CatTipoExpedienteController.cs" />
+    <Content Include="App_Code\generated\CattipoJuicio.cs" />
+    <Content Include="App_Code\generated\CattipoJuicioController.cs" />
+    <Content Include="App_Code\generated\CatTipoPermisoRH.cs" />
+    <Content Include="App_Code\generated\CatTipoPermisoRHController.cs" />
+    <Content Include="App_Code\generated\CatTipoPlazaRh.cs" />
+    <Content Include="App_Code\generated\CatTipoPlazaRhController.cs" />
+    <Content Include="App_Code\generated\CatTipoRecursoInventario.cs" />
+    <Content Include="App_Code\generated\CatTipoRecursoInventarioController.cs" />
+    <Content Include="App_Code\generated\CatTipoUser.cs" />
+    <Content Include="App_Code\generated\CatTipoUserController.cs" />
+    <Content Include="App_Code\generated\CatTipoUserRh.cs" />
+    <Content Include="App_Code\generated\CatTipoUserRhController.cs" />
+    <Content Include="App_Code\generated\CatTomo.cs" />
+    <Content Include="App_Code\generated\CatTomoController.cs" />
+    <Content Include="App_Code\generated\CatUsuario.cs" />
+    <Content Include="App_Code\generated\CatUsuarioController.cs" />
+    <Content Include="App_Code\generated\CorresCatTipoArchivo.cs" />
+    <Content Include="App_Code\generated\CorresCatTipoArchivoController.cs" />
+    <Content Include="App_Code\generated\Expediente.cs" />
+    <Content Include="App_Code\generated\ExpedienteController.cs" />
+    <Content Include="App_Code\generated\HistirlaExpediente.cs" />
+    <Content Include="App_Code\generated\HistirlaExpedienteController.cs" />
+    <Content Include="App_Code\generated\Historialnavegacion.cs" />
+    <Content Include="App_Code\generated\HistorialnavegacionController.cs" />
+    <Content Include="App_Code\generated\Imprimirinsidencia.cs" />
+    <Content Include="App_Code\generated\ImprimirinsidenciaController.cs" />
+    <Content Include="App_Code\generated\RelAcumulado.cs" />
+    <Content Include="App_Code\generated\RelAcumuladoController.cs" />
+    <Content Include="App_Code\generated\RelCatAdscripcion.cs" />
+    <Content Include="App_Code\generated\RelCatAdscripcionController.cs" />
+    <Content Include="App_Code\generated\RelCatArchivoDigitalRH.cs" />
+    <Content Include="App_Code\generated\RelCatArchivoDigitalRHController.cs" />
+    <Content Include="App_Code\generated\RelCatCategoriaRh.cs" />
+    <Content Include="App_Code\generated\RelCatCategoriaRhController.cs" />
+    <Content Include="App_Code\generated\RelCatTipoplazaRh.cs" />
+    <Content Include="App_Code\generated\RelCatTipoplazaRhController.cs" />
+    <Content Include="App_Code\generated\RelEtapasDeExpediente.cs" />
+    <Content Include="App_Code\generated\RelEtapasDeExpedienteController.cs" />
+    <Content Include="App_Code\generated\RelExpedienteActor.cs" />
+    <Content Include="App_Code\generated\RelExpedienteActorController.cs" />
+    <Content Include="App_Code\generated\RelFuncionesUsuarioRH.cs" />
+    <Content Include="App_Code\generated\RelFuncionesUsuarioRHController.cs" />
+    <Content Include="App_Code\generated\RelTipoPermisoRH.cs" />
+    <Content Include="App_Code\generated\RelTipoPermisoRHController.cs" />
+    <Content Include="App_Code\generated\SoporteCatServicio.cs" />
+    <Content Include="App_Code\generated\SoporteCatServicioController.cs" />
+    <Content Include="App_Code\generated\SoporteTranServicio.cs" />
+    <Content Include="App_Code\generated\SoporteTranServicioController.cs" />
+    <Content Include="App_Code\generated\StoredProcedures.cs" />
+    <Content Include="App_Code\generated\TablaExiste.cs" />
+    <Content Include="App_Code\generated\TablaExisteController.cs" />
+    <Content Include="App_Code\generated\TableBitacora.cs" />
+    <Content Include="App_Code\generated\TableBitacoraController.cs" />
+    <Content Include="App_Code\generated\TableTipoOperacion.cs" />
+    <Content Include="App_Code\generated\TableTipoOperacionController.cs" />
+    <Content Include="App_Code\generated\TemAbogado.cs" />
+    <Content Include="App_Code\generated\TemAbogadoController.cs" />
+    <Content Include="App_Code\generated\TemAutoridad.cs" />
+    <Content Include="App_Code\generated\TemAutoridadController.cs" />
+    <Content Include="App_Code\generated\TemDemandado.cs" />
+    <Content Include="App_Code\generated\TemDemandadoController.cs" />
+    <Content Include="App_Code\generated\TempActore.cs" />
+    <Content Include="App_Code\generated\TempActoreController.cs" />
+    <Content Include="App_Code\generated\TempExpediente.cs" />
+    <Content Include="App_Code\generated\TempExpedienteController.cs" />
+    <Content Include="App_Code\generated\TemTipojuicio.cs" />
+    <Content Include="App_Code\generated\TemTipojuicioController.cs" />
+    <Content Include="App_Code\generated\TitularesRH.cs" />
+    <Content Include="App_Code\generated\TitularesRHController.cs" />
+    <Content Include="App_Code\generated\TranInsidenciasRH.cs" />
+    <Content Include="App_Code\generated\TranInsidenciasRHController.cs" />
+    <Content Include="App_Code\generated\TranMinutum.cs" />
+    <Content Include="App_Code\generated\TranMinutumController.cs" />
+    <Content Include="App_Code\generated\TranPermiso.cs" />
+    <Content Include="App_Code\generated\TranPermisoController.cs" />
+    <Content Include="App_Code\generated\TranTitularesRH.cs" />
+    <Content Include="App_Code\generated\TranTitularesRHController.cs" />
+    <Content Include="App_Code\generated\ViewActualizando.cs" />
+    <Content Include="App_Code\generated\ViewArchivoDigitalRH.cs" />
+    <Content Include="App_Code\generated\ViewBitacora.cs" />
+    <Content Include="App_Code\generated\ViewBitacoraActividade.cs" />
+    <Content Include="App_Code\generated\ViewConsultaexiste.cs" />
+    <Content Include="App_Code\generated\ViewContestacionCorrespon.cs" />
+    <Content Include="App_Code\generated\ViewCorrespondenciaAbrir.cs" />
+    <Content Include="App_Code\generated\ViewExpedienteExiste.cs" />
+    <Content Include="App_Code\generated\ViewGraficar.cs" />
+    <Content Include="App_Code\generated\ViewGridExpediente.cs" />
+    <Content Include="App_Code\generated\ViewHistorialExpediente.cs" />
+    <Content Include="App_Code\generated\ViewImprimirPase.cs" />
+    <Content Include="App_Code\generated\ViewReporteInventarioExpediente.cs" />
+    <Content Include="App_Code\generated\ViewRetornaCorrespondencium.cs" />
+    <Content Include="App_Code\generated\ViewRHDetalleUsuario.cs" />
+    <Content Include="App_Code\generated\ViewRHJustificante.cs" />
+    <Content Include="App_Code\generated\ViewSoporteTecnico.cs" />
+    <Content Include="App_Code\generated\ViewUserActualiza.cs" />
+    <Content Include="App_Code\generated\ViewUserCorrespondencium.cs" />
+    <Content Include="App_Code\generated\ViewVacacionesRh.cs" />
+    <Compile Include="clases\AllStructs.cs" />
+    <Compile Include="clases\Anexo.cs" />
+    <Compile Include="clases\AnexoController.cs" />
+    <Compile Include="clases\Arbolado.cs" />
+    <Compile Include="clases\ArboladoGrid.cs" />
+    <Compile Include="clases\ArboladoGridCorrespondencium.cs" />
+    <Compile Include="clases\ArchivoCorrespondencium.cs" />
+    <Compile Include="clases\ArchivoCorrespondenciumController.cs" />
+    <Compile Include="clases\CatAbogadoActor.cs" />
+    <Compile Include="clases\CatAbogadoActorController.cs" />
+    <Compile Include="clases\CatAcceso.cs" />
+    <Compile Include="clases\CatAccesoController.cs" />
+    <Compile Include="clases\CatActor.cs" />
+    <Compile Include="clases\CatActorController.cs" />
+    <Compile Include="clases\CatAdscripcionRh.cs" />
+    <Compile Include="clases\CatAdscripcionRhController.cs" />
+    <Compile Include="clases\CatAnoVacacionesRh.cs" />
+    <Compile Include="clases\CatAnoVacacionesRhController.cs" />
+    <Compile Include="clases\CatArchivoDigitalRh.cs" />
+    <Compile Include="clases\CatArchivoDigitalRhController.cs" />
+    <Compile Include="clases\CatAutocaso.cs" />
+    <Compile Include="clases\CatAutocasoController.cs" />
+    <Compile Include="clases\CatCapituloInventario.cs" />
+    <Compile Include="clases\CatCapituloInventarioController.cs" />
+    <Compile Include="clases\CatCarpetum.cs" />
+    <Compile Include="clases\CatCarpetumController.cs" />
+    <Compile Include="clases\CatCategoriaRh.cs" />
+    <Compile Include="clases\CatCategoriaRhController.cs" />
+    <Compile Include="clases\CatConceptoInventario.cs" />
+    <Compile Include="clases\CatConceptoInventarioController.cs" />
+    <Compile Include="clases\CatDemandado.cs" />
+    <Compile Include="clases\CatDemandadoController.cs" />
+    <Compile Include="clases\CatDepeEjecutoriaInventario.cs" />
+    <Compile Include="clases\CatDepeEjecutoriaInventarioController.cs" />
+    <Compile Include="clases\CatDestinoCorrespondencium.cs" />
+    <Compile Include="clases\CatDestinoCorrespondenciumController.cs" />
+    <Compile Include="clases\CatEjeInvetario.cs" />
+    <Compile Include="clases\CatEjeInvetarioController.cs" />
+    <Compile Include="clases\CatEjercicioInventario.cs" />
+    <Compile Include="clases\CatEjercicioInventarioController.cs" />
+    <Compile Include="clases\CatEstatusCorrespondencium.cs" />
+    <Compile Include="clases\CatEstatusCorrespondenciumController.cs" />
+    <Compile Include="clases\CatExpedienteTecnicoInventario.cs" />
+    <Compile Include="clases\CatExpedienteTecnicoInventarioController.cs" />
+    <Compile Include="clases\CatJefeAdscripcionRH.cs" />
+    <Compile Include="clases\CatJefeAdscripcionRHController.cs" />
+    <Compile Include="clases\CatOrigenCorrespondencium.cs" />
+    <Compile Include="clases\CatOrigenCorrespondenciumController.cs" />
+    <Compile Include="clases\CatPartidaEspecificaInventario.cs" />
+    <Compile Include="clases\CatPartidaEspecificaInventarioController.cs" />
+    <Compile Include="clases\CatPartidaGenericaInvenatario.cs" />
+    <Compile Include="clases\CatPartidaGenericaInvenatarioController.cs" />
+    <Compile Include="clases\CatPeriodoVAcaionesRh.cs" />
+    <Compile Include="clases\CatPeriodoVAcaionesRhController.cs" />
+    <Compile Include="clases\CatProgramaPrioridadNacionalInventario.cs" />
+    <Compile Include="clases\CatProgramaPrioridadNacionalInventarioController.cs" />
+    <Compile Include="clases\CatRHJustificar.cs" />
+    <Compile Include="clases\CatRHJustificarController.cs" />
+    <Compile Include="clases\CatRHTipoInsidencium.cs" />
+    <Compile Include="clases\CatRHTipoInsidenciumController.cs" />
+    <Compile Include="clases\CatStatusMinutum.cs" />
+    <Compile Include="clases\CatStatusMinutumController.cs" />
+    <Compile Include="clases\CatSubprogramaInvenatario.cs" />
+    <Compile Include="clases\CatSubprogramaInvenatarioController.cs" />
+    <Compile Include="clases\CatTipoArchivoInventario.cs" />
+    <Compile Include="clases\CatTipoArchivoInventarioController.cs" />
+    <Compile Include="clases\CatTipoContenido.cs" />
+    <Compile Include="clases\CatTipoContenidoController.cs" />
+    <Compile Include="clases\CatTipoExpediente.cs" />
+    <Compile Include="clases\CatTipoExpedienteController.cs" />
+    <Compile Include="clases\CattipoJuicio.cs" />
+    <Compile Include="clases\CattipoJuicioController.cs" />
+    <Compile Include="clases\CatTipoPermisoRH.cs" />
+    <Compile Include="clases\CatTipoPermisoRHController.cs" />
+    <Compile Include="clases\CatTipoPlazaRh.cs" />
+    <Compile Include="clases\CatTipoPlazaRhController.cs" />
+    <Compile Include="clases\CatTipoRecursoInventario.cs" />
+    <Compile Include="clases\CatTipoRecursoInventarioController.cs" />
+    <Compile Include="clases\CatTipoUser.cs" />
+    <Compile Include="clases\CatTipoUserController.cs" />
+    <Compile Include="clases\CatTipoUserRh.cs" />
+    <Compile Include="clases\CatTipoUserRhController.cs" />
+    <Compile Include="clases\CatTomo.cs" />
+    <Compile Include="clases\CatTomoController.cs" />
+    <Compile Include="clases\CatUsuario.cs" />
+    <Compile Include="clases\CatUsuarioController.cs" />
+    <Compile Include="clases\ClassGrafica.cs" />
+    <Compile Include="clases\ClassReporte.cs" />
+    <Compile Include="clases\ClassSesion.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="clases\CorresCatTipoArchivo.cs" />
+    <Compile Include="clases\CorresCatTipoArchivoController.cs" />
+    <Compile Include="clases\Expediente.cs" />
+    <Compile Include="clases\ExpedienteController.cs" />
+    <Compile Include="clases\HistirlaExpediente.cs" />
+    <Compile Include="clases\HistirlaExpedienteController.cs" />
+    <Compile Include="clases\Historialnavegacion.cs" />
+    <Compile Include="clases\HistorialnavegacionController.cs" />
+    <Compile Include="clases\Imprimirinsidencia.cs" />
+    <Compile Include="clases\RelAcumulado.cs" />
+    <Compile Include="clases\RelAcumuladoController.cs" />
+    <Compile Include="clases\RelCatAdscripcion.cs" />
+    <Compile Include="clases\RelCatAdscripcionController.cs" />
+    <Compile Include="clases\RelCatArchivoDigitalRH.cs" />
+    <Compile Include="clases\RelCatArchivoDigitalRHController.cs" />
+    <Compile Include="clases\RelCatCategoriaRh.cs" />
+    <Compile Include="clases\RelCatCategoriaRhController.cs" />
+    <Compile Include="clases\RelCatTipoplazaRh.cs" />
+    <Compile Include="clases\RelCatTipoplazaRhController.cs" />
+    <Compile Include="clases\RelEtapasDeExpediente.cs" />
+    <Compile Include="clases\RelEtapasDeExpedienteController.cs" />
+    <Compile Include="clases\RelExpedienteActor.cs" />
+    <Compile Include="clases\RelExpedienteActorController.cs" />
+    <Compile Include="clases\RelFuncionesUsuarioRH.cs" />
+    <Compile Include="clases\RelFuncionesUsuarioRHController.cs" />
+    <Compile Include="clases\RelTipoPermisoRH.cs" />
+    <Compile Include="clases\RelTipoPermisoRHController.cs" />
+    <Compile Include="clases\SoporteCatServicio.cs" />
+    <Compile Include="clases\SoporteCatServicioController.cs" />
+    <Compile Include="clases\SoporteTranServicio.cs" />
+    <Compile Include="clases\SoporteTranServicioController.cs" />
+    <Compile Include="clases\StoredProcedures.cs" />
+    <Compile Include="clases\TablaExiste.cs" />
+    <Compile Include="clases\TablaExisteController.cs" />
+    <Compile Include="clases\TableBitacora.cs" />
+    <Compile Include="clases\TableBitacoraController.cs" />
+    <Compile Include="clases\TableTipoOperacion.cs" />
+    <Compile Include="clases\TableTipoOperacionController.cs" />
+    <Compile Include="clases\TemAbogado.cs" />
+    <Compile Include="clases\TemAbogadoController.cs" />
+    <Compile Include="clases\TemAutoridad.cs" />
+    <Compile Include="clases\TemAutoridadController.cs" />
+    <Compile Include="clases\TemDemandado.cs" />
+    <Compile Include="clases\TemDemandadoController.cs" />
+    <Compile Include="clases\TempActore.cs" />
+    <Compile Include="clases\TempActoreController.cs" />
+    <Compile Include="clases\TempExpediente.cs" />
+    <Compile Include="clases\TempExpedienteController.cs" />
+    <Compile Include="clases\TemTipojuicio.cs" />
+    <Compile Include="clases\TemTipojuicioController.cs" />
+    <Compile Include="clases\TranInsidenciasRH.cs" />
+    <Compile Include="clases\TranInsidenciasRHController.cs" />
+    <Compile Include="clases\TranMinutum.cs" />
+    <Compile Include="clases\TranMinutumController.cs" />
+    <Compile Include="clases\TranPermiso.cs" />
+    <Compile Include="clases\TranPermisoController.cs" />
+    <Compile Include="clases\ViewActualizando.cs" />
+    <Compile Include="clases\ViewArchivoDigitalRH.cs" />
+    <Compile Include="clases\ViewBitacora.cs" />
+    <Compile Include="clases\ViewBitacoraActividade.cs" />
+    <Compile Include="clases\ViewConsultaexiste.cs" />
+    <Compile Include="clases\ViewContestacionCorrespon.cs" />
+    <Compile Include="clases\ViewCorrespondenciaAbrir.cs" />
+    <Compile Include="clases\ViewExpedienteExiste.cs" />
+    <Compile Include="clases\ViewGraficar.cs" />
+    <Compile Include="clases\ViewGridExpediente.cs" />
+    <Compile Include="clases\ViewHistorialExpediente.cs" />
+    <Compile Include="clases\ViewImprimirPase.cs" />
+    <Compile Include="clases\ViewReporteInventarioExpediente.cs" />
+    <Compile Include="clases\ViewRetornaCorrespondencium.cs" />
+    <Compile Include="clases\ViewRHDetalleUsuario.cs" />
+    <Compile Include="clases\ViewRHJustificante.cs" />
+    <Compile Include="clases\ViewSoporteTecnico.cs" />
+    <Compile Include="clases\ViewUserActualiza.cs" />
+    <Compile Include="clases\ViewUserCorrespondencium.cs" />
+    <Compile Include="clases\ViewVacacionesRh.cs" />
+    <Compile Include="CorresHome.aspx.cs">
+      <DependentUpon>CorresHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorresHome.aspx.designer.cs">
+      <DependentUpon>CorresHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detalle.aspx.cs">
+      <DependentUpon>Detalle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detalle.aspx.designer.cs">
+      <DependentUpon>Detalle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedienteInsidencia.aspx.cs">
+      <DependentUpon>ExpedienteInsidencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpedienteInsidencia.aspx.designer.cs">
+      <DependentUpon>ExpedienteInsidencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExpedPases.aspx.cs">
+      <DependentUpon>ExpedPases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpedPases.aspx.designer.cs">
+      <DependentUpon>ExpedPases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileCorrespondencia.aspx.cs">
+      <DependentUpon>FileCorrespondencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileCorrespondencia.aspx.designer.cs">
+      <DependentUpon>FileCorrespondencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileUploadarchivo.aspx.cs">
+      <DependentUpon>FileUploadarchivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FileUploadarchivo.aspx.designer.cs">
+      <DependentUpon>FileUploadarchivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Final.aspx.cs">
+      <DependentUpon>Final.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Final.aspx.designer.cs">
+      <DependentUpon>Final.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Handler.ashx.cs">
+      <DependentUpon>Handler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageUploader.aspx.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImageUploader.aspx.designer.cs">
+      <DependentUpon>ImageUploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoadExpediente.aspx.cs">
+      <DependentUpon>LoadExpediente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoadExpediente.aspx.designer.cs">
+      <DependentUpon>LoadExpediente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOff.aspx.cs">
+      <DependentUpon>LogOff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOff.aspx.designer.cs">
+      <DependentUpon>LogOff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MINDEX.aspx.cs">
+      <DependentUpon>MINDEX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MINDEX.aspx.designer.cs">
+      <DependentUpon>MINDEX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewFoto.aspx.cs">
+      <DependentUpon>NewFoto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewFoto.aspx.designer.cs">
+      <DependentUpon>NewFoto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.5.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.5.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.5.2.AssemblyAttributes.cs" />
+    <Compile Include="Pases.aspx.cs">
+      <DependentUpon>Pases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pases.aspx.designer.cs">
+      <DependentUpon>Pases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RH.aspx.cs">
+      <DependentUpon>RH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RH.aspx.designer.cs">
+      <DependentUpon>RH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RHArchivoDigital.aspx.cs">
+      <DependentUpon>RHArchivoDigital.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RHArchivoDigital.aspx.designer.cs">
+      <DependentUpon>RHArchivoDigital.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PermisosyPases.aspx.cs">
+      <DependentUpon>PermisosyPases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PermisosyPases.aspx.designer.cs">
+      <DependentUpon>PermisosyPases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RHDefault.aspx.cs">
+      <DependentUpon>RHDefault.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RHDefault.aspx.designer.cs">
+      <DependentUpon>RHDefault.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RHHome.aspx.cs">
+      <DependentUpon>RHHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RHHome.aspx.designer.cs">
+      <DependentUpon>RHHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleAsyncUploadConfiguration.cs" />
+    <Compile Include="SampleAsyncUploadResult.cs" />
+    <Compile Include="SoporteTecnico.aspx.cs">
+      <DependentUpon>SoporteTecnico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SoporteTecnico.aspx.designer.cs">
+      <DependentUpon>SoporteTecnico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StreamImage.ashx.cs">
+      <DependentUpon>StreamImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="TEAM.aspx.cs">
+      <DependentUpon>TEAM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TEAM.aspx.designer.cs">
+      <DependentUpon>TEAM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TelerikWebForm.aspx.cs">
+      <DependentUpon>TelerikWebForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TelerikWebForm.aspx.designer.cs">
+      <DependentUpon>TelerikWebForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TelerikWebForm1.aspx.cs">
+      <DependentUpon>TelerikWebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TelerikWebForm1.aspx.designer.cs">
+      <DependentUpon>TelerikWebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TelerikWebForm2.aspx.cs">
+      <DependentUpon>TelerikWebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TelerikWebForm2.aspx.designer.cs">
+      <DependentUpon>TelerikWebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TelerikWebForm3.aspx.cs">
+      <DependentUpon>TelerikWebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TelerikWebForm3.aspx.designer.cs">
+      <DependentUpon>TelerikWebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadCorrespondencia.aspx.cs">
+      <DependentUpon>UploadCorrespondencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadCorrespondencia.aspx.designer.cs">
+      <DependentUpon>UploadCorrespondencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vacaciones.aspx.cs">
+      <DependentUpon>vacaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vacaciones.aspx.designer.cs">
+      <DependentUpon>vacaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\ReportsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm4.aspx.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm4.aspx.designer.cs">
+      <DependentUpon>WebForm4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm5.aspx.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm5.aspx.designer.cs">
+      <DependentUpon>WebForm5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm6.aspx.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm6.aspx.designer.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="files\ArchivoDigital\171364\" />
+    <Folder Include="files\ArchivoDigital\171367\" />
+    <Folder Include="files\ArchivoDigital\171369\" />
+    <Folder Include="files\ArchivoDigital\171372\" />
+    <Folder Include="files\ArchivoDigital\172373\" />
+    <Folder Include="files\ArchivoDigital\172374\" />
+    <Folder Include="files\ArchivoDigital\172377\" />
+    <Folder Include="files\ArchivoDigital\172378\" />
+    <Folder Include="files\ArchivoDigital\172379\" />
+    <Folder Include="files\ArchivoDigital\172380\" />
+    <Folder Include="files\ArchivoDigital\172381\" />
+    <Folder Include="files\ArchivoDigital\172382\" />
+    <Folder Include="files\ArchivoDigital\2\" />
+    <Folder Include="files\ArchivoDigital\PERSONAL\" />
+    <Folder Include="files\PERSONAL\1023\" />
+    <Folder Include="files\PERSONAL\1024\" />
+    <Folder Include="files\PERSONAL\12\" />
+    <Folder Include="files\PERSONAL\15\" />
+    <Folder Include="files\PERSONAL\16\" />
+    <Folder Include="files\PERSONAL\18\" />
+    <Folder Include="files\PERSONAL\1\" />
+    <Folder Include="files\PERSONAL\2026\" />
+    <Folder Include="files\PERSONAL\2027\" />
+    <Folder Include="files\PERSONAL\2028\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="StreamImage.ashx" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReportLibrary\ReportLibrary.csproj">
+      <Project>{A0CF4AB7-3943-4324-8219-153FA51BB6DB}</Project>
+      <Name>ReportLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50526</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44360/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

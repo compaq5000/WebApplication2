@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\WebApplication2.csproj" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\About.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\About.aspx" />
+  <event action="Analyze" type="Success" name="About.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\About.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ActualizarCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ActualizarCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="ActualizarCorrespondencia.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\ActualizarCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Bundle.config" path="C:\Users\compa\source\repos\repos\WebApplication2\Bundle.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Contact.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Contact.aspx" />
+  <event action="Analyze" type="Success" name="Contact.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\Contact.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\CorresHome.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\CorresHome.aspx" />
+  <event action="Analyze" type="Success" name="CorresHome.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\CorresHome.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Detalle.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Detalle.aspx" />
+  <event action="Analyze" type="Success" name="Detalle.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\Detalle.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedienteInsidencia.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedienteInsidencia.aspx" />
+  <event action="Analyze" type="Success" name="ExpedienteInsidencia.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedienteInsidencia.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedPases.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedPases.aspx" />
+  <event action="Analyze" type="Success" name="ExpedPases.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\ExpedPases.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\FileCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\FileCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="FileCorrespondencia.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\FileCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\FileUploadarchivo.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\FileUploadarchivo.aspx" />
+  <event action="Analyze" type="Success" name="FileUploadarchivo.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\FileUploadarchivo.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Final.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Final.aspx" />
+  <event action="Analyze" type="Success" name="Final.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\Final.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer1.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer1.html" />
+  <event action="Analyze" type="Success" name="Html5ReportViewer1.html" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer1.html" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer2.html" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer2.html" />
+  <event action="Analyze" type="Success" name="Html5ReportViewer2.html" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer2.html" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ImageUploader.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\ImageUploader.aspx" />
+  <event action="Analyze" type="Success" name="ImageUploader.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\ImageUploader.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Index.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Index.aspx" />
+  <event action="Analyze" type="Success" name="Index.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\Index.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\LoadExpediente.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\LoadExpediente.aspx" />
+  <event action="Analyze" type="Success" name="LoadExpediente.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\LoadExpediente.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\login.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\login.aspx" />
+  <event action="Analyze" type="Success" name="login.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\login.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\LogOff.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\LogOff.aspx" />
+  <event action="Analyze" type="Success" name="LogOff.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\LogOff.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\MINDEX.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\MINDEX.aspx" />
+  <event action="Analyze" type="Success" name="MINDEX.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\MINDEX.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\NewFoto.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\NewFoto.aspx" />
+  <event action="Analyze" type="Success" name="NewFoto.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\NewFoto.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="C:\Users\compa\source\repos\repos\WebApplication2\packages.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Pases.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Pases.aspx" />
+  <event action="Analyze" type="Success" name="Pases.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\Pases.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\PermisosyPases.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\PermisosyPases.aspx" />
+  <event action="Analyze" type="Success" name="PermisosyPases.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\PermisosyPases.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RH.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RH.aspx" />
+  <event action="Analyze" type="Success" name="RH.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\RH.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHArchivoDigital.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHArchivoDigital.aspx" />
+  <event action="Analyze" type="Success" name="RHArchivoDigital.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\RHArchivoDigital.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHDefault.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHDefault.aspx" />
+  <event action="Analyze" type="Success" name="RHDefault.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\RHDefault.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHHome.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\RHHome.aspx" />
+  <event action="Analyze" type="Success" name="RHHome.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\RHHome.aspx" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Master" />
+  <event action="Analyze" type="Success" name="Site.Master" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Master" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Mobile.Master" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Mobile.Master" />
+  <event action="Analyze" type="Success" name="Site.Mobile.Master" path="C:\Users\compa\source\repos\repos\WebApplication2\Site.Mobile.Master" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\SoporteTecnico.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\SoporteTecnico.aspx" />
+  <event action="Analyze" type="Success" name="SoporteTecnico.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\SoporteTecnico.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TEAM.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TEAM.aspx" />
+  <event action="Analyze" type="Success" name="TEAM.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\TEAM.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm.aspx" />
+  <event action="Analyze" type="Success" name="TelerikWebForm.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm1.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm1.aspx" />
+  <event action="Analyze" type="Success" name="TelerikWebForm1.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm1.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm2.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm2.aspx" />
+  <event action="Analyze" type="Success" name="TelerikWebForm2.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\TelerikWebForm2.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\UploadCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\UploadCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="UploadCorrespondencia.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\UploadCorrespondencia.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="vacaciones.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\vacaciones.aspx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm2.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm2.aspx" />
+  <event action="Analyze" type="Success" name="WebForm2.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm2.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm3.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm3.aspx" />
+  <event action="Analyze" type="Success" name="WebForm3.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm3.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm4.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm4.aspx" />
+  <event action="Analyze" type="Success" name="WebForm4.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm4.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm5.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm5.aspx" />
+  <event action="Analyze" type="Success" name="WebForm5.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm5.aspx" />
+  <event action="Analyze" type="Success" name="Register Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm6.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm6.aspx" />
+  <event action="Analyze" type="Success" name="WebForm6.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm6.aspx" />
+  <event action="Analyze" type="Success" name="WebApplication2" path="C:\Users\compa\source\repos\repos\WebApplication2\WebApplication2.csproj" />
+  <event>Get project references.</event>
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="app.config" path="C:\Users\compa\source\repos\repos\ReportLibrary\app.config" />
+  <event action="Analyze" type="Success" name="IMPRIMIRFOLIOS.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\IMPRIMIRFOLIOS.resx" />
+  <event action="Analyze" type="Success" name="Justificante.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\Justificante.resx" />
+  <event action="Analyze" type="Success" name="Pase.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\Pase.resx" />
+  <event action="Analyze" type="Success" name="Report1.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\Report1.resx" />
+  <event action="Analyze" type="Success" name="Report2.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\Report2.resx" />
+  <event action="Analyze" type="Success" name="Report3.resx" path="C:\Users\compa\source\repos\repos\ReportLibrary\Report3.resx" />
+  <event action="Analyze" type="Success" name="ReportLibrary" path="C:\Users\compa\source\repos\repos\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Analyze" type="Success" name="WebApplication2" path="C:\Users\compa\source\repos\repos\WebApplication2\WebApplication2.sln" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Analyze" type="Success" name="telerikReportViewer-15.2.21.1125.min.js" path="telerikReportViewer-15.2.21.1125.min.js" />
+  <event action="Backup" type="Error" name="WebApplication2" path="C:\Users\compa\source\repos\repos\WebApplication2\WebApplication2.csproj">System.IO.IOException: El proceso no puede obtener acceso al archivo 'C:\Users\compa\source\repos\repos\WebApplication2\.vs\WebApplication2\FileContentIndex\212bc89f-d4a7-4e29-b8cf-2441ab77abdf.vsidx' porque está siendo utilizado en otro proceso.
+   en System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   en System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   en Telerik.Reporting.UpgradeWizard.Engine.Services.BackupService.BackupDirectory(String directoryName)
+   en Telerik.Reporting.UpgradeWizard.Engine.Services.BackupService.BackupDirectory(String directoryName)
+   en Telerik.Reporting.UpgradeWizard.Engine.Services.BackupService.BackupDirectory(String directoryName)
+   en Telerik.Reporting.UpgradeWizard.Engine.Services.BackupService.BackupDirectory(String directoryName)
+   en Telerik.Reporting.UpgradeWizard.Engine.ProjectItem.BackupInternal()
+   en Telerik.Reporting.UpgradeWizard.Engine.UpgradeItem.Backup()</event>
+  <event action="Backup" type="Success" name="ReportLibrary" path="C:\Users\compa\source\repos\repos\ReportLibrary\ReportLibrary.csproj" />
+  <event action="Restore" type="Success" name="WebApplication2" path="C:\Users\compa\source\repos\repos\WebApplication2\WebApplication2.csproj" />
+  <event action="Restore" type="Success" name="Html5ReportViewer1.html" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer1.html" />
+  <event action="Restore" type="Success" name="Html5ReportViewer2.html" path="C:\Users\compa\source\repos\repos\WebApplication2\Html5ReportViewer2.html" />
+  <event action="Restore" type="Success" name="Web.config" path="C:\Users\compa\source\repos\repos\WebApplication2\Web.config" />
+  <event action="Restore" type="Success" name="WebForm2.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm2.aspx" />
+  <event action="Restore" type="Success" name="WebForm3.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm3.aspx" />
+  <event action="Restore" type="Success" name="WebForm4.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm4.aspx" />
+  <event action="Restore" type="Success" name="WebForm5.aspx" path="C:\Users\compa\source\repos\repos\WebApplication2\WebForm5.aspx" />
+  <event action="Restore" type="Success" name="ReportLibrary" path="C:\Users\compa\source\repos\repos\ReportLibrary\ReportLibrary.csproj" />
+</log>
