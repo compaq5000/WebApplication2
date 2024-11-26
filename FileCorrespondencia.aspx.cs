@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using Telerik.Web.UI;
 using System.Threading;
 using System.IO;
-using System.Web.UI.WebControls;
 namespace WebApplication2
 {
     public partial class FileCorrespondencia : System.Web.UI.Page
@@ -129,52 +126,116 @@ namespace WebApplication2
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            //AQUI SE ESTARA SUBIENDO LAS IMAGENES
-            Boolean fileOK = false;
-            String path = Server.MapPath("~/files/Correspondencia/");
-            string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
-            if (!string.IsNullOrEmpty(fileExtension))
+            if (CheckBoxRegresaCorresp.Checked != true)
             {
-                String[] allowedExtensions = { ".pdf", ".png", ".jpg", ".doc", ".docx", ".xlsx", ".xls" };
-                for (int i = 0; i < allowedExtensions.Length; i++)
+                //AQUI SE ESTARA SUBIENDO LAS IMAGENES
+                Boolean fileOK = false;
+                String path = Server.MapPath("~/files/Correspondencia/");
+                string fileExtension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                if (!string.IsNullOrEmpty(fileExtension))
                 {
-                    if (fileExtension == allowedExtensions[i])
+                    String[] allowedExtensions = { ".pdf", ".png", ".jpg", ".doc", ".docx", ".xlsx", ".xls" };
+                    for (int i = 0; i < allowedExtensions.Length; i++)
                     {
-                        fileOK = true;
+                        if (fileExtension == allowedExtensions[i])
+                        {
+                            fileOK = true;
+                        }
+                    }
+                    if (fileOK)
+                    {
+                        try
+                        {
+                            // string NombreArchivo = Request.QueryString["ID"].Remove(0,1);
+                            //string NombreArchivo = Request.QueryString["ID"];
+                            string NombreArchivo = classSesion.VerExpediente.ToString();
+                            //     UltimaActualizacion(Convert.ToInt32(ssSesiones.Usua), Convert.ToInt32(NombreArchivo));
+
+                            SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
+                            ssExpedientes.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
+                            ssExpedientes.Extencion = fileExtension;
+                            ssExpedientes.Status = true;
+                            //  ssExpedientes.IDExpediente = Convert.ToInt32(Request.QueryString["ID"]);
+                            ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
+                            ssExpedientes.DateX = RadDatePicker1.SelectedDate;
+                            ssExpedientes.Descripcion = TextBox1.Text.ToUpper();
+                            ssExpedientes.IDTipo = 2;
+                            ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
+                            ssExpedientes.IDInventario = Convert.ToInt32(DropDownListTipoARchivo.SelectedValue);
+
+
+                            ssExpedientes.Save();
+                            // VerificarSiExiste(ssExpedientes.Descripcion, fileExtension);
+                            //  String fileExtensions = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
+                            FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
+                            // Button1.Visible = false;
+                            Label1.Text = "Se han cargado correctamente";
+                            Label1.Visible = true;
+                            SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
+                            ssExpeDien.IDStatusCorrespondencia = 12;
+                            ssExpeDien.Save();
+                            RadGrid2.Rebind();
+                            TextBox1.Text = "";
+
+
+
+
+
+                        }
+                        catch (Exception)
+                        {
+                            Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);
+
+                        }
                     }
                 }
-                if (fileOK)
+                else
                 {
+
                     try
                     {
-                        // string NombreArchivo = Request.QueryString["ID"].Remove(0,1);
-                        //string NombreArchivo = Request.QueryString["ID"];
                         string NombreArchivo = classSesion.VerExpediente.ToString();
-                        //     UltimaActualizacion(Convert.ToInt32(ssSesiones.Usua), Convert.ToInt32(NombreArchivo));
 
                         SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
-                        ssExpedientes.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
-                        ssExpedientes.Extencion = fileExtension;
+                        ssExpedientes.Nombre = "Sin Archivo";
+                        ssExpedientes.Extencion = "1";
                         ssExpedientes.Status = true;
-                        //  ssExpedientes.IDExpediente = Convert.ToInt32(Request.QueryString["ID"]);
                         ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
                         ssExpedientes.DateX = RadDatePicker1.SelectedDate;
                         ssExpedientes.Descripcion = TextBox1.Text.ToUpper();
                         ssExpedientes.IDTipo = 2;
                         ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
-                        ssExpedientes.IDInventario = Convert.ToInt32(DropDownListTipoARchivo.SelectedValue);
+                        /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
+                        if (CheckBoxRegresaCorresp.Checked == true)
+                        {
 
-
+                            ssExpedientes.StatusCorresponde = true;
+                        }
+                        /*******************************************************************************************************************************************/
                         ssExpedientes.Save();
+
                         // VerificarSiExiste(ssExpedientes.Descripcion, fileExtension);
                         //  String fileExtensions = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
-                        FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
+                        // FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
                         // Button1.Visible = false;
                         Label1.Text = "Se han cargado correctamente";
                         Label1.Visible = true;
+
+
                         SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
+
+
+                        /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
+                        if (CheckBoxRegresaCorresp.Checked == true)
+                        {
+                            ssExpeDien.StatusRetornado = true;
+
+                        }
+                        /*******************************************************************************************************************************************/
                         ssExpeDien.IDStatusCorrespondencia = 12;
                         ssExpeDien.Save();
+
                         RadGrid2.Rebind();
                         TextBox1.Text = "";
 
@@ -182,63 +243,47 @@ namespace WebApplication2
 
 
 
+
+
+
+                        //  ssSesiones.Bitacora(Convert.ToInt32(ssSesiones.IDUsua), 10, ssExpedientes.Descripcion);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
                     }
-                    catch (Exception)
+                    catch
                     {
-                        Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);
-
                     }
                 }
+
+
+
             }
-            else
-            {
+            else {
 
-                try
-                {
-                    string NombreArchivo = classSesion.VerExpediente.ToString();
+                
+                string NombreArchivo = classSesion.VerExpediente.ToString();
 
-                    SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
-                    ssExpedientes.Nombre = "Sin Archivo";
-                    ssExpedientes.Extencion = "1";
-                    ssExpedientes.Status = true;
-                    ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
-                    ssExpedientes.DateX = RadDatePicker1.SelectedDate;
-                    ssExpedientes.Descripcion = TextBox1.Text.ToUpper();
-                    ssExpedientes.IDTipo = 2;
-                    ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
-                    /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
-                    if (CheckBoxRegresaCorresp.Checked == true)
-                    {
+                SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
+                ssExpedientes.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
+              //  ssExpedientes.Extencion = fileExtension;
+                ssExpedientes.Status = true;
+                ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
+                ssExpedientes.DateX = RadDatePicker1.SelectedDate;
+                ssExpedientes.Descripcion = TextBox1.Text.ToUpper();
+                ssExpedientes.IDTipo = 2;
+                ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
+                ssExpedientes.IDInventario = Convert.ToInt32(DropDownListTipoARchivo.SelectedValue);
 
-                        ssExpedientes.StatusCorresponde = true;
-                    }
-                    /*******************************************************************************************************************************************/
-                    ssExpedientes.Save();
-
-                    // VerificarSiExiste(ssExpedientes.Descripcion, fileExtension);
-                    //  String fileExtensions = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
-                    // FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
-                    // Button1.Visible = false;
-                    Label1.Text = "Se han cargado correctamente";
-                    Label1.Visible = true;
-
-
-                    SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
-
-
-                    /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
-                    if (CheckBoxRegresaCorresp.Checked == true)
-                    {
-                        ssExpeDien.StatusRetornado = true;
-
-                    }
-                    /*******************************************************************************************************************************************/
-                    ssExpeDien.IDStatusCorrespondencia = 12;
-                    ssExpeDien.Save();
-
-                    RadGrid2.Rebind();
-                    TextBox1.Text = "";
+            //    ssExpedientes.Save();
+            //    FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
+               
+                Label1.Text = "Se han cargado correctamente";
+                Label1.Visible = true;
+                SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
+                ssExpeDien.IDStatusCorrespondencia = 12;
+             //   ssExpeDien.Save();
+                RadGrid2.Rebind();
+                TextBox1.Text = "";
 
 
 
@@ -247,18 +292,7 @@ namespace WebApplication2
 
 
 
-                    //  ssSesiones.Bitacora(Convert.ToInt32(ssSesiones.IDUsua), 10, ssExpedientes.Descripcion);
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
-                }
-                catch
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);
-                }
             }
-
-
-
-
             FillTipoArchivo();
 
 

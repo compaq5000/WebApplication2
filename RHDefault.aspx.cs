@@ -335,14 +335,12 @@ namespace WebApplication2
                     SubSonicDB.RelTipoPermisoRH ssRelTipoPermisoRH = new SubSonicDB.RelTipoPermisoRH();
                     ssRelTipoPermisoRH.IDUser = Convert.ToInt32(RadAutoCompleteBoxUsuarios.Entries[i].Value);
                     //ssRelTipoPermisoRH.IDTipoPermiso =Convert.ToInt32(RadComboBoxTipoPermiso.SelectedValue);
-                    ssRelTipoPermisoRH.FechaInicio = RadDatePickerDesde.SelectedDate;
-                    ssRelTipoPermisoRH.FechaFin = RadDatePickerHasta.SelectedDate;
                     ssRelTipoPermisoRH.Status = true;
                     ssRelTipoPermisoRH.FechaCaptura = DateTime.Now;
                     ssRelTipoPermisoRH.IDUserCaptura = Convert.ToInt32(ssSesiones.IDUsua);
                     ssRelTipoPermisoRH.IDano = Convert.ToInt32(RadComboBoxTipoPermiso.SelectedValue);
                     ssRelTipoPermisoRH.IDPeriodo = Convert.ToInt32(RadComboBoxPeriodo.SelectedValue);
-                    ssRelTipoPermisoRH.Totaldias = Convert.ToInt32(GetBusinessDays((DateTime)RadDatePickerDesde.SelectedDate, (DateTime)RadDatePickerHasta.SelectedDate));
+
                     ssRelTipoPermisoRH.Save();
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('SI SE guardarDO el registro. ');</script>", false);

@@ -258,6 +258,7 @@
     <Content Include="IMG\cintillo.png" />
     <Content Include="IMG\COMISION.png" />
     <Content Include="IMG\complete.png" />
+    <Content Include="IMG\CONTACT.png" />
     <Content Include="IMG\copy.png" />
     <Content Include="IMG\cut.png" />
     <Content Include="IMG\default-delete.png" />

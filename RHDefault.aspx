@@ -305,12 +305,12 @@
                             </ContentTemplate>
                         </asp:UpdatePanel>
                     </telerik:RadSlidingPane>
-                    <telerik:RadSlidingPane ID="Radslidingpane3" runat="server" IconUrl="~/IMG/vacaciones.png" MinWidth="130" Title="VACACIONES" Width="500px">
+                    <telerik:RadSlidingPane ID="Radslidingpane3" runat="server" IconUrl="~/IMG/vacaciones.png" MinWidth="130" Title="ASIGNACION RECURSOS" Width="500px">
                         <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                             <ContentTemplate>
                                 <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" EnableAJAX="true" LoadingPanelID="RadAjaxLoadingPanel3">
                                     <fieldset style="font-family: Arial; font-style: normal">
-                                        <legend><strong>ALTA DE VACACIONES</strong></legend>
+                                        <legend><strong>FORMATO DE ASIGNACION</strong></legend>
                                         <table>
                                             <tr>
                                                 <td colspan="2">
@@ -331,7 +331,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    <asp:Label ID="Label26" runat="server" Font-Bold="true" Text="PERIODO:"></asp:Label>
+                                                    <asp:Label ID="Label26" runat="server" Font-Bold="true" Text="TRIMESTRE:"></asp:Label>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -347,48 +347,13 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <telerik:RadDatePicker ID="RadDatePickerDesde" runat="server" Skin="Bootstrap">
-                                                        <Calendar Culture="es-ES" EnableWeekends="True" FastNavigationNextText="&amp;lt;&amp;lt;" Skin="Bootstrap" UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False">
-                                                        </Calendar>
-                                                        <DateInput DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy" LabelWidth="40%">
-                                                            <EmptyMessageStyle Resize="None" />
-                                                            <ReadOnlyStyle Resize="None" />
-                                                            <FocusedStyle Resize="None" />
-                                                            <DisabledStyle Resize="None" />
-                                                            <InvalidStyle Resize="None" />
-                                                            <HoveredStyle Resize="None" />
-                                                            <EnabledStyle Resize="None" />
-                                                        </DateInput>
-                                                        <DatePopupButton HoverImageUrl="" ImageUrl="" />
-                                                    </telerik:RadDatePicker>
+                                           
                                                 </td>
                                                 <td>
-                                                    <telerik:RadDatePicker ID="RadDatePickerHasta" runat="server" Skin="Bootstrap">
-                                                        <Calendar Culture="es-ES" EnableWeekends="True" FastNavigationNextText="&amp;lt;&amp;lt;" Skin="Bootstrap" UseColumnHeadersAsSelectors="False" UseRowHeadersAsSelectors="False">
-                                                        </Calendar>
-                                                        <DateInput DateFormat="dd/MM/yyyy" DisplayDateFormat="dd/MM/yyyy" LabelWidth="40%">
-                                                            <EmptyMessageStyle Resize="None" />
-                                                            <ReadOnlyStyle Resize="None" />
-                                                            <FocusedStyle Resize="None" />
-                                                            <DisabledStyle Resize="None" />
-                                                            <InvalidStyle Resize="None" />
-                                                            <HoveredStyle Resize="None" />
-                                                            <EnabledStyle Resize="None" />
-                                                        </DateInput>
-                                                        <DatePopupButton HoverImageUrl="" ImageUrl="" />
-                                                    </telerik:RadDatePicker>
+                                              
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <asp:Label ID="Label25" runat="server" Font-Bold="true" Text="DESDE"></asp:Label>
-                                                </td>
-                                                <td>
-                                                    <asp:Label ID="Label27" runat="server" Font-Bold="true" Text="HASTA:"></asp:Label>
-                                                </td>
-                                                </td>
-                                        </td>
-                                            </tr>
+                                            
                                             <tr>
                                                 <td colspan="2">
                                                     <telerik:RadTextBox ID="RadTextBoxObservaciones" runat="server" Height="75px" Width="100%">

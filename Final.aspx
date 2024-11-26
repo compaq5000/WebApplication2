@@ -122,11 +122,11 @@
                                         <telerik:RadToolBarButton ImageUrl="IMG/new.png"
                                             Text="MINUTAS" ToolTip="Nuevo Folder" Visible="false" Value="folder" Height="32px">
                                         </telerik:RadToolBarButton>
-                                        <telerik:RadToolBarButton ImageUrl="IMG/back.png"
-                                            Text="ATRAS" ToolTip="ATRAS" Value="C">
+                                        <telerik:RadToolBarButton ImageUrl="IMG/CONTACT.png"
+                                            Text="AGENDA" ToolTip="AGENDA MUNICIPAL" Value="C" Visible="false">
                                         </telerik:RadToolBarButton>
-                                        <telerik:RadToolBarButton ImageUrl="IMG/RH.png"
-                                            Text="RH" Group="Bold" ToolTip="Bold" Value="RH" Enabled="TRUE">
+                                        <telerik:RadToolBarButton ImageUrl="IMG/FORTAMUN.pngg"
+                                            Text="FORTAMUN" Group="Bold" ToolTip="Bold" Value="RH" Enabled="TRUE">
                                         </telerik:RadToolBarButton>
                                         <telerik:RadToolBarButton ImageUrl="IMG/RH.png"
                                             Text="Pases de Salida" Group="Bold" ToolTip="Bold" Value="Pases de Salida" Visible="false"  Enabled="false">
