@@ -119,7 +119,7 @@
                                 <br />
                                 <br />
                                 <br />
-                                <telerik:RadButton Width="100%" runat="server" SingleClickText="Enviando..." ID="Button2" Height="40PX" Text="Cargar Imagenes" Skin="Bootstrap"></telerik:RadButton>
+                                <telerik:RadButton Width="100%" runat="server" SingleClickText="Enviando..." ID="Button2" Height="40PX" Text="Cargar Imagenes" Skin="Bootstrap" OnClick="Button2_Click"></telerik:RadButton>
                                 <br />
                                 <br />
 
@@ -146,7 +146,7 @@
                     <tr>
                         <td style="height: 20px; text-align: right">
 
-                            <asp:CheckBox Style="font-family: Arial" Font-Bold="true" ID="CheckBoxRegresaCorresp" runat="server" AutoPostBack="true" Text="No Corresponde a nuestra area." OnCheckedChanged="CheckBoxRegresaCorresp_CheckedChanged" Font-Size="Larger" /></td>
+                            <%--<asp:CheckBox  Style="font-family: Arial" Font-Bold="true" ID="CheckBoxRegresaCorresp" runat="server" AutoPostBack="true" Text="No Corresponde a nuestra area." OnCheckedChanged="CheckBoxRegresaCorresp_CheckedChanged" Font-Size="Larger" /></td>--%>
 
 
                     </tr>
@@ -256,7 +256,7 @@
                                         <telerik:GridTemplateColumn HeaderText="DETALLE " HeaderStyle-Font-Bold="true" HeaderStyle-HorizontalAlign="Center">
                                             <HeaderStyle Width="70%" />
                                             <ItemTemplate>
-                                                <table width="100%" style="font-family: Arial">
+                                                <table width="100%" style="font-family: Arial" >
                                                     <tr style="text-align: left">
 
 
@@ -268,15 +268,18 @@
                                                                 CommandArgument='<%# String.Format("{0} {1}", Eval("Id"),Eval("IDTIpoContenido")) %>' />
                                                             <asp:Label Style="color: #000000;" ID="Label10" ToolTip='<%# String.Format("{0}",ProcessMyDataItemaCTUALIZADOCorrespondencia( Eval("ID"), Eval("IDTIpoContenido"))) %>' CommandArgument='<%# String.Format("{0} {1}", Eval("Id"),Eval("IDTIpoContenido")) %>' runat="server" Text='<%# ProcessMyDataItem(Eval("Descripcion")) %>'></asp:Label>--%>
                                                         </td>
-                                                        <td style="text-align: left">
+                                                        <td style="text-align: left; width:50%">
                                                             <strong>TIPO:</strong>
-                                                            <asp:Label Style="color: #000000;" ID="Label10" runat="server" Text='<%# Eval("inventario") %>'></asp:Label>-
+                                                            <asp:Label Style="color: #000000;" ID="Label10" runat="server" Text='<%# Eval("inventario") %>'></asp:Label>
 
                                                         </td>
-                                                        <td style="text-align: center"><strong>DESCRIPCIÓN:</strong>
-                                                            <asp:Label Style="color: #000000;" ID="Label6" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label>-</td>
+                                                        <td style="text-align:left"><strong>DESCRIPCIÓN:</strong>
+                                                            <asp:Label Style="color: #000000;" ID="Label6" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label></td>
                                                         <td rowspan="2" style="width: 40PX">
-                                                            <asp:HyperLink ID="HyperLink1" Target="_blank" href='<%# String.Format(" files/Correspondencia/{0}{1}", Eval("ID"), Eval("Extencion")) %>' runat="server">ABRIR</asp:HyperLink>
+                                                            
+                                                            
+                                                            
+                                                            <asp:HyperLink ID="HyperLink1"  Target="_blank" Visible='<%#bool.Parse( string.Format("{0}",ProcessMyDataItem( Eval("ID")))) %>' href='<%# String.Format(" files/Correspondencia/{0}{1}", Eval("ID"), Eval("Extencion")) %>' runat="server">ABRIR</asp:HyperLink>
 
                                                         </td>
                                                     </tr>
@@ -287,7 +290,8 @@
 
 
                                                         </td>
-                                                        <td><strong>POR:
+                                                        <td style="text-align: left">
+                                                            <strong>POR:
                                                             <asp:Label Style="color: #000000;" ID="Label4" runat="server" Text='<%# Eval("NombreCompleto") %>'></asp:Label>
                                                         </strong></td>
 

@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PermisosyPases.aspx.cs" Inherits="WebApplication2.PermisosyPases" %>
-
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -91,7 +88,6 @@
                                         Text="Cerrar Sesión" ToolTip="Cerrar sesión actual">
                                     </telerik:RadToolBarButton>
 
-
                                 </Items>
                             </telerik:RadToolBar>
                         </td>
@@ -99,14 +95,9 @@
                     <tr style="background-image: url('img/tejido.jpg'); margin-top: 0; height: 30px">
                         <td></td>
                     </tr>
-
                 </table>
             </ContentTemplate>
         </asp:UpdatePanel>
-
-
-
-
 
         <div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -338,11 +329,6 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
         </div>
-
-
-
-
-
-    </form>
+            </form>
 </body>
 </html>

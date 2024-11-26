@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
-using System.Data;
-using System.Web.UI.DataVisualization.Charting;
-using System.Web.UI.WebControls;
+
 
 
 namespace WebApplication2
@@ -17,106 +14,106 @@ namespace WebApplication2
 
         ClassSesion ssSesiones = new ClassSesion();
         /****************************************GRAFICAR********************************************/
-        protected void RadSlider2_ValueChanged(object sender, EventArgs e)
-        {
-            FillValues(RadComboBoxGrafic.SelectedValue);
-        }
-        private void FillValues(string Pagina)
-        {
-            //foreach (var series in Chart2.Series)
-            //{
-            //    series.Points.Clear();
-            //}
+        //protected void RadSlider2_ValueChanged(object sender, EventArgs e)
+        //{
+        //    FillValues(RadComboBoxGrafic.SelectedValue);
+        //}
+        //private void FillValues(string Pagina)
+        //{
+        //    //foreach (var series in Chart2.Series)
+        //    //{
+        //    //    series.Points.Clear();
+        //    //}
 
-            DateTime fechaInicio = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionStart), 1, 0, 0, 0);
-            DateTime fechaFin = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd)), 23, 59, 59);
-            Session["FechaInicio"] = fechaInicio;
-            Session["FechaFin"] = fechaFin;
-            DataSet EJEMPLO = SubSonicDB.SPs.Storearbolado(Convert.ToDateTime(Session["FechaInicio"]), Convert.ToDateTime(Session["FechaFin"])).GetDataSet();
-
-
-            ////  List<DataRow> LIST = EJEMPLO.Tables[0].AsEnumerable().ToList();
-            DataView dv = EJEMPLO.Tables[0].DefaultView;
-            //Series series1 = Chart2.Series["Series1"];
-            //Series series2 = Chart2.Series["Series2"];
-            //Series series3 = Chart2.Series["Series3"];
-            //Series series4 = Chart2.Series["Series4"];
-
-            FillTotal(dv.Count, Pagina);
-
-            List<ClassGrafica> ClaseGrafica = new List<ClassGrafica>();
-            int Index = 1;
-            int pibote = 1;
-            foreach (DataRowView dr in dv)
-            {
-                if (pibote > 5)
-                {
-                    Index++;
-                    pibote = 1;
-                }
-                pibote++;
-                ClassGrafica Val = new ClassGrafica();
-                int result = (100 * Convert.ToInt32(dr.Row.ItemArray[3])) / Convert.ToInt32(dr.Row.ItemArray[1]);
-
-                //////Val.Elemento(Index.ToString(), dr.Row.ItemArray[0].ToString(), dr.Row.ItemArray[1].ToString(), dr.Row.ItemArray[2].ToString(), dr.Row.ItemArray[3].ToString(), dr.Row.ItemArray[4].ToString(), result.ToString() + "%");
-
-                //////ClaseGrafica.Add(Val);
-
-                //if (RadComboBoxGrafic.SelectedValue == Index.ToString())
-                //{
-                //    series1.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[1].ToString());
-                //    series2.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[2].ToString());
-                //    series3.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[3].ToString());
-                //    series4.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[4].ToString());
-                //}
-            }
+        //    DateTime fechaInicio = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionStart), 1, 0, 0, 0);
+        //    DateTime fechaFin = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd)), 23, 59, 59);
+        //    Session["FechaInicio"] = fechaInicio;
+        //    Session["FechaFin"] = fechaFin;
+        //    DataSet EJEMPLO = SubSonicDB.SPs.Storearbolado(Convert.ToDateTime(Session["FechaInicio"]), Convert.ToDateTime(Session["FechaFin"])).GetDataSet();
 
 
-            RadGridGRafic.DataSource = ClaseGrafica.Where(x => x.Pag == RadComboBoxGrafic.SelectedValue);
-            RadGridGRafic.DataBind();
+        //    ////  List<DataRow> LIST = EJEMPLO.Tables[0].AsEnumerable().ToList();
+        //    DataView dv = EJEMPLO.Tables[0].DefaultView;
+        //    //Series series1 = Chart2.Series["Series1"];
+        //    //Series series2 = Chart2.Series["Series2"];
+        //    //Series series3 = Chart2.Series["Series3"];
+        //    //Series series4 = Chart2.Series["Series4"];
 
-            //series1.LegendText = "ASIGNADOS";
-            //series2.LegendText = "ATENDIENDO";
-            //series3.LegendText = "CONTESTADOS";
-            //series4.LegendText = "SIN ABRIR";
-            //Chart2.ChartAreas["ChartArea1"].AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 10F);
-            //Chart2.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
-            //Chart2.ChartAreas[0].AxisX.IsLabelAutoFit = false;
-            //Chart2.Titles[0].Text = " Del: " + fechaInicio.ToString("dd MMMM yyyy").ToUpper() + " A: " + fechaFin.ToString(" dd MMMM yyyy").ToUpper() + ".";
-        }
-        public void FillTotal(int xx, string Pagin)
-        {
-            RadComboBoxGrafic.Items.Clear();
-            int result = xx / 5;
-            if (decimal.Remainder(xx, 5) == 0)
-            {
-            }
-            else
-            {
-                result = result + 1;
-            }
-            for (int i = 1; i <= result; i++)
-            {
-                Telerik.Web.UI.RadComboBoxItem elemnt = new Telerik.Web.UI.RadComboBoxItem("Pag." + i, i.ToString());
-                RadComboBoxGrafic.Items.Add(elemnt);
-            }
-            //  if (!IsPostBack)
-            //  {
+        //    FillTotal(dv.Count, Pagina);
 
-            RadComboBoxGrafic.SelectedValue = Pagin;
-            // }
-        }
-        protected void RadGrid1_NeedDataSourGrafic(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        //    List<ClassGrafica> ClaseGrafica = new List<ClassGrafica>();
+        //    int Index = 1;
+        //    int pibote = 1;
+        //    foreach (DataRowView dr in dv)
+        //    {
+        //        if (pibote > 5)
+        //        {
+        //            Index++;
+        //            pibote = 1;
+        //        }
+        //        pibote++;
+        //        ClassGrafica Val = new ClassGrafica();
+        //        int result = (100 * Convert.ToInt32(dr.Row.ItemArray[3])) / Convert.ToInt32(dr.Row.ItemArray[1]);
+
+        //        //////Val.Elemento(Index.ToString(), dr.Row.ItemArray[0].ToString(), dr.Row.ItemArray[1].ToString(), dr.Row.ItemArray[2].ToString(), dr.Row.ItemArray[3].ToString(), dr.Row.ItemArray[4].ToString(), result.ToString() + "%");
+
+        //        //////ClaseGrafica.Add(Val);
+
+        //        //if (RadComboBoxGrafic.SelectedValue == Index.ToString())
+        //        //{
+        //        //    series1.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[1].ToString());
+        //        //    series2.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[2].ToString());
+        //        //    series3.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[3].ToString());
+        //        //    series4.Points.AddXY(Val.GetNombre(dr.Row.ItemArray[0].ToString()), dr.Row.ItemArray[4].ToString());
+        //        //}
+        //    }
 
 
+        //    RadGridGRafic.DataSource = ClaseGrafica.Where(x => x.Pag == RadComboBoxGrafic.SelectedValue);
+        //    RadGridGRafic.DataBind();
 
-        {
-            FillValues(RadComboBoxGrafic.SelectedValue);
-        }
-        protected void RadComboBoxGrafic_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
-        {
-            FillValues(RadComboBoxGrafic.SelectedValue);
-        }
+        //    //series1.LegendText = "ASIGNADOS";
+        //    //series2.LegendText = "ATENDIENDO";
+        //    //series3.LegendText = "CONTESTADOS";
+        //    //series4.LegendText = "SIN ABRIR";
+        //    //Chart2.ChartAreas["ChartArea1"].AxisX.LabelStyle.Font = new System.Drawing.Font("Trebuchet MS", 10F);
+        //    //Chart2.ChartAreas[0].AxisX.LabelStyle.Angle = -90;
+        //    //Chart2.ChartAreas[0].AxisX.IsLabelAutoFit = false;
+        //    //Chart2.Titles[0].Text = " Del: " + fechaInicio.ToString("dd MMMM yyyy").ToUpper() + " A: " + fechaFin.ToString(" dd MMMM yyyy").ToUpper() + ".";
+        //}
+        //public void FillTotal(int xx, string Pagin)
+        //{
+        //   // RadComboBoxGrafic.Items.Clear();
+        //    int result = xx / 5;
+        //    if (decimal.Remainder(xx, 5) == 0)
+        //    {
+        //    }
+        //    else
+        //    {
+        //        result = result + 1;
+        //    }
+        //    for (int i = 1; i <= result; i++)
+        //    {
+        //        Telerik.Web.UI.RadComboBoxItem elemnt = new Telerik.Web.UI.RadComboBoxItem("Pag." + i, i.ToString());
+        //  //      RadComboBoxGrafic.Items.Add(elemnt);
+        //    }
+        //    //  if (!IsPostBack)
+        //    //  {
+
+        //   // RadComboBoxGrafic.SelectedValue = Pagin;
+        //    // }
+        //}
+        //protected void RadGrid1_NeedDataSourGrafic(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+
+
+
+        //{
+        //    FillValues(RadComboBoxGrafic.SelectedValue);
+        //}
+        //protected void RadComboBoxGrafic_SelectedIndexChanged(object sender, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
+        //{
+        //    FillValues(RadComboBoxGrafic.SelectedValue);
+        //}
         /************************************FIN DE GRAFICAR***************************************************/
         //   ClassSesion ssSesiones = new ClassSesion();
         protected void Page_Load(object sender, EventArgs e)
@@ -127,9 +124,10 @@ namespace WebApplication2
             if (!IsPostBack)
             {
                 /********************************************COMIENZA GRAFICAR************************************/
-                RadSlider2.SelectionStart = DateTime.Now.Month;
-                RadSlider2.SelectionEnd = DateTime.Now.Month;
-                FillValues(null);
+                //RadSlider2.SelectionStart = DateTime.Now.Month;
+                //RadSlider2.SelectionEnd = DateTime.Now.Month;
+                //FillValues(null);
+                FillTipoContactoFortamun();
                 /***************************************FIN GRAFICAR******************************************/
                 ////FillPersonas();
                 FillUser();
@@ -191,24 +189,31 @@ namespace WebApplication2
             {
                 Telerik.Web.UI.RadComboBoxItem add = new Telerik.Web.UI.RadComboBoxItem(ssTomo.Descripcion, ssTomo.Id.ToString());
                 RadComboBoxTomo.Items.Add(add);
-
             }
-
-
             if (Convert.ToInt32(ssSesiones.IDTipoUser) != 2)
             {
-
-
                 RadToolBar1.Items[3].Visible = false;
                 //RadToolBar1.Items[3].Visible = false;
-
             }
             else
             {
                 RadToolBar1.Items[2].Visible = false;
-
             }
+        }
 
+        public void FillTipoContactoFortamun()
+        {
+            SubSonicDB.CatTipoContactoFortamunCollection ssTipoContactosFortamun = new SubSonicDB.CatTipoContactoFortamunCollection()
+                    .Where(SubSonicDB.CatTipoContactoFortamun.Columns.Status, true)
+                    .Load();
+            foreach (SubSonicDB.CatTipoContactoFortamun ssTipoContacto in ssTipoContactosFortamun)
+            {
+                Telerik.Web.UI.RadComboBoxItem add = new RadComboBoxItem(ssTipoContacto.Descripcion, ssTipoContacto.Id.ToString());
+                RadComboBoxTipoContactoFortamun.Items.Add(add);
+            
+            }
+        
+        
         }
         protected void RadAutoCompleteBoxTipoJuicio_Load(object sender, EventArgs e)
         {
@@ -649,135 +654,135 @@ namespace WebApplication2
         }
         protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
-            RadTreeNode node = RadTreeView1.FindNodeByValue(ssSesiones.KEYcarpeta.ToString());
-            /***************************SE EJECUTA CUANDO ES EXPEDIENTE*********************************/
-            bool Expedientes = node.FullPath.Contains("EXPEDIENTES");
-            if (Expedientes == true)
-            {
-                //  DataSet SSfIND = SubSonicDB.SPs.ArboladoGridSPD(Convert.ToInt32(ssSesiones.Usua), Convert.ToInt32(ssSesiones.KEYcarpeta)).GetDataSet();
-                SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-                    .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
-                    .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
-                    .OrderByAsc(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido)
-                    //LO PIDE LA LICENCIADA MAYRA
-                    .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
-                    .Load();
-
-                RadGrid1.DataSource = SSfIND;
-                //SSfIND.Reset();
-                RadGrid2.Visible = false;
-                RadGrid1.Visible = true;
-                TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
-                                                                              
-            }
-            /*************************ENTRA A CARPETASNO EXPEDIENTES*******************************************/
-            else if (Expedientes == false)
-
+            try
             {
 
-                if (!string.IsNullOrEmpty(TextBoxBusca.Text) && RadioButtonListBuscarEn.SelectedValue == "1")
+                RadTreeNode node = RadTreeView1.FindNodeByValue(ssSesiones.KEYcarpeta.ToString());
+                /***************************SE EJECUTA CUANDO ES EXPEDIENTE*********************************/
+
+                bool Expedientes = node.FullPath.Contains("EXPEDIENTES");
+
+
+
+                if (Expedientes == true)
                 {
-                    SubSonicDB.ArboladoGridCollection ssBusqueda = new SubSonicDB.ArboladoGridCollection()
-                         .Where(SubSonicDB.ArboladoGrid.Columns.Busqueda, SubSonic.Comparison.Like, "%" + TextBoxBusca.Text + "%")
-                         .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
-                         .OrderByAsc(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido)
-                         .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 2)
-                            //LO PIDE LA LICENCIADA MAYRA
-                            .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
-                         .Load();
-                    //   SubSonicDB.ViewGridExpedienteCollection ssBusqueda = new SubSonicDB.ViewGridExpedienteCollection()
-                    //.Where(SubSonicDB.ViewGridExpediente.Columns.Busqueda, SubSonic.Comparison.Like,"%"+ TextBoxBusca.Text +"%")
-                    //.Load();
-                    RadGrid1.DataSource = ssBusqueda;
-                    RadGrid1.Visible = true;
-                    RadGrid2.Visible = false;
-                    //  RadGrid1.DataBind();
-                    TotaldeRegistros.Text = "Total de registros: " + ssBusqueda.Count;
-                }
-                if (!string.IsNullOrEmpty(TextBoxBusca.Text) && RadioButtonListBuscarEn.SelectedValue == "2")
-                {
-
-
-
+                    //  DataSet SSfIND = SubSonicDB.SPs.ArboladoGridSPD(Convert.ToInt32(ssSesiones.Usua), Convert.ToInt32(ssSesiones.KEYcarpeta)).GetDataSet();
                     SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
                         .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
                         .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
                         .OrderByAsc(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido)
                         //LO PIDE LA LICENCIADA MAYRA
-                        .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.GreaterThan, 2)
+                        .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
                         .Load();
 
-                    RadGrid2.DataSource = SSfIND;
+                    RadGrid1.DataSource = SSfIND;
                     //SSfIND.Reset();
-                    RadGrid2.Visible = true;
-                    RadGrid1.Visible = false;
+                    RadGrid2.Visible = false;
+                    RadGrid1.Visible = true;
                     TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
 
                 }
-                if (string.IsNullOrEmpty(TextBoxBusca.Text))
+                /*************************ENTRA A CARPETASNO EXPEDIENTES*******************************************/
+                else if (Expedientes == false)
+
                 {
 
-                    /********entra a todas las demas carpetas que no es expedientes*/
-
-
-
-
-                    RadGrid2.Visible = true;
-                    RadGrid1.Visible = false;
-                    try
+                    if (!string.IsNullOrEmpty(TextBoxBusca.Text) && RadioButtonListBuscarEn.SelectedValue == "1")
                     {
-                        // DataSet SSfIND = SubSonicDB.SPs.ArboladoGridSPD(Convert.ToInt32( ssSesiones.Usua), Convert.ToInt32(ssSesiones.KEYcarpeta)).GetDataSet();
-                        SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-                                .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
-                                .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
-                                .OrderByDesc(SubSonicDB.ArboladoGrid.Columns.Fechaconoce)
+                        SubSonicDB.ArboladoGridCollection ssBusqueda = new SubSonicDB.ArboladoGridCollection()
+                             .Where(SubSonicDB.ArboladoGrid.Columns.Busqueda, SubSonic.Comparison.Like, "%" + TextBoxBusca.Text + "%")
+                             .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
+                             .OrderByAsc(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido)
+                             .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 2)
                                 //LO PIDE LA LICENCIADA MAYRA
                                 .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
-                                .Load();
-
-                        RadGrid2.DataSource = SSfIND;
-                        RadGrid2.DataBind();
-                        // SSfIND.Reset();
-                        TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+                             .Load();
+                        //   SubSonicDB.ViewGridExpedienteCollection ssBusqueda = new SubSonicDB.ViewGridExpedienteCollection()
+                        //.Where(SubSonicDB.ViewGridExpediente.Columns.Busqueda, SubSonic.Comparison.Like,"%"+ TextBoxBusca.Text +"%")
+                        //.Load();
+                        RadGrid1.DataSource = ssBusqueda;
+                        RadGrid1.Visible = true;
+                        RadGrid2.Visible = false;
+                        //  RadGrid1.DataBind();
+                        TotaldeRegistros.Text = "Total de registros: " + ssBusqueda.Count;
                     }
-                    catch
+                    if (!string.IsNullOrEmpty(TextBoxBusca.Text) && RadioButtonListBuscarEn.SelectedValue == "2")
                     {
-                        /*********************PARA SOLUCIONAR EL PROBLEMA DE PAGINACION*****************************/
+
+
 
                         SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-                        .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
-                        .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
-                        .OrderByDesc(SubSonicDB.ArboladoGrid.Columns.Fechaconoce)
-                        //LO PIDE LA LICENCIADA MAYRA
-                        .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
-                        .Load();
+                            .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
+                            .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
+                            .OrderByAsc(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido)
+                            //LO PIDE LA LICENCIADA MAYRA
+                            .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.GreaterThan, 2)
+                            .Load();
+
                         RadGrid2.DataSource = SSfIND;
+                        //SSfIND.Reset();
+                        RadGrid2.Visible = true;
+                        RadGrid1.Visible = false;
                         TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+
+                    }
+                    if (string.IsNullOrEmpty(TextBoxBusca.Text))
+                    {
+
+                        /********entra a todas las demas carpetas que no es expedientes*/
+
+
+
+
+                        RadGrid2.Visible = true;
+                        RadGrid1.Visible = false;
+                        try
+                        {
+                            // DataSet SSfIND = SubSonicDB.SPs.ArboladoGridSPD(Convert.ToInt32( ssSesiones.Usua), Convert.ToInt32(ssSesiones.KEYcarpeta)).GetDataSet();
+                            SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+                                    .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
+                                    .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
+                                    .OrderByDesc(SubSonicDB.ArboladoGrid.Columns.Fechaconoce)
+                                    //LO PIDE LA LICENCIADA MAYRA
+                                    .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
+                                    .Load();
+
+                            RadGrid2.DataSource = SSfIND;
+                            RadGrid2.DataBind();
+                            // SSfIND.Reset();
+                            TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+                        }
+                        catch
+                        {
+                            /*********************PARA SOLUCIONAR EL PROBLEMA DE PAGINACION*****************************/
+
+                            SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+                            .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, ssSesiones.KEYcarpeta)
+                            .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, ssSesiones.Usua)
+                            .OrderByDesc(SubSonicDB.ArboladoGrid.Columns.Fechaconoce)
+                            //LO PIDE LA LICENCIADA MAYRA
+                            .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, SubSonic.Comparison.NotEquals, 1)
+                            .Load();
+                            RadGrid2.DataSource = SSfIND;
+                            TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+                        }
                     }
                 }
+                /**************************************************************************************************/
+                /****************************************************************************************************/
+                FillCut(ssSesiones.KEYcarpeta.ToString());
+                FillCopy(ssSesiones.KEYcarpeta.ToString());
+                FillCreate(ssSesiones.KEYcarpeta.ToString());
+                FillCORRESPONDENCIA(ssSesiones.KEYcarpeta.ToString());
             }
+            catch {
+
+
+                System.Web.HttpContext.Current.Response.Redirect("~/LogOff.aspx");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            /**************************************************************************************************/
-            /****************************************************************************************************/
-            FillCut(ssSesiones.KEYcarpeta.ToString());
-            FillCopy(ssSesiones.KEYcarpeta.ToString());
-            FillCreate(ssSesiones.KEYcarpeta.ToString());
-            FillCORRESPONDENCIA(ssSesiones.KEYcarpeta.ToString());
+            }
         }
         protected void RadGrid1_PreRender(object sender, EventArgs e)
         {
@@ -874,7 +879,7 @@ namespace WebApplication2
                             node.Focus();
                         }
                         RadGrid1.Rebind();
-                        FillValues(RadComboBoxGrafic.SelectedValue);
+                        //FillValues(RadComboBoxGrafic.SelectedValue);
                     }
                     /**********************************ABRIR ARCHIVO*************************************/
                     else
@@ -1021,7 +1026,7 @@ namespace WebApplication2
                     }
                 }
             }
-            FillValues(RadComboBoxGrafic.SelectedValue);
+            //FillValues(RadComboBoxGrafic.SelectedValue);
         }
         protected void RadGrid3_ItemCommandCorrespondenciaRetornada(object sender, GridCommandEventArgs e)
         {
@@ -1930,13 +1935,11 @@ namespace WebApplication2
             List<int> ListOrigenSAve = new List<int>();
             List<int> ListDestinoSAve = new List<int>();
 
-
             List<string> ListOrigenNew = new List<string>();
             List<string> ListDestinoNew = new List<string>();
             List<int> ListEnviarCorreo = new List<int>();
 
             /*****************************************Abogados*********************************************/
-
 
             if (Convert.ToInt32(ssSesiones.IDUsua) != 1)
             {//evita que se repita si es que quien lo guarda es el propio administrador
@@ -1946,13 +1949,10 @@ namespace WebApplication2
             
             ListActorSAve.Add(Convert.ToInt32(ssSesiones.IDUsua));//lo quien creo el archivo
 
-
-
             for (int i = 0; i < RadAutoCompleteBoxUsuarios.Entries.Count; i++)
             {
                 try
                 {
-
                     //valida que no exista en la lista para que no se repita el mismo elemento
                     if (Convert.ToInt32(RadAutoCompleteBoxUsuarios.Entries[i].Value) != Convert.ToInt32(ssSesiones.IDUsua))
                     {
@@ -1991,10 +1991,7 @@ namespace WebApplication2
                 ssNewOrigen.Save();
                 ListOrigenSAve.Add(ssNewOrigen.Id);
             } 
-
             /**************************************Destino*****************************************/
-
-
             for (int i = 0; i < RadAutoCompleteBoxDestino.Entries.Count; i++)
             {
                 try
@@ -2015,8 +2012,6 @@ namespace WebApplication2
                 ssNewDestino.Save();
                 ListDestinoSAve.Add(ssNewDestino.Id);
             }
-
-
 
             /************************************************SE GUARDA EL NUEVO EXPEDIENTE**********************************************/
 
@@ -2096,7 +2091,7 @@ namespace WebApplication2
 
             foreach (SubSonicDB.CatUsuario ssUser in ssUsuarios)
             {
-                Telerik.Web.UI.RadComboBoxItem add = new Telerik.Web.UI.RadComboBoxItem(ssUser.Nombre, ssUser.Id.ToString());
+                //Telerik.Web.UI.RadComboBoxItem add = new Telerik.Web.UI.RadComboBoxItem(ssUser.Nombre, ssUser.Id.ToString());
 
                 // RadComboBoxUsuarios.Items.Add(add);
             }
@@ -2132,112 +2127,176 @@ namespace WebApplication2
             //quitado mientras regresalo es
             //RadGrid3.Rebind();
         }
-        protected void RadGridGRafic_SelectedCellChanged1(object sender, EventArgs e)
+        //protected void RadGridGRafic_SelectedCellChanged1(object sender, EventArgs e)
+        //{
+
+
+
+
+
+        //    RadGrid s = (RadGrid)sender;
+        //    string Uniquename;  // CustomerID is the uniquename of column 
+        //    string IDUserx = null;  // Works if you set the DataKeyValue as CustomerID 
+        //    string[] words = null;
+        //    string Index;
+        //    foreach (GridDataItem item in s.SelectedItems)
+        //    {
+        //        //   Uniquename = item["NombreUser"].Text.ToString(); // CustomerID is the uniquename of column 
+
+        //        if (ssSesiones.IDUsua == "15" || ssSesiones.IDUsua == "1")
+        //        {
+
+        //            IDUserx = item.GetDataKeyValue("IdUser").ToString(); // Works if you set the DataKeyValue as CustomerID 
+
+
+        //            //    Index = item.ItemIndex.ToString();
+        //        }
+        //        else
+        //        {
+        //            IDUserx = ssSesiones.IDUsua; // Works if you set the DataKeyValue as CustomerID 
+
+        //        }
+
+        //    }
+
+        //    try
+        //    {
+        //        Telerik.Web.UI.GridTableCell h = s.SelectedCells[0];
+        //        words = h.CellIndexHierarchical.Split('&', ' ');
+        //    }
+        //    catch { }
+
+
+        //    DateTime fechaInicio = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionStart), 1, 0, 0, 0);
+        //    DateTime fechaFin = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd)), 23, 59, 59);
+
+        //    if (words[1].ToString() == "StatusRecibidos")
+        //    {
+        //        SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
+        //       .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
+        //       .Load();
+        //        RadGrid2.Visible = true;
+        //        RadGrid1.Visible = false;
+        //        RadGrid2.DataSource = SSfIND;
+        //        RadGrid2.DataBind();
+        //        TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+        //    }
+        //    if (words[1].ToString() == "StatusContestados")
+        //    {
+        //        SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 12)
+        //       .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
+        //       .Load();
+        //        RadGrid2.Visible = true;
+        //        RadGrid1.Visible = false;
+        //        RadGrid2.DataSource = SSfIND;
+        //        RadGrid2.DataBind();
+        //        TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+        //    }
+        //    if (words[1].ToString() == "StatusRevisados")
+        //    {
+        //        SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 11)
+        //       .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
+        //       .Load();
+        //        RadGrid2.Visible = true;
+        //        RadGrid1.Visible = false;
+        //        RadGrid2.DataSource = SSfIND;
+        //        RadGrid2.DataBind();
+        //        TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+        //    }
+
+        //    if (words[1].ToString() == "StatusPorRevisar")
+        //    {
+        //        SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
+        //       .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 10)
+        //       .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
+        //       .Load();
+        //        RadGrid2.Visible = true;
+        //        RadGrid1.Visible = false;
+        //        RadGrid2.DataSource = SSfIND;
+        //        RadGrid2.DataBind();
+        //        TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+        //    }
+
+        //  //  FillValues(RadComboBoxGrafic.SelectedValue);
+
+        //}
+
+        protected void RadButtonSaveContacto_Click(object sender, EventArgs e)
         {
-
-
-
-
-
-            RadGrid s = (RadGrid)sender;
-            string Uniquename;  // CustomerID is the uniquename of column 
-            string IDUserx = null;  // Works if you set the DataKeyValue as CustomerID 
-            string[] words = null;
-            string Index;
-            foreach (GridDataItem item in s.SelectedItems)
-            {
-                //   Uniquename = item["NombreUser"].Text.ToString(); // CustomerID is the uniquename of column 
-
-                if (ssSesiones.IDUsua == "15" || ssSesiones.IDUsua == "1")
-                {
-
-                    IDUserx = item.GetDataKeyValue("IdUser").ToString(); // Works if you set the DataKeyValue as CustomerID 
-
-
-                    //    Index = item.ItemIndex.ToString();
-                }
-                else
-                {
-                    IDUserx = ssSesiones.IDUsua; // Works if you set the DataKeyValue as CustomerID 
-
-                }
-
-            }
 
             try
             {
-                Telerik.Web.UI.GridTableCell h = s.SelectedCells[0];
-                words = h.CellIndexHierarchical.Split('&', ' ');
+
+                SubSonicDB.TranContactoFortamun ssNewContactoFortamun = new SubSonicDB.TranContactoFortamun();
+                ssNewContactoFortamun.Descripcion = RadTextBoxNombreContacto.Text;
+                ssNewContactoFortamun.Status = true;
+                ssNewContactoFortamun.IDMunicipio = 18;
+                ssNewContactoFortamun.Email = RadTextBoxEmailContacto.Text;
+                ssNewContactoFortamun.Movil = RadTextBoxMovilContacto.Text;
+                ssNewContactoFortamun.OtroTel = RadTextBoxOtroTel.Text;
+                ssNewContactoFortamun.IDTipoContacto = Convert.ToInt16(RadComboBoxTipoContactoFortamun.SelectedValue);
+                ssNewContactoFortamun.Save();
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente!. ');</script>", false);
+
+            
             }
-            catch { }
+            catch {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error. ');</script>", false);
+            }
+            RadTextBoxNombreContacto.Text = "";
+            RadTextBoxEmailContacto.Text = "";
+            RadTextBoxMovilContacto.Text = "";
+            RadTextBoxOtroTel.Text = "";
+
+            RadGridContactos.Rebind();
+        }
+
+        protected void RadGrid1_NeedDataSourContactos(object sender, GridNeedDataSourceEventArgs e)
+        {
+            SubSonicDB.ViewEnlacesFortamunCollection ss = new SubSonicDB.ViewEnlacesFortamunCollection()
+                .Where(SubSonicDB.ViewEnlacesFortamun.Columns.IDMpio,ssSesiones.IDMunicipio)
+                .Load();
+            RadGridContactos.DataSource = ss;
+           
+          
+        }
+
+        protected void RadButtonQuitar_Click(object sender, EventArgs e)
+        {
 
 
-            DateTime fechaInicio = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionStart), 1, 0, 0, 0);
-            DateTime fechaFin = new DateTime(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd), DateTime.DaysInMonth(DateTime.Now.Year, Convert.ToInt32(RadSlider2.SelectionEnd)), 23, 59, 59);
-
-            if (words[1].ToString() == "StatusRecibidos")
+            try { 
+            if (RadGridContactos.SelectedItems.Count > 0)
             {
-                SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
-               .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
-               .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
-               .Load();
-                RadGrid2.Visible = true;
-                RadGrid1.Visible = false;
-                RadGrid2.DataSource = SSfIND;
-                RadGrid2.DataBind();
-                TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+                for (int i = 0; i < RadGridContactos.SelectedItems.Count; i++)
+                {
+                    SubSonicDB.TranContactoFortamun ssEliminar = SubSonicDB.TranContactoFortamun.FetchByID(Convert.ToString(RadGridContactos.SelectedItems[i].OwnerTableView.DataKeyValues[RadGridContactos.SelectedItems[i].ItemIndex]["Id"]));
+                    ssEliminar.Status = false;
+                    ssEliminar.Save();
+            
+                }
             }
-            if (words[1].ToString() == "StatusContestados")
-            {
-                SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
-               .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 12)
-               .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
-               .Load();
-                RadGrid2.Visible = true;
-                RadGrid1.Visible = false;
-                RadGrid2.DataSource = SSfIND;
-                RadGrid2.DataBind();
-                TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+            RadGridContactos.Rebind();
             }
-            if (words[1].ToString() == "StatusRevisados")
-            {
-                SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
-               .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 11)
-               .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
-               .Load();
-                RadGrid2.Visible = true;
-                RadGrid1.Visible = false;
-                RadGrid2.DataSource = SSfIND;
-                RadGrid2.DataBind();
-                TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
-            }
+            catch {
 
-            if (words[1].ToString() == "StatusPorRevisar")
-            {
-                SubSonicDB.ArboladoGridCollection SSfIND = new SubSonicDB.ArboladoGridCollection()
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDDepende, 6090)
-               .Where(SubSonicDB.ArboladoGrid.Columns.ValueX, IDUserx)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDTIpoContenido, 3)
-               .Where(SubSonicDB.ArboladoGrid.Columns.IDStatusCorrespondencia, 10)
-               .BetweenAnd(SubSonicDB.ArboladoGrid.Columns.Fechaconoce, fechaInicio, fechaFin)
-               .Load();
-                RadGrid2.Visible = true;
-                RadGrid1.Visible = false;
-                RadGrid2.DataSource = SSfIND;
-                RadGrid2.DataBind();
-                TotaldeRegistros.Text = "Total de registros: " + SSfIND.Count;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ocurrio Un Error!. ');</script>", false);
+
             }
-
-            FillValues(RadComboBoxGrafic.SelectedValue);
-
         }
     }
 }

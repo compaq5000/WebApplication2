@@ -9,6 +9,7 @@
     <title></title>
        <%--    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.js"></script>--%>
     <script type="text/javascript" src="javasscript/pdf.js"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,9 +29,11 @@
 
 
         <script type="text/javascript">
-            //window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js';
+            
+            
+            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.2.2/pdf.worker.js';
             //window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'http://192.168.1.2/javasscript/pdf.worker.js';
-            window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'http://localhost/javasscript/pdf.worker.js';
+            //window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'http://localhost/javasscript/pdf.worker.js';
 
         </script>
         <div>

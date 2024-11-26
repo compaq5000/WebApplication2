@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -16,7 +15,7 @@ namespace WebApplication2
             if (!IsPostBack)
             {
 
-                CheckBoxRegresaCorresp.Checked = false;
+                //CheckBoxRegresaCorresp.Checked = false;
                 RadDatePicker1.SelectedDate = DateTime.Now;
                 FillTipoArchivo();
 
@@ -66,34 +65,40 @@ namespace WebApplication2
             DropDownListTipoARchivo.Text = "";
 
 
-            List<ClassReporte> ssClassReporte = new List<ClassReporte>();
+         //   List<ClassReporte> ssClassReporte = new List<ClassReporte>();
 
             SubSonicDB.CatTipoArchivoInventarioCollection ssInventarios = new SubSonicDB.CatTipoArchivoInventarioCollection()
                 .Where(SubSonicDB.CatTipoArchivoInventario.Columns.Status, true)
                 .Load();
             foreach (SubSonicDB.CatTipoArchivoInventario ssTio in ssInventarios)
             {
-                ClassReporte ssAdd = new ClassReporte();
-                ssAdd.AgregarElemento(ssTio.Id.ToString(), ssTio.Descripcion, "X");
-                ssClassReporte.Add(ssAdd);
-            }
+                //    ClassReporte ssAdd = new ClassReporte();
+                //   ssAdd.AgregarElemento(ssTio.Id.ToString(), ssTio.Descripcion, "X");
+                //     ssClassReporte.Add(ssAdd);
 
 
-
-            SubSonicDB.ViewReporteInventarioExpedienteCollection ssReporteExpe = new SubSonicDB.ViewReporteInventarioExpedienteCollection()
-           .Where(SubSonicDB.ViewReporteInventarioExpediente.Columns.IDExpediente, classSesion.VerExpediente)
-           .Load();
-
-            foreach (SubSonicDB.ViewReporteInventarioExpediente ssReporte in ssReporteExpe)
-            {
-
-                ///      var itemToRemove = ssClassReporte.SingleOrDefault(r => r.ID == ssReporte.Id.ToString());
-
-
-                ssClassReporte.RemoveAll(x => x.ID.ToString().Equals(ssReporte.Id.ToString()));
+                    ListItem listItem = new ListItem(ssTio.Descripcion, ssTio.Id.ToString());
+                    DropDownListTipoARchivo.Items.Add(listItem);
 
 
             }
+
+
+
+            //  SubSonicDB.ViewReporteInventarioExpedienteCollection ssReporteExpe = new SubSonicDB.ViewReporteInventarioExpedienteCollection()
+            //.Where(SubSonicDB.ViewReporteInventarioExpediente.Columns.IDExpediente, classSesion.VerExpediente)
+            //.Load();
+
+            //foreach (SubSonicDB.ViewReporteInventarioExpediente ssReporte in ssReporteExpe)
+            //{
+
+            //    ///      var itemToRemove = ssClassReporte.SingleOrDefault(r => r.ID == ssReporte.Id.ToString());
+
+
+            //    ssClassReporte.RemoveAll(x => x.ID.ToString().Equals(ssReporte.Id.ToString()));
+
+
+            //}
 
 
 
@@ -114,19 +119,19 @@ namespace WebApplication2
             //        .Load();
 
 
-            foreach (ClassReporte valor in ssClassReporte)
-            {
+            //foreach (ClassReporte valor in ssClassReporte)
+            //{
 
-                ListItem listItem = new ListItem(valor.DESCRIPCION, valor.ID);
-                DropDownListTipoARchivo.Items.Add(listItem);
+            //    ListItem listItem = new ListItem(valor.DESCRIPCION, valor.ID);
+            //    DropDownListTipoARchivo.Items.Add(listItem);
 
-            }
+            //}
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
 
-            if (CheckBoxRegresaCorresp.Checked != true)
+            if (Convert.ToInt32(DropDownListTipoARchivo.SelectedValue) != 12)
             {
                 //AQUI SE ESTARA SUBIENDO LAS IMAGENES
                 Boolean fileOK = false;
@@ -140,6 +145,7 @@ namespace WebApplication2
                         if (fileExtension == allowedExtensions[i])
                         {
                             fileOK = true;
+                            continue;
                         }
                     }
                     if (fileOK)
@@ -199,7 +205,7 @@ namespace WebApplication2
 
                         SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
                         ssExpedientes.Nombre = "Sin Archivo";
-                        ssExpedientes.Extencion = "1";
+                        ssExpedientes.Extencion = "note";
                         ssExpedientes.Status = true;
                         ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
                         ssExpedientes.DateX = RadDatePicker1.SelectedDate;
@@ -207,7 +213,7 @@ namespace WebApplication2
                         ssExpedientes.IDTipo = 2;
                         ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
                         /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
-                        if (CheckBoxRegresaCorresp.Checked == true)
+                        if (Convert.ToInt16(DropDownListTipoARchivo.SelectedValue) == 12)
                         {
 
                             ssExpedientes.StatusCorresponde = true;
@@ -227,7 +233,7 @@ namespace WebApplication2
 
 
                         /*************************************ENTRA EN CASO DE QUE REGRESE CORRESPONDENCIA A RECEPCION*********************************************/
-                        if (CheckBoxRegresaCorresp.Checked == true)
+                        if (Convert.ToInt16(DropDownListTipoARchivo.SelectedValue) == 12)
                         {
                             ssExpeDien.StatusRetornado = true;
 
@@ -260,28 +266,29 @@ namespace WebApplication2
             }
             else {
 
-                
+                ///ESTE ES EL CASO DE QUE AL QUE SE LE ENVIO NO LE CORRESPONDE EL TEMA ATENDERLO Y LO DETALLA 
                 string NombreArchivo = classSesion.VerExpediente.ToString();
 
                 SubSonicDB.ArchivoCorrespondencium ssExpedientes = new SubSonicDB.ArchivoCorrespondencium();
-                ssExpedientes.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
-              //  ssExpedientes.Extencion = fileExtension;
+                //ssExpedientes.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
+                ssExpedientes.Nombre = "Sin Archivo";
+                ssExpedientes.Extencion = ".note";
                 ssExpedientes.Status = true;
                 ssExpedientes.IDExpediente = Convert.ToInt32(classSesion.VerExpediente);
+                //ssExpedientes.IDExpediente =1;
                 ssExpedientes.DateX = RadDatePicker1.SelectedDate;
                 ssExpedientes.Descripcion = TextBox1.Text.ToUpper();
-                ssExpedientes.IDTipo = 2;
+                ssExpedientes.IDTipo = 2;//AQUI SE INDICA QUE ESTE ARCHIVO ES DE TIPO CONTESTACIÓN;
                 ssExpedientes.IDUserCarga = Convert.ToInt32(classSesion.IDUsua);
                 ssExpedientes.IDInventario = Convert.ToInt32(DropDownListTipoARchivo.SelectedValue);
-
-            //    ssExpedientes.Save();
-            //    FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
+                ssExpedientes.Save();
+                //FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
                
                 Label1.Text = "Se han cargado correctamente";
                 Label1.Visible = true;
                 SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
                 ssExpeDien.IDStatusCorrespondencia = 12;
-             //   ssExpeDien.Save();
+             // ssExpeDien.Save();
                 RadGrid2.Rebind();
                 TextBox1.Text = "";
 
@@ -293,8 +300,9 @@ namespace WebApplication2
 
 
             }
-            FillTipoArchivo();
+            // FillTipoArchivo();
 
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
 
         }
 
@@ -310,22 +318,46 @@ namespace WebApplication2
             RadGrid2.DataSource = ssEjemplo;
         }
 
-        protected void CheckBoxRegresaCorresp_CheckedChanged(object sender, EventArgs e)
+
+
+
+        public bool ProcessMyDataItem(object n)
         {
 
-            if (CheckBoxRegresaCorresp.Checked == true)
-            {
-                LabelRecomendacion.Visible = true;
-                LabelRecomendacion.Text = "Rellena la causa del retorno de la correspondencia en la caja de texto de la descripción. Por último da click en el Boton de confirmar";
+            SubSonicDB.ArchivoCorrespondencium ValorClave = SubSonicDB.ArchivoCorrespondencium.FetchByID(n.ToString());
+
+            if (ValorClave.Extencion == ".note") {
+
+                return false;
             }
-            else
-            {
+            else {
 
-                LabelRecomendacion.Visible = false;
-                LabelRecomendacion.Text = "";
-
-
+                return true;
             }
+        
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //protected void CheckBoxRegresaCorresp_CheckedChanged(object sender, EventArgs e)
+        //{
+
+        //    if (ecked == true)
+        //    {
+        //        LabelRecomendacion.Visible = true;
+        //        LabelRecomendacion.Text = "Rellena la causa del retorno de la correspondencia en la caja de texto de la descripción. Por último da click en el Boton de confirmar";
+        //    }
+        //    else
+        //    {
+
+        //        LabelRecomendacion.Visible = false;
+        //        LabelRecomendacion.Text = "";
+
+
+        //    }
+        //}
     }
 }

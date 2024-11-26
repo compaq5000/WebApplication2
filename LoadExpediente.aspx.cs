@@ -28,8 +28,11 @@ namespace WebApplication2
             }
             string g = ssSesiones.VerExpediente;
             SubSonicDB.Expediente ssexpediente = SubSonicDB.Expediente.FetchByID(g);
+            
             SubSonicDB.ArchivoCorrespondenciumCollection ssexpediente1 = new SubSonicDB.ArchivoCorrespondenciumCollection()
                 .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, ssSesiones.VerExpediente)
+                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo,1)
+                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status,true)
                 .Load();
             try
             {
@@ -81,22 +84,16 @@ namespace WebApplication2
                         }
                     }
                 }
-
                 else
                 {
 
                     Response.Redirect("~/notexist.aspx");
                 }
-
             }
             catch (Exception)
             {
-
                 string filepath = ssSesiones.PathCorrespondencia;
                 //string filepath = Server.MapPath("~/files/correspondencia/" + "20547" + ".pdf");
-
-
-
                 // Get the physical Path of the file
                 // string filepath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath + "/files/correspondencia/20547.pdf";
 
@@ -129,7 +126,6 @@ namespace WebApplication2
 
                 Response.Redirect("~/notexist.aspx");
             }
-
         }
         public static string ReturnFiletype(string fileExtension)
         {
@@ -212,11 +208,9 @@ namespace WebApplication2
                     Response.ContentType = ("application/pdf");
                     Response.AddHeader("content-length", FileBuffer.Length.ToString());
                     Response.BinaryWrite(FileBuffer);
-
                 }
             }
         }
-
         //protected void RadButton1_Click(object sender, EventArgs e)
         //{
         //    if (ssSesiones.IDUsua == "1")

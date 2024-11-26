@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
@@ -39,8 +35,15 @@ namespace WebApplication2
                     {
 
                         string NombreArchivo = ssSesiones.VerExpediente;
-
-
+                        SubSonicDB.ArchivoCorrespondencium ssNewDocumento = new SubSonicDB.ArchivoCorrespondencium();
+                        ssNewDocumento.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
+                        ssNewDocumento.Extencion = fileExtension;
+                        ssNewDocumento.Status=true;
+                        ssNewDocumento.IDExpediente=Convert.ToInt32(ssSesiones.VerExpediente);
+                        ssNewDocumento.DateX=DateTime.Now;
+                        ssNewDocumento.IDTipo = 1;
+                        ssNewDocumento.IDUserCarga =Convert.ToInt32( ssSesiones.IDUsua);
+                        ssNewDocumento.Save();  
 
                         SubSonicDB.ArchivoCorrespondencium ssArchivo = new SubSonicDB.ArchivoCorrespondencium();
                         ssArchivo.LoadByParam(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, NombreArchivo);
@@ -49,11 +52,26 @@ namespace WebApplication2
                         ssArchivo.IDUserCarga = Convert.ToInt32(ssSesiones.IDUsua);
                         ssArchivo.Save();
 
-                        FileUpload1.SaveAs(path + ssArchivo.Id + fileExtension);
+                        FileUpload1.SaveAs(path + ssNewDocumento.Id + fileExtension);
+
+                        //sender carga el nuevo archivo y se inhabilita el anterior
+
+                        SubSonicDB.ArchivoCorrespondenciumCollection ssexpediente1 = new SubSonicDB.ArchivoCorrespondenciumCollection()
+              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, ssSesiones.VerExpediente)
+              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo,1)
+              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status,true)
+              .Load();
+
+
+                        SubSonicDB.ArchivoCorrespondencium ssCambiar = SubSonicDB.ArchivoCorrespondencium.FetchByID(ssexpediente1[0].Id);
+                        ssCambiar.Status = false;
+                        ssCambiar.Save();
+
+                        RadGrid2.Rebind();
 
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         // Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);
@@ -74,14 +92,24 @@ namespace WebApplication2
         }
 
 
+        public bool ProcessMyDataItem(object n)
+        {
 
+            return true;
+        }
 
+        protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
 
+            //CREAR UNA VISTA CON LOS DATOS SOLICITADOS PARA LLENAR EL GRID CON LA ULTIMAACTUA
 
+            SubSonicDB.ViewHistorialArchivoCorrespondenciumCollection ssExiste = new SubSonicDB.ViewHistorialArchivoCorrespondenciumCollection()
+                .Where(SubSonicDB.ViewHistorialArchivoCorrespondencium.Columns.IDExpediente,ssSesiones.VerExpediente)
+                .OrderByDesc(SubSonicDB.ViewHistorialArchivoCorrespondencium.Columns.Id)
+                .Load();
+            RadGrid2.DataSource = ssExiste;
 
-
-
-
+        }
         //public void UltimaActualizacion(int IDUser, int IDExpediente)
         //{
         //    SubsonicDB.HistirlaExpedienteCollection ssExiste = new SubsonicDB.HistirlaExpedienteCollection()

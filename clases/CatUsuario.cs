@@ -236,11 +236,10 @@ namespace SubSonicDB
 				colvarIDTipoUser.AutoIncrement = false;
 				colvarIDTipoUser.IsNullable = true;
 				colvarIDTipoUser.IsPrimaryKey = false;
-				colvarIDTipoUser.IsForeignKey = true;
+				colvarIDTipoUser.IsForeignKey = false;
 				colvarIDTipoUser.IsReadOnly = false;
 				colvarIDTipoUser.DefaultSetting = @"";
-				
-					colvarIDTipoUser.ForeignKeyTableName = "CatTipoUser";
+				colvarIDTipoUser.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarIDTipoUser);
 				
 				TableSchema.TableColumn colvarImagen = new TableSchema.TableColumn(schema);
@@ -445,12 +444,25 @@ namespace SubSonicDB
 				colvarIDTipoPlaza.AutoIncrement = false;
 				colvarIDTipoPlaza.IsNullable = true;
 				colvarIDTipoPlaza.IsPrimaryKey = false;
-				colvarIDTipoPlaza.IsForeignKey = true;
+				colvarIDTipoPlaza.IsForeignKey = false;
 				colvarIDTipoPlaza.IsReadOnly = false;
 				colvarIDTipoPlaza.DefaultSetting = @"";
-				
-					colvarIDTipoPlaza.ForeignKeyTableName = "CatTipoUser_RH";
+				colvarIDTipoPlaza.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarIDTipoPlaza);
+				
+				TableSchema.TableColumn colvarIDMunicipio = new TableSchema.TableColumn(schema);
+				colvarIDMunicipio.ColumnName = "IDMunicipio";
+				colvarIDMunicipio.DataType = DbType.Int32;
+				colvarIDMunicipio.MaxLength = 0;
+				colvarIDMunicipio.AutoIncrement = false;
+				colvarIDMunicipio.IsNullable = true;
+				colvarIDMunicipio.IsPrimaryKey = false;
+				colvarIDMunicipio.IsForeignKey = true;
+				colvarIDMunicipio.IsReadOnly = false;
+				colvarIDMunicipio.DefaultSetting = @"";
+				
+					colvarIDMunicipio.ForeignKeyTableName = "Cat_Municipio_fortamun";
+				schema.Columns.Add(colvarIDMunicipio);
 				
 				BaseSchema = schema;
 				//add this schema to the provider
@@ -661,6 +673,14 @@ namespace SubSonicDB
 			get { return GetColumnValue<int?>(Columns.IDTipoPlaza); }
 			set { SetColumnValue(Columns.IDTipoPlaza, value); }
 		}
+		  
+		[XmlAttribute("IDMunicipio")]
+		[Bindable(true)]
+		public int? IDMunicipio 
+		{
+			get { return GetColumnValue<int?>(Columns.IDMunicipio); }
+			set { SetColumnValue(Columns.IDMunicipio, value); }
+		}
 		
 		#endregion
 		
@@ -707,9 +727,17 @@ namespace SubSonicDB
 		{
 			return new SubSonicDB.RelTipoPermisoRHCollection().Where(RelTipoPermisoRH.Columns.IDUser, Id).Load();
 		}
+		public SubSonicDB.SoporteTranServicioCollection SoporteTranServicioRecords()
+		{
+			return new SubSonicDB.SoporteTranServicioCollection().Where(SoporteTranServicio.Columns.IDUser, Id).Load();
+		}
 		public SubSonicDB.TranPermisoCollection TranPermisos()
 		{
 			return new SubSonicDB.TranPermisoCollection().Where(TranPermiso.Columns.IDUser, Id).Load();
+		}
+		public SubSonicDB.TranInsidenciasRHCollection TranInsidenciasRHRecords()
+		{
+			return new SubSonicDB.TranInsidenciasRHCollection().Where(TranInsidenciasRH.Columns.IDUser, Id).Load();
 		}
 		public SubSonicDB.TranMinutumCollection TranMinuta()
 		{
@@ -722,24 +750,13 @@ namespace SubSonicDB
 		#region ForeignKey Properties
 		
 		/// <summary>
-		/// Returns a CatTipoUser ActiveRecord object related to this CatUsuario
+		/// Returns a CatMunicipioFortamun ActiveRecord object related to this CatUsuario
 		/// 
 		/// </summary>
-		public SubSonicDB.CatTipoUser CatTipoUser
+		public SubSonicDB.CatMunicipioFortamun CatMunicipioFortamun
 		{
-			get { return SubSonicDB.CatTipoUser.FetchByID(this.IDTipoUser); }
-			set { SetColumnValue("IDTipoUser", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatTipoUserRh ActiveRecord object related to this CatUsuario
-		/// 
-		/// </summary>
-		public SubSonicDB.CatTipoUserRh CatTipoUserRh
-		{
-			get { return SubSonicDB.CatTipoUserRh.FetchByID(this.IDTipoPlaza); }
-			set { SetColumnValue("IDTipoPlaza", value.Id); }
+			get { return SubSonicDB.CatMunicipioFortamun.FetchByID(this.IDMunicipio); }
+			set { SetColumnValue("IDMunicipio", value.Id); }
 		}
 		
 		
@@ -901,7 +918,7 @@ namespace SubSonicDB
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varNombre,string varNom,string varPaterno,string varMaterno,bool? varStatus,string varPassw,string varUsuario,int? varIDTipoUser,string varImagen,string varExtension,int? varSkin,string varCorreo,string varNoempleado,decimal? varSueldo,string varRfc,DateTime? varFechaIngreso,string varCalle,string varColonila,string varNoCalle,string varCelular,string varTelCasa,string varNombreContacto,string varTelContacto,int? varIDTipoPlaza)
+		public static void Insert(string varNombre,string varNom,string varPaterno,string varMaterno,bool? varStatus,string varPassw,string varUsuario,int? varIDTipoUser,string varImagen,string varExtension,int? varSkin,string varCorreo,string varNoempleado,decimal? varSueldo,string varRfc,DateTime? varFechaIngreso,string varCalle,string varColonila,string varNoCalle,string varCelular,string varTelCasa,string varNombreContacto,string varTelContacto,int? varIDTipoPlaza,int? varIDMunicipio)
 		{
 			CatUsuario item = new CatUsuario();
 			
@@ -953,6 +970,8 @@ namespace SubSonicDB
 			
 			item.IDTipoPlaza = varIDTipoPlaza;
 			
+			item.IDMunicipio = varIDMunicipio;
+			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -963,7 +982,7 @@ namespace SubSonicDB
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(int varId,string varNombre,string varNom,string varPaterno,string varMaterno,bool? varStatus,string varPassw,string varUsuario,int? varIDTipoUser,string varImagen,string varExtension,int? varSkin,string varCorreo,string varNoempleado,decimal? varSueldo,string varRfc,DateTime? varFechaIngreso,string varCalle,string varColonila,string varNoCalle,string varCelular,string varTelCasa,string varNombreContacto,string varTelContacto,int? varIDTipoPlaza)
+		public static void Update(int varId,string varNombre,string varNom,string varPaterno,string varMaterno,bool? varStatus,string varPassw,string varUsuario,int? varIDTipoUser,string varImagen,string varExtension,int? varSkin,string varCorreo,string varNoempleado,decimal? varSueldo,string varRfc,DateTime? varFechaIngreso,string varCalle,string varColonila,string varNoCalle,string varCelular,string varTelCasa,string varNombreContacto,string varTelContacto,int? varIDTipoPlaza,int? varIDMunicipio)
 		{
 			CatUsuario item = new CatUsuario();
 			
@@ -1016,6 +1035,8 @@ namespace SubSonicDB
 				item.TelContacto = varTelContacto;
 			
 				item.IDTipoPlaza = varIDTipoPlaza;
+			
+				item.IDMunicipio = varIDMunicipio;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1205,6 +1226,13 @@ namespace SubSonicDB
         
         
         
+        public static TableSchema.TableColumn IDMunicipioColumn
+        {
+            get { return Schema.Columns[25]; }
+        }
+        
+        
+        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1234,6 +1262,7 @@ namespace SubSonicDB
 			 public static string NombreContacto = @"NombreContacto";
 			 public static string TelContacto = @"TelContacto";
 			 public static string IDTipoPlaza = @"IDTipoPlaza";
+			 public static string IDMunicipio = @"IDMunicipio";
 						
 		}
 		#endregion

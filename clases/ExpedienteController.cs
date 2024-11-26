@@ -79,7 +79,7 @@ namespace SubSonicDB
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Usuarios,int? IDDepende,int? IDTIpoContenido,string Descripcion,int? IDActor,int? IDAbogadoActor,int? IDDemandado,int? IDAutocaso,int? IDTipojuicio,string Causa,string Etapa,int? IDEtapa,DateTime? Fechaconoce,string Fechainterpone,bool? Status,DateTime? Actualizacion,int? IDUser,string Tomo,int? IDOrigenCorres,int? IDStatusCorrespondencia,bool? StatusRetornado,int? IDDestinoCorrespondencia,string Paginas,int? IDDependenciaEjecutora,int? IDEje,int? IDPrioridadNacional,int? IDSubprograma,int? IDEjercicio,int? IDCapitulo,int? IDConcepto,int? IDPartidaGenerica,int? IDPartidaEspecifica,int? IDTipoRecurso,int? IDExpedienteTecnico,decimal? Importe,string CantidadEnLetra)
+	    public void Insert(string Usuarios,int? IDDepende,int? IDTIpoContenido,string Descripcion,int? IDActor,int? IDAbogadoActor,int? IDDemandado,int? IDAutocaso,int? IDTipojuicio,string Causa,string Etapa,int? IDEtapa,DateTime? Fechaconoce,string Fechainterpone,bool? Status,DateTime? Actualizacion,int? IDUser,string Tomo,int? IDOrigenCorres,int? IDStatusCorrespondencia,bool? StatusRetornado,int? IDDestinoCorrespondencia,string Paginas)
 	    {
 		    Expediente item = new Expediente();
 		    
@@ -129,32 +129,6 @@ namespace SubSonicDB
             
             item.Paginas = Paginas;
             
-            item.IDDependenciaEjecutora = IDDependenciaEjecutora;
-            
-            item.IDEje = IDEje;
-            
-            item.IDPrioridadNacional = IDPrioridadNacional;
-            
-            item.IDSubprograma = IDSubprograma;
-            
-            item.IDEjercicio = IDEjercicio;
-            
-            item.IDCapitulo = IDCapitulo;
-            
-            item.IDConcepto = IDConcepto;
-            
-            item.IDPartidaGenerica = IDPartidaGenerica;
-            
-            item.IDPartidaEspecifica = IDPartidaEspecifica;
-            
-            item.IDTipoRecurso = IDTipoRecurso;
-            
-            item.IDExpedienteTecnico = IDExpedienteTecnico;
-            
-            item.Importe = Importe;
-            
-            item.CantidadEnLetra = CantidadEnLetra;
-            
 	    
 		    item.Save(UserName);
 	    }
@@ -163,7 +137,7 @@ namespace SubSonicDB
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Usuarios,int? IDDepende,int? IDTIpoContenido,string Descripcion,int? IDActor,int? IDAbogadoActor,int? IDDemandado,int? IDAutocaso,int? IDTipojuicio,string Causa,string Etapa,int? IDEtapa,DateTime? Fechaconoce,string Fechainterpone,bool? Status,DateTime? Actualizacion,int? IDUser,string Tomo,int? IDOrigenCorres,int? IDStatusCorrespondencia,bool? StatusRetornado,int? IDDestinoCorrespondencia,string Paginas,int Id,int? IDDependenciaEjecutora,int? IDEje,int? IDPrioridadNacional,int? IDSubprograma,int? IDEjercicio,int? IDCapitulo,int? IDConcepto,int? IDPartidaGenerica,int? IDPartidaEspecifica,int? IDTipoRecurso,int? IDExpedienteTecnico,decimal? Importe,string CantidadEnLetra)
+	    public void Update(string Usuarios,int? IDDepende,int? IDTIpoContenido,string Descripcion,int? IDActor,int? IDAbogadoActor,int? IDDemandado,int? IDAutocaso,int? IDTipojuicio,string Causa,string Etapa,int? IDEtapa,DateTime? Fechaconoce,string Fechainterpone,bool? Status,DateTime? Actualizacion,int? IDUser,string Tomo,int? IDOrigenCorres,int? IDStatusCorrespondencia,bool? StatusRetornado,int? IDDestinoCorrespondencia,string Paginas,int Id)
 	    {
 		    Expediente item = new Expediente();
 	        item.MarkOld();
@@ -216,32 +190,6 @@ namespace SubSonicDB
 			item.Paginas = Paginas;
 				
 			item.Id = Id;
-				
-			item.IDDependenciaEjecutora = IDDependenciaEjecutora;
-				
-			item.IDEje = IDEje;
-				
-			item.IDPrioridadNacional = IDPrioridadNacional;
-				
-			item.IDSubprograma = IDSubprograma;
-				
-			item.IDEjercicio = IDEjercicio;
-				
-			item.IDCapitulo = IDCapitulo;
-				
-			item.IDConcepto = IDConcepto;
-				
-			item.IDPartidaGenerica = IDPartidaGenerica;
-				
-			item.IDPartidaEspecifica = IDPartidaEspecifica;
-				
-			item.IDTipoRecurso = IDTipoRecurso;
-				
-			item.IDExpedienteTecnico = IDExpedienteTecnico;
-				
-			item.Importe = Importe;
-				
-			item.CantidadEnLetra = CantidadEnLetra;
 				
 	        item.Save(UserName);
 	    }

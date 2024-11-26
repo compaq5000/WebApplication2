@@ -438,186 +438,6 @@ namespace SubSonicDB
 				colvarId.ForeignKeyTableName = "";
 				schema.Columns.Add(colvarId);
 				
-				TableSchema.TableColumn colvarIDDependenciaEjecutora = new TableSchema.TableColumn(schema);
-				colvarIDDependenciaEjecutora.ColumnName = "IDDependenciaEjecutora";
-				colvarIDDependenciaEjecutora.DataType = DbType.Int32;
-				colvarIDDependenciaEjecutora.MaxLength = 0;
-				colvarIDDependenciaEjecutora.AutoIncrement = false;
-				colvarIDDependenciaEjecutora.IsNullable = true;
-				colvarIDDependenciaEjecutora.IsPrimaryKey = false;
-				colvarIDDependenciaEjecutora.IsForeignKey = true;
-				colvarIDDependenciaEjecutora.IsReadOnly = false;
-				colvarIDDependenciaEjecutora.DefaultSetting = @"";
-				
-					colvarIDDependenciaEjecutora.ForeignKeyTableName = "CatDepeEjecutoria_Inventarios";
-				schema.Columns.Add(colvarIDDependenciaEjecutora);
-				
-				TableSchema.TableColumn colvarIDEje = new TableSchema.TableColumn(schema);
-				colvarIDEje.ColumnName = "IDEje";
-				colvarIDEje.DataType = DbType.Int32;
-				colvarIDEje.MaxLength = 0;
-				colvarIDEje.AutoIncrement = false;
-				colvarIDEje.IsNullable = true;
-				colvarIDEje.IsPrimaryKey = false;
-				colvarIDEje.IsForeignKey = true;
-				colvarIDEje.IsReadOnly = false;
-				colvarIDEje.DefaultSetting = @"";
-				
-					colvarIDEje.ForeignKeyTableName = "CatEje_invetario";
-				schema.Columns.Add(colvarIDEje);
-				
-				TableSchema.TableColumn colvarIDPrioridadNacional = new TableSchema.TableColumn(schema);
-				colvarIDPrioridadNacional.ColumnName = "IDPrioridadNacional";
-				colvarIDPrioridadNacional.DataType = DbType.Int32;
-				colvarIDPrioridadNacional.MaxLength = 0;
-				colvarIDPrioridadNacional.AutoIncrement = false;
-				colvarIDPrioridadNacional.IsNullable = true;
-				colvarIDPrioridadNacional.IsPrimaryKey = false;
-				colvarIDPrioridadNacional.IsForeignKey = true;
-				colvarIDPrioridadNacional.IsReadOnly = false;
-				colvarIDPrioridadNacional.DefaultSetting = @"";
-				
-					colvarIDPrioridadNacional.ForeignKeyTableName = "CatProgramaPrioridadNacional_inventarios";
-				schema.Columns.Add(colvarIDPrioridadNacional);
-				
-				TableSchema.TableColumn colvarIDSubprograma = new TableSchema.TableColumn(schema);
-				colvarIDSubprograma.ColumnName = "IDSubprograma";
-				colvarIDSubprograma.DataType = DbType.Int32;
-				colvarIDSubprograma.MaxLength = 0;
-				colvarIDSubprograma.AutoIncrement = false;
-				colvarIDSubprograma.IsNullable = true;
-				colvarIDSubprograma.IsPrimaryKey = false;
-				colvarIDSubprograma.IsForeignKey = true;
-				colvarIDSubprograma.IsReadOnly = false;
-				colvarIDSubprograma.DefaultSetting = @"";
-				
-					colvarIDSubprograma.ForeignKeyTableName = "CatSubprograma_Invenatarios";
-				schema.Columns.Add(colvarIDSubprograma);
-				
-				TableSchema.TableColumn colvarIDEjercicio = new TableSchema.TableColumn(schema);
-				colvarIDEjercicio.ColumnName = "IDEjercicio";
-				colvarIDEjercicio.DataType = DbType.Int32;
-				colvarIDEjercicio.MaxLength = 0;
-				colvarIDEjercicio.AutoIncrement = false;
-				colvarIDEjercicio.IsNullable = true;
-				colvarIDEjercicio.IsPrimaryKey = false;
-				colvarIDEjercicio.IsForeignKey = true;
-				colvarIDEjercicio.IsReadOnly = false;
-				colvarIDEjercicio.DefaultSetting = @"";
-				
-					colvarIDEjercicio.ForeignKeyTableName = "CatEjercicio_Inventarios";
-				schema.Columns.Add(colvarIDEjercicio);
-				
-				TableSchema.TableColumn colvarIDCapitulo = new TableSchema.TableColumn(schema);
-				colvarIDCapitulo.ColumnName = "IDCapitulo";
-				colvarIDCapitulo.DataType = DbType.Int32;
-				colvarIDCapitulo.MaxLength = 0;
-				colvarIDCapitulo.AutoIncrement = false;
-				colvarIDCapitulo.IsNullable = true;
-				colvarIDCapitulo.IsPrimaryKey = false;
-				colvarIDCapitulo.IsForeignKey = true;
-				colvarIDCapitulo.IsReadOnly = false;
-				colvarIDCapitulo.DefaultSetting = @"";
-				
-					colvarIDCapitulo.ForeignKeyTableName = "CatCapitulo_Inventarios";
-				schema.Columns.Add(colvarIDCapitulo);
-				
-				TableSchema.TableColumn colvarIDConcepto = new TableSchema.TableColumn(schema);
-				colvarIDConcepto.ColumnName = "IDConcepto";
-				colvarIDConcepto.DataType = DbType.Int32;
-				colvarIDConcepto.MaxLength = 0;
-				colvarIDConcepto.AutoIncrement = false;
-				colvarIDConcepto.IsNullable = true;
-				colvarIDConcepto.IsPrimaryKey = false;
-				colvarIDConcepto.IsForeignKey = true;
-				colvarIDConcepto.IsReadOnly = false;
-				colvarIDConcepto.DefaultSetting = @"";
-				
-					colvarIDConcepto.ForeignKeyTableName = "CatConcepto_Inventarios";
-				schema.Columns.Add(colvarIDConcepto);
-				
-				TableSchema.TableColumn colvarIDPartidaGenerica = new TableSchema.TableColumn(schema);
-				colvarIDPartidaGenerica.ColumnName = "IDPartidaGenerica";
-				colvarIDPartidaGenerica.DataType = DbType.Int32;
-				colvarIDPartidaGenerica.MaxLength = 0;
-				colvarIDPartidaGenerica.AutoIncrement = false;
-				colvarIDPartidaGenerica.IsNullable = true;
-				colvarIDPartidaGenerica.IsPrimaryKey = false;
-				colvarIDPartidaGenerica.IsForeignKey = true;
-				colvarIDPartidaGenerica.IsReadOnly = false;
-				colvarIDPartidaGenerica.DefaultSetting = @"";
-				
-					colvarIDPartidaGenerica.ForeignKeyTableName = "CatPartidaGenerica_Invenatarios";
-				schema.Columns.Add(colvarIDPartidaGenerica);
-				
-				TableSchema.TableColumn colvarIDPartidaEspecifica = new TableSchema.TableColumn(schema);
-				colvarIDPartidaEspecifica.ColumnName = "IDPartidaEspecifica";
-				colvarIDPartidaEspecifica.DataType = DbType.Int32;
-				colvarIDPartidaEspecifica.MaxLength = 0;
-				colvarIDPartidaEspecifica.AutoIncrement = false;
-				colvarIDPartidaEspecifica.IsNullable = true;
-				colvarIDPartidaEspecifica.IsPrimaryKey = false;
-				colvarIDPartidaEspecifica.IsForeignKey = true;
-				colvarIDPartidaEspecifica.IsReadOnly = false;
-				colvarIDPartidaEspecifica.DefaultSetting = @"";
-				
-					colvarIDPartidaEspecifica.ForeignKeyTableName = "CatPartidaEspecifica_Inventarios";
-				schema.Columns.Add(colvarIDPartidaEspecifica);
-				
-				TableSchema.TableColumn colvarIDTipoRecurso = new TableSchema.TableColumn(schema);
-				colvarIDTipoRecurso.ColumnName = "IDTipoRecurso";
-				colvarIDTipoRecurso.DataType = DbType.Int32;
-				colvarIDTipoRecurso.MaxLength = 0;
-				colvarIDTipoRecurso.AutoIncrement = false;
-				colvarIDTipoRecurso.IsNullable = true;
-				colvarIDTipoRecurso.IsPrimaryKey = false;
-				colvarIDTipoRecurso.IsForeignKey = true;
-				colvarIDTipoRecurso.IsReadOnly = false;
-				colvarIDTipoRecurso.DefaultSetting = @"";
-				
-					colvarIDTipoRecurso.ForeignKeyTableName = "CatTipoRecurso_Inventarios";
-				schema.Columns.Add(colvarIDTipoRecurso);
-				
-				TableSchema.TableColumn colvarIDExpedienteTecnico = new TableSchema.TableColumn(schema);
-				colvarIDExpedienteTecnico.ColumnName = "IDExpedienteTecnico";
-				colvarIDExpedienteTecnico.DataType = DbType.Int32;
-				colvarIDExpedienteTecnico.MaxLength = 0;
-				colvarIDExpedienteTecnico.AutoIncrement = false;
-				colvarIDExpedienteTecnico.IsNullable = true;
-				colvarIDExpedienteTecnico.IsPrimaryKey = false;
-				colvarIDExpedienteTecnico.IsForeignKey = true;
-				colvarIDExpedienteTecnico.IsReadOnly = false;
-				colvarIDExpedienteTecnico.DefaultSetting = @"";
-				
-					colvarIDExpedienteTecnico.ForeignKeyTableName = "CatExpedienteTecnico_Inventarios";
-				schema.Columns.Add(colvarIDExpedienteTecnico);
-				
-				TableSchema.TableColumn colvarImporte = new TableSchema.TableColumn(schema);
-				colvarImporte.ColumnName = "Importe";
-				colvarImporte.DataType = DbType.Currency;
-				colvarImporte.MaxLength = 0;
-				colvarImporte.AutoIncrement = false;
-				colvarImporte.IsNullable = true;
-				colvarImporte.IsPrimaryKey = false;
-				colvarImporte.IsForeignKey = false;
-				colvarImporte.IsReadOnly = false;
-				colvarImporte.DefaultSetting = @"";
-				colvarImporte.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarImporte);
-				
-				TableSchema.TableColumn colvarCantidadEnLetra = new TableSchema.TableColumn(schema);
-				colvarCantidadEnLetra.ColumnName = "CantidadEnLetra";
-				colvarCantidadEnLetra.DataType = DbType.String;
-				colvarCantidadEnLetra.MaxLength = 300;
-				colvarCantidadEnLetra.AutoIncrement = false;
-				colvarCantidadEnLetra.IsNullable = true;
-				colvarCantidadEnLetra.IsPrimaryKey = false;
-				colvarCantidadEnLetra.IsForeignKey = false;
-				colvarCantidadEnLetra.IsReadOnly = false;
-				colvarCantidadEnLetra.DefaultSetting = @"";
-				colvarCantidadEnLetra.ForeignKeyTableName = "";
-				schema.Columns.Add(colvarCantidadEnLetra);
-				
 				BaseSchema = schema;
 				//add this schema to the provider
 				//so we can query it later
@@ -819,110 +639,6 @@ namespace SubSonicDB
 			get { return GetColumnValue<int>(Columns.Id); }
 			set { SetColumnValue(Columns.Id, value); }
 		}
-		  
-		[XmlAttribute("IDDependenciaEjecutora")]
-		[Bindable(true)]
-		public int? IDDependenciaEjecutora 
-		{
-			get { return GetColumnValue<int?>(Columns.IDDependenciaEjecutora); }
-			set { SetColumnValue(Columns.IDDependenciaEjecutora, value); }
-		}
-		  
-		[XmlAttribute("IDEje")]
-		[Bindable(true)]
-		public int? IDEje 
-		{
-			get { return GetColumnValue<int?>(Columns.IDEje); }
-			set { SetColumnValue(Columns.IDEje, value); }
-		}
-		  
-		[XmlAttribute("IDPrioridadNacional")]
-		[Bindable(true)]
-		public int? IDPrioridadNacional 
-		{
-			get { return GetColumnValue<int?>(Columns.IDPrioridadNacional); }
-			set { SetColumnValue(Columns.IDPrioridadNacional, value); }
-		}
-		  
-		[XmlAttribute("IDSubprograma")]
-		[Bindable(true)]
-		public int? IDSubprograma 
-		{
-			get { return GetColumnValue<int?>(Columns.IDSubprograma); }
-			set { SetColumnValue(Columns.IDSubprograma, value); }
-		}
-		  
-		[XmlAttribute("IDEjercicio")]
-		[Bindable(true)]
-		public int? IDEjercicio 
-		{
-			get { return GetColumnValue<int?>(Columns.IDEjercicio); }
-			set { SetColumnValue(Columns.IDEjercicio, value); }
-		}
-		  
-		[XmlAttribute("IDCapitulo")]
-		[Bindable(true)]
-		public int? IDCapitulo 
-		{
-			get { return GetColumnValue<int?>(Columns.IDCapitulo); }
-			set { SetColumnValue(Columns.IDCapitulo, value); }
-		}
-		  
-		[XmlAttribute("IDConcepto")]
-		[Bindable(true)]
-		public int? IDConcepto 
-		{
-			get { return GetColumnValue<int?>(Columns.IDConcepto); }
-			set { SetColumnValue(Columns.IDConcepto, value); }
-		}
-		  
-		[XmlAttribute("IDPartidaGenerica")]
-		[Bindable(true)]
-		public int? IDPartidaGenerica 
-		{
-			get { return GetColumnValue<int?>(Columns.IDPartidaGenerica); }
-			set { SetColumnValue(Columns.IDPartidaGenerica, value); }
-		}
-		  
-		[XmlAttribute("IDPartidaEspecifica")]
-		[Bindable(true)]
-		public int? IDPartidaEspecifica 
-		{
-			get { return GetColumnValue<int?>(Columns.IDPartidaEspecifica); }
-			set { SetColumnValue(Columns.IDPartidaEspecifica, value); }
-		}
-		  
-		[XmlAttribute("IDTipoRecurso")]
-		[Bindable(true)]
-		public int? IDTipoRecurso 
-		{
-			get { return GetColumnValue<int?>(Columns.IDTipoRecurso); }
-			set { SetColumnValue(Columns.IDTipoRecurso, value); }
-		}
-		  
-		[XmlAttribute("IDExpedienteTecnico")]
-		[Bindable(true)]
-		public int? IDExpedienteTecnico 
-		{
-			get { return GetColumnValue<int?>(Columns.IDExpedienteTecnico); }
-			set { SetColumnValue(Columns.IDExpedienteTecnico, value); }
-		}
-		  
-		[XmlAttribute("Importe")]
-		[Bindable(true)]
-		public decimal? Importe 
-		{
-			get { return GetColumnValue<decimal?>(Columns.Importe); }
-			set { SetColumnValue(Columns.Importe, value); }
-		}
-		  
-		[XmlAttribute("CantidadEnLetra")]
-		[Bindable(true)]
-		public string CantidadEnLetra 
-		{
-			get { return GetColumnValue<string>(Columns.CantidadEnLetra); }
-			set { SetColumnValue(Columns.CantidadEnLetra, value); }
-		}
 		
 		#endregion
 		
@@ -964,83 +680,6 @@ namespace SubSonicDB
 		#region ForeignKey Properties
 		
 		/// <summary>
-		/// Returns a CatCapituloInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatCapituloInventario CatCapituloInventario
-		{
-			get { return SubSonicDB.CatCapituloInventario.FetchByID(this.IDCapitulo); }
-			set { SetColumnValue("IDCapitulo", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatConceptoInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatConceptoInventario CatConceptoInventario
-		{
-			get { return SubSonicDB.CatConceptoInventario.FetchByID(this.IDConcepto); }
-			set { SetColumnValue("IDConcepto", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatConceptoInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatConceptoInventario CatConceptoInventarioToIDConcepto
-		{
-			get { return SubSonicDB.CatConceptoInventario.FetchByID(this.IDConcepto); }
-			set { SetColumnValue("IDConcepto", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatDepeEjecutoriaInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatDepeEjecutoriaInventario CatDepeEjecutoriaInventario
-		{
-			get { return SubSonicDB.CatDepeEjecutoriaInventario.FetchByID(this.IDDependenciaEjecutora); }
-			set { SetColumnValue("IDDependenciaEjecutora", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatEjeInvetario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatEjeInvetario CatEjeInvetario
-		{
-			get { return SubSonicDB.CatEjeInvetario.FetchByID(this.IDEje); }
-			set { SetColumnValue("IDEje", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatEjercicioInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatEjercicioInventario CatEjercicioInventario
-		{
-			get { return SubSonicDB.CatEjercicioInventario.FetchByID(this.IDEjercicio); }
-			set { SetColumnValue("IDEjercicio", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatExpedienteTecnicoInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatExpedienteTecnicoInventario CatExpedienteTecnicoInventario
-		{
-			get { return SubSonicDB.CatExpedienteTecnicoInventario.FetchByID(this.IDExpedienteTecnico); }
-			set { SetColumnValue("IDExpedienteTecnico", value.Id); }
-		}
-		
-		
-		/// <summary>
 		/// Returns a CatOrigenCorrespondencium ActiveRecord object related to this Expediente
 		/// 
 		/// </summary>
@@ -1048,61 +687,6 @@ namespace SubSonicDB
 		{
 			get { return SubSonicDB.CatOrigenCorrespondencium.FetchByID(this.IDOrigenCorres); }
 			set { SetColumnValue("IDOrigenCorres", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatPartidaEspecificaInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatPartidaEspecificaInventario CatPartidaEspecificaInventario
-		{
-			get { return SubSonicDB.CatPartidaEspecificaInventario.FetchByID(this.IDPartidaEspecifica); }
-			set { SetColumnValue("IDPartidaEspecifica", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatPartidaGenericaInvenatario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatPartidaGenericaInvenatario CatPartidaGenericaInvenatario
-		{
-			get { return SubSonicDB.CatPartidaGenericaInvenatario.FetchByID(this.IDPartidaGenerica); }
-			set { SetColumnValue("IDPartidaGenerica", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatProgramaPrioridadNacionalInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatProgramaPrioridadNacionalInventario CatProgramaPrioridadNacionalInventario
-		{
-			get { return SubSonicDB.CatProgramaPrioridadNacionalInventario.FetchByID(this.IDPrioridadNacional); }
-			set { SetColumnValue("IDPrioridadNacional", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatSubprogramaInvenatario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatSubprogramaInvenatario CatSubprogramaInvenatario
-		{
-			get { return SubSonicDB.CatSubprogramaInvenatario.FetchByID(this.IDSubprograma); }
-			set { SetColumnValue("IDSubprograma", value.Id); }
-		}
-		
-		
-		/// <summary>
-		/// Returns a CatTipoRecursoInventario ActiveRecord object related to this Expediente
-		/// 
-		/// </summary>
-		public SubSonicDB.CatTipoRecursoInventario CatTipoRecursoInventario
-		{
-			get { return SubSonicDB.CatTipoRecursoInventario.FetchByID(this.IDTipoRecurso); }
-			set { SetColumnValue("IDTipoRecurso", value.Id); }
 		}
 		
 		
@@ -1120,7 +704,7 @@ namespace SubSonicDB
 		/// <summary>
 		/// Inserts a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Insert(string varUsuarios,int? varIDDepende,int? varIDTIpoContenido,string varDescripcion,int? varIDActor,int? varIDAbogadoActor,int? varIDDemandado,int? varIDAutocaso,int? varIDTipojuicio,string varCausa,string varEtapa,int? varIDEtapa,DateTime? varFechaconoce,string varFechainterpone,bool? varStatus,DateTime? varActualizacion,int? varIDUser,string varTomo,int? varIDOrigenCorres,int? varIDStatusCorrespondencia,bool? varStatusRetornado,int? varIDDestinoCorrespondencia,string varPaginas,int? varIDDependenciaEjecutora,int? varIDEje,int? varIDPrioridadNacional,int? varIDSubprograma,int? varIDEjercicio,int? varIDCapitulo,int? varIDConcepto,int? varIDPartidaGenerica,int? varIDPartidaEspecifica,int? varIDTipoRecurso,int? varIDExpedienteTecnico,decimal? varImporte,string varCantidadEnLetra)
+		public static void Insert(string varUsuarios,int? varIDDepende,int? varIDTIpoContenido,string varDescripcion,int? varIDActor,int? varIDAbogadoActor,int? varIDDemandado,int? varIDAutocaso,int? varIDTipojuicio,string varCausa,string varEtapa,int? varIDEtapa,DateTime? varFechaconoce,string varFechainterpone,bool? varStatus,DateTime? varActualizacion,int? varIDUser,string varTomo,int? varIDOrigenCorres,int? varIDStatusCorrespondencia,bool? varStatusRetornado,int? varIDDestinoCorrespondencia,string varPaginas)
 		{
 			Expediente item = new Expediente();
 			
@@ -1170,32 +754,6 @@ namespace SubSonicDB
 			
 			item.Paginas = varPaginas;
 			
-			item.IDDependenciaEjecutora = varIDDependenciaEjecutora;
-			
-			item.IDEje = varIDEje;
-			
-			item.IDPrioridadNacional = varIDPrioridadNacional;
-			
-			item.IDSubprograma = varIDSubprograma;
-			
-			item.IDEjercicio = varIDEjercicio;
-			
-			item.IDCapitulo = varIDCapitulo;
-			
-			item.IDConcepto = varIDConcepto;
-			
-			item.IDPartidaGenerica = varIDPartidaGenerica;
-			
-			item.IDPartidaEspecifica = varIDPartidaEspecifica;
-			
-			item.IDTipoRecurso = varIDTipoRecurso;
-			
-			item.IDExpedienteTecnico = varIDExpedienteTecnico;
-			
-			item.Importe = varImporte;
-			
-			item.CantidadEnLetra = varCantidadEnLetra;
-			
 		
 			if (System.Web.HttpContext.Current != null)
 				item.Save(System.Web.HttpContext.Current.User.Identity.Name);
@@ -1206,7 +764,7 @@ namespace SubSonicDB
 		/// <summary>
 		/// Updates a record, can be used with the Object Data Source
 		/// </summary>
-		public static void Update(string varUsuarios,int? varIDDepende,int? varIDTIpoContenido,string varDescripcion,int? varIDActor,int? varIDAbogadoActor,int? varIDDemandado,int? varIDAutocaso,int? varIDTipojuicio,string varCausa,string varEtapa,int? varIDEtapa,DateTime? varFechaconoce,string varFechainterpone,bool? varStatus,DateTime? varActualizacion,int? varIDUser,string varTomo,int? varIDOrigenCorres,int? varIDStatusCorrespondencia,bool? varStatusRetornado,int? varIDDestinoCorrespondencia,string varPaginas,int varId,int? varIDDependenciaEjecutora,int? varIDEje,int? varIDPrioridadNacional,int? varIDSubprograma,int? varIDEjercicio,int? varIDCapitulo,int? varIDConcepto,int? varIDPartidaGenerica,int? varIDPartidaEspecifica,int? varIDTipoRecurso,int? varIDExpedienteTecnico,decimal? varImporte,string varCantidadEnLetra)
+		public static void Update(string varUsuarios,int? varIDDepende,int? varIDTIpoContenido,string varDescripcion,int? varIDActor,int? varIDAbogadoActor,int? varIDDemandado,int? varIDAutocaso,int? varIDTipojuicio,string varCausa,string varEtapa,int? varIDEtapa,DateTime? varFechaconoce,string varFechainterpone,bool? varStatus,DateTime? varActualizacion,int? varIDUser,string varTomo,int? varIDOrigenCorres,int? varIDStatusCorrespondencia,bool? varStatusRetornado,int? varIDDestinoCorrespondencia,string varPaginas,int varId)
 		{
 			Expediente item = new Expediente();
 			
@@ -1257,32 +815,6 @@ namespace SubSonicDB
 				item.Paginas = varPaginas;
 			
 				item.Id = varId;
-			
-				item.IDDependenciaEjecutora = varIDDependenciaEjecutora;
-			
-				item.IDEje = varIDEje;
-			
-				item.IDPrioridadNacional = varIDPrioridadNacional;
-			
-				item.IDSubprograma = varIDSubprograma;
-			
-				item.IDEjercicio = varIDEjercicio;
-			
-				item.IDCapitulo = varIDCapitulo;
-			
-				item.IDConcepto = varIDConcepto;
-			
-				item.IDPartidaGenerica = varIDPartidaGenerica;
-			
-				item.IDPartidaEspecifica = varIDPartidaEspecifica;
-			
-				item.IDTipoRecurso = varIDTipoRecurso;
-			
-				item.IDExpedienteTecnico = varIDExpedienteTecnico;
-			
-				item.Importe = varImporte;
-			
-				item.CantidadEnLetra = varCantidadEnLetra;
 			
 			item.IsNew = false;
 			if (System.Web.HttpContext.Current != null)
@@ -1465,97 +997,6 @@ namespace SubSonicDB
         
         
         
-        public static TableSchema.TableColumn IDDependenciaEjecutoraColumn
-        {
-            get { return Schema.Columns[24]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDEjeColumn
-        {
-            get { return Schema.Columns[25]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDPrioridadNacionalColumn
-        {
-            get { return Schema.Columns[26]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDSubprogramaColumn
-        {
-            get { return Schema.Columns[27]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDEjercicioColumn
-        {
-            get { return Schema.Columns[28]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDCapituloColumn
-        {
-            get { return Schema.Columns[29]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDConceptoColumn
-        {
-            get { return Schema.Columns[30]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDPartidaGenericaColumn
-        {
-            get { return Schema.Columns[31]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDPartidaEspecificaColumn
-        {
-            get { return Schema.Columns[32]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDTipoRecursoColumn
-        {
-            get { return Schema.Columns[33]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn IDExpedienteTecnicoColumn
-        {
-            get { return Schema.Columns[34]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn ImporteColumn
-        {
-            get { return Schema.Columns[35]; }
-        }
-        
-        
-        
-        public static TableSchema.TableColumn CantidadEnLetraColumn
-        {
-            get { return Schema.Columns[36]; }
-        }
-        
-        
-        
         #endregion
 		#region Columns Struct
 		public struct Columns
@@ -1584,19 +1025,6 @@ namespace SubSonicDB
 			 public static string IDDestinoCorrespondencia = @"IDDestinoCorrespondencia";
 			 public static string Paginas = @"Paginas";
 			 public static string Id = @"ID";
-			 public static string IDDependenciaEjecutora = @"IDDependenciaEjecutora";
-			 public static string IDEje = @"IDEje";
-			 public static string IDPrioridadNacional = @"IDPrioridadNacional";
-			 public static string IDSubprograma = @"IDSubprograma";
-			 public static string IDEjercicio = @"IDEjercicio";
-			 public static string IDCapitulo = @"IDCapitulo";
-			 public static string IDConcepto = @"IDConcepto";
-			 public static string IDPartidaGenerica = @"IDPartidaGenerica";
-			 public static string IDPartidaEspecifica = @"IDPartidaEspecifica";
-			 public static string IDTipoRecurso = @"IDTipoRecurso";
-			 public static string IDExpedienteTecnico = @"IDExpedienteTecnico";
-			 public static string Importe = @"Importe";
-			 public static string CantidadEnLetra = @"CantidadEnLetra";
 						
 		}
 		#endregion

@@ -9,7 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title></title>
+
     <script type="text/javascript">
+
         //<![CDATA[
         function onClientButtonClicking(sender, args) {
             var button = args.get_item();
@@ -63,7 +65,7 @@
             <%--               <img alt="Loading..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' style="border: 0;" />--%>
             <%--        <asp:Image ID="Image4" runat="server" ImageUrl="~/IMG/cargando.gif" />--%>
             <table style="width: 100%">
-               <tr>
+                <tr>
                     <td style="text-align: center">
                         <%--                        <asp:Image ID="Image4" runat="server" ImageUrl="~/IMG/cargando.gif" />--%>
                     </td>
@@ -125,13 +127,13 @@
                                         <telerik:RadToolBarButton ImageUrl="IMG/CONTACT.png"
                                             Text="AGENDA" ToolTip="AGENDA MUNICIPAL" Value="C" Visible="false">
                                         </telerik:RadToolBarButton>
-                                        <telerik:RadToolBarButton ImageUrl="IMG/FORTAMUN.pngg"
+                                        <telerik:RadToolBarButton ImageUrl="IMG/FORTAMUN.png"
                                             Text="FORTAMUN" Group="Bold" ToolTip="Bold" Value="RH" Enabled="TRUE">
                                         </telerik:RadToolBarButton>
                                         <telerik:RadToolBarButton ImageUrl="IMG/RH.png"
-                                            Text="Pases de Salida" Group="Bold" ToolTip="Bold" Value="Pases de Salida" Visible="false"  Enabled="false">
+                                            Text="Pases de Salida" Group="Bold" ToolTip="Bold" Value="Pases de Salida" Visible="false" Enabled="false">
                                         </telerik:RadToolBarButton>
-                                        
+
                                         <telerik:RadToolBarButton ImageUrl="IMG/cut.png"
                                             Text="CORTAR" Group="Italic" ToolTip="Italic" Value="cut">
                                         </telerik:RadToolBarButton>
@@ -261,10 +263,171 @@
                         </asp:UpdatePanel>
 
                     </telerik:RadSlidingPane>
+
+
+
+
+
+
+
+                    <telerik:RadSlidingPane ID="Radslidingpane5" Title="Libreta de Direcciones" runat="server" Width="500px" IconUrl="~/IMG/CONTACT.png">
+                        <asp:UpdatePanel ID="UpdatePanel10" runat="server">
+                            <ContentTemplate>
+                                <telerik:RadAjaxPanel ID="RadAjaxPanel41" EnableAJAX="true" runat="server">
+                                    <fieldset>
+                                        <legend><strong>NUEVO CONTACTO </strong></legend>
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label8" Text="Tipo Contacto" Font-Bold="true"></asp:Label>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadComboBox ID="RadComboBoxTipoContactoFortamun" Width="100%" runat="server" Culture="es-ES" Skin="Bootstrap"></telerik:RadComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="LblContacto" Text="NOMBRE COMPLETO" Font-Bold="true"></asp:Label>
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadTextBox ID="RadTextBoxNombreContacto" Width="100%" Height="40px" EmptyMessage="Escribe aquí el nombre completo del contacto" runat="server" Skin="Bootstrap"></telerik:RadTextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label5" Text="E-mail" Font-Bold="true"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadTextBox ID="RadTextBoxEmailContacto" Width="100%" Height="40px" EmptyMessage="Escribe aqui el Correo electronico" runat="server" Skin="Bootstrap"></telerik:RadTextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label6" Text="Movil" Font-Bold="true"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadTextBox ID="RadTextBoxMovilContacto" Width="100%" Height="40px" EmptyMessage="Escribe aqui el Tel. movil del contacto" runat="server" Skin="Bootstrap"></telerik:RadTextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label7" Text="Otro Tel" Font-Bold="true"></asp:Label></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <telerik:RadTextBox ID="RadTextBoxOtroTel" Width="100%" Height="40px" EmptyMessage="Escribe aqui otro telefono del contacto" runat="server" Skin="Bootstrap"></telerik:RadTextBox></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: right">
+                                                    <telerik:RadButton ID="RadButtonSaveContacto" runat="server" Width="100%" Text="Guardar" Skin="Bootstrap" OnClick="RadButtonSaveContacto_Click" Style="top: 13px; left: 1px"></telerik:RadButton>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <br />
+                                        <hr />
+
+                                        <telerik:RadGrid ID="RadGridContactos" runat="server" AutoGenerateColumns="False" OnNeedDataSource="RadGrid1_NeedDataSourContactos"
+                                            AllowMultiRowSelection="false" AllowPaging="True" ShowStatusBar="True"
+                                            Style="margin-bottom: 0px" Width="100%"
+                                            Culture="es-ES" AllowSorting="True" Skin="Bootstrap">
+                                            <ClientSettings AllowDragToGroup="false" Selecting-AllowRowSelect="true">
+                                                <Selecting CellSelectionMode="SingleCell" />
+                                            </ClientSettings>
+                                            <GroupingSettings CollapseAllTooltip="Collapse all groups" />
+                                            <ExportSettings>
+                                                <Pdf PageWidth="2.5in" PageHeight="5in" PageTopMargin="" PageBottomMargin="" PageLeftMargin=""
+                                                    PageRightMargin="" PageHeaderMargin="" PageFooterMargin="">
+                                                </Pdf>
+                                            </ExportSettings>
+                                            <MasterTableView Width="100%" ShowHeadersWhenNoRecords="true" DataKeyNames="Id">
+                                                <PagerTemplate>
+                                                    <table border="0" cellpadding="0" cellspacing="0" style="height: 20px" width="70%">
+                                                        <tr>
+                                                            <td style="padding-left: 10px;">
+                                                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/img/Grid/Img/first.png"
+                                                                    CommandName="Page" CommandArgument="First" CausesValidation="false" Style="vertical-align: middle;" />
+                                                                <asp:LinkButton ID="LinkButton1" CommandName="Page" CausesValidation="false" CommandArgument="First"
+                                                                    runat="server">Primera</asp:LinkButton>
+                                                            </td>
+                                                            <td>
+                                                                <asp:ImageButton ID="Image1" runat="server" CausesValidation="false" CommandArgument="Prev" CommandName="Page" ImageUrl="~/img/Grid/Img/arrow.png" Style="vertical-align: middle;" />
+                                                                <asp:LinkButton ID="LinkButton5" runat="server" CausesValidation="false" CommandArgument="Prev" CommandName="Page">Anterior</asp:LinkButton>
+                                                            </td>
+                                                            <td>Pagina Actual:
+             <asp:TextBox ID="tbPageNumber" runat="server" Columns="3" Text='<%# (int)DataBinder.Eval(Container, "OwnerTableView.CurrentPageIndex") + 1 %>' />
+                                                                <asp:RangeValidator ID="RangeValidator1" runat="Server" ControlToValidate="tbPageNumber" Display="Dynamic" EnableClientScript="true" ErrorMessage='<%# "Elija un rango de 1 - " + DataBinder.Eval(Container, "Paging.PageCount") %>' MaximumValue='<%# DataBinder.Eval(Container, "Paging.PageCount") %>' MinimumValue="1" Type="Integer"></asp:RangeValidator>
+                                                                <asp:LinkButton ID="LinkButton4" runat="server" CommandName="CustomChangePage">Ir</asp:LinkButton>
+                                                                Total de pag.
+             <asp:Label ID="maxPage" runat="server" Text='<%# DataBinder.Eval(Container,"Paging.PageCount") %>'></asp:Label>
+                                                            </td>
+                                                            <td>
+                                                                <asp:LinkButton ID="LinkButton3" CommandName="Page" CausesValidation="false" CommandArgument="Next"
+                                                                    runat="server">Siguiente</asp:LinkButton>
+                                                                <asp:ImageButton ID="Image2" runat="server" ImageUrl="~/img/Grid/Img/arrowRight.png"
+                                                                    CommandName="Page" CommandArgument="Next" CausesValidation="false" Style="vertical-align: middle;" />
+                                                            </td>
+                                                            <td>
+                                                                <asp:LinkButton ID="LinkButton2" CommandName="Page" CausesValidation="false" CommandArgument="Last"
+                                                                    runat="server">Ultima</asp:LinkButton>
+                                                                <asp:ImageButton ID="Image3" runat="server" ImageUrl="~/img/Grid/Img/last.png" CommandName="Page"
+                                                                    CommandArgument="Last" CausesValidation="false" Style="vertical-align: middle;" />
+                                                            </td>
+                                                            <td align="center" style="padding-right: 10px;"></td>
+                                                        </tr>
+                                                    </table>
+                                                </PagerTemplate>
+                                                <Columns>
+
+                                                    <telerik:GridClientSelectColumn>
+                                                        <HeaderStyle Width="5%" />
+                                                    </telerik:GridClientSelectColumn>
+
+                                                    <%--                                                     <telerik:GridBoundColumn HeaderText="pag" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
+             UniqueName="pag" DataField="pag" SortExpression="pag">
+             <HeaderStyle Width="20%" />
+         </telerik:GridBoundColumn>--%>
+
+                                                    <telerik:GridBoundColumn HeaderText="NOMBRE" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
+                                                        UniqueName="NombreUser" DataField="Nombre" SortExpression="NombreUser">
+                                                        <HeaderStyle Width="20%" />
+                                                    </telerik:GridBoundColumn>
+
+                                                    <telerik:GridBoundColumn HeaderText="TIPO USUARIO" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
+                                                        UniqueName="TIPOCONTACTO" DataField="TIPOCONTACTO" SortExpression="TIPOCONTACTO">
+                                                        <HeaderStyle Width="20%" />
+                                                    </telerik:GridBoundColumn>
+                                                </Columns>
+                                            </MasterTableView>
+                                        </telerik:RadGrid>
+                                        <br>
+                                        <telerik:RadButton ID="RadButtonQuitar" runat="server" Width="100%"  Text="QUITAR" Skin="Bootstrap" OnClick="RadButtonQuitar_Click"></telerik:RadButton>
+
+                                        <hr />
+
+
+
+
+
+
+
+                                    </fieldset>
+                                </telerik:RadAjaxPanel>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
+                    </telerik:RadSlidingPane>
+
+
+
                     <telerik:RadSlidingPane ID="Radslidingpane2" Title="Correspondencia" runat="server" Width="500px"
                         MinWidth="130" IconUrl="~/IMG/excel.png" Visible="true">
                         <telerik:RadFormDecorator RenderMode="Lightweight" ID="RadFormDecorator1" runat="server" DecoratedControls="Fieldset" EnableRoundedCorners="false" />
-
                         <asp:UpdatePanel ID="UpdatePanel9" runat="server">
                             <ContentTemplate>
 
@@ -274,7 +437,7 @@
                                     <legend>
                                         <asp:RadioButtonList Font-Bold="true" ID="RadioButtonListTipoCorrespondencia" runat="server" RepeatDirection="Horizontal">
                                             <asp:ListItem Value="3">CORRESPONDENCIA</asp:ListItem>
-                                            <asp:ListItem Value="5">CERTIFICACIÓN</asp:ListItem>
+                                            
                                         </asp:RadioButtonList>
 
                                     </legend>
@@ -417,15 +580,15 @@
                                 <table style="width: 100%">
                                     <tr>
                                         <td>
-                                            <telerik:RadSlider Visible="true" RenderMode="Lightweight" ID="RadSlider2" runat="server" LargeChange="1" SmallChange="1" IsSelectionRangeEnabled="true"
+                                           <%-- <telerik:RadSlider Visible="true" RenderMode="Lightweight" ID="RadSlider2" runat="server" LargeChange="1" SmallChange="1" IsSelectionRangeEnabled="true"
                                                 Value="0" MinimumValue="1" MaximumValue="12" Width="450PX" Height="60" ItemType="Tick" AutoPostBack="true" SelectionStart="1" SelectionEnd="2"
                                                 TrackPosition="TopLeft" OnValueChanged="RadSlider2_ValueChanged" Skin="Bootstrap">
-                                            </telerik:RadSlider>
+                                            </telerik:RadSlider>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="right">
-                                            <telerik:RadComboBox ID="RadComboBoxGrafic" Width="60px" AutoPostBack="true" runat="server" OnSelectedIndexChanged="RadComboBoxGrafic_SelectedIndexChanged" Visible="true" Skin="Bootstrap"></telerik:RadComboBox>
+<%--                                            <telerik:RadComboBox ID="RadComboBoxGrafic" Width="60px" AutoPostBack="true" runat="server" OnSelectedIndexChanged="RadComboBoxGrafic_SelectedIndexChanged" Visible="true" Skin="Bootstrap"></telerik:RadComboBox>--%>
                                         </td>
                                     </tr>
                                     <tr>
@@ -463,7 +626,7 @@
                                     <tr>
                                         <td>
 
-                                            <telerik:RadGrid OnSelectedCellChanged="RadGridGRafic_SelectedCellChanged1" ID="RadGridGRafic" runat="server" AutoGenerateColumns="False" OnNeedDataSource="RadGrid1_NeedDataSourGrafic"
+                                      <%--      <telerik:RadGrid OnSelectedCellChanged="RadGridGRafic_SelectedCellChanged1" ID="RadGridGRafic" runat="server" AutoGenerateColumns="False" OnNeedDataSource="RadGrid1_NeedDataSourGrafic"
                                                 AllowMultiRowSelection="True" AllowPaging="True" ShowStatusBar="True"
                                                 Style="margin-bottom: 0px" Width="350px"
                                                 Culture="es-ES" AllowSorting="True" Skin="Bootstrap">
@@ -517,10 +680,7 @@
 
 
 
-                                                        <%--                                                     <telerik:GridBoundColumn HeaderText="pag" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
-                                                        UniqueName="pag" DataField="pag" SortExpression="pag">
-                                                        <HeaderStyle Width="20%" />
-                                                    </telerik:GridBoundColumn>--%>
+                                                
 
                                                         <telerik:GridBoundColumn HeaderText="Nombre" AutoPostBackOnFilter="true" CurrentFilterFunction="Contains"
                                                             UniqueName="NombreUser" DataField="NombreUser" SortExpression="NombreUser">
@@ -553,7 +713,7 @@
 
                                                     </Columns>
                                                 </MasterTableView>
-                                            </telerik:RadGrid>
+                                            </telerik:RadGrid>--%>
 
                                         </td>
                                     </tr>
@@ -562,21 +722,6 @@
                             </ContentTemplate>
 
                         </asp:UpdatePanel>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     </telerik:RadSlidingPane>
                 </telerik:RadSlidingZone>
             </telerik:RadPane>
@@ -584,21 +729,10 @@
             </telerik:RadSplitBar>
             <telerik:RadPane ID="MiddlePane1" runat="server" Scrolling="None">
 
-
-
-
-
                 <telerik:RadSplitter RenderMode="Lightweight" ID="Radsplitter2" runat="server" Orientation="Horizontal" VisibleDuringInit="false">
                     <telerik:RadPane ID="Radpane1" runat="server" Height="22px" Scrolling="none" Visible="true">
                         <telerik:RadSlidingZone ClickToOpen="true" ID="Radslidingzone2" Visible="true" runat="server" Height="22px" SlideDirection="Bottom">
                             <telerik:RadSlidingPane ID="Radslidingpane4" Visible="false" Title="Alertas Correspondencia" runat="server" Height="150px">
-
-
-
-
-
-
-
                                 <%--                                <asp:UpdatePanel ID="UpdatePanel11" runat="server">
                                     <ContentTemplate>
 
@@ -699,14 +833,6 @@
                                                                 </SelectParameters>
                                                             </asp:SqlDataSource>
                                                             <%--                                                        <telerik:RadComboBox ID="RadComboBox1" runat="server" OnSelectedIndexChanged="RadComboBox1_SelectedIndexChangedCambiarDestinatario" ></telerik:RadComboBox>--%>
-
-
-
-
-
-
-
-
                                 <%-- </ItemTemplate>
                                                     </telerik:GridTemplateColumn>
                                                 </Columns>
@@ -724,7 +850,7 @@
                         <asp:UpdatePanel ID="UpdatePanel6" runat="server">
                             <ContentTemplate>
                                 <telerik:RadAjaxPanel ID="RadAjaxPanel1" LoadingPanelID="RadAjaxLoadingPanel3" EnableAJAX="true" runat="server">
-                                    <table>
+                                    <table style="width: max-content">
                                         <tr>
                                             <td class="auto-style1">
                                                 <asp:Label ID="Label16" runat="server" Text="Buscar:" Font-Bold="true" Style="font-family: Arial"></asp:Label>
@@ -752,13 +878,13 @@
                                                 <%--                                            <asp:Button ID="Button2" runat="server" Text="Actualizar" OnClick="Button2_Click" /></td>--%>
                                         </tr>
                                         <tr>
-                                            <td colspan="4">
+                                            <td colspan="5" style="background-image: url('img/naranja.png'); text-align: left; font-size: larger; font-family: 'Century Gothic'; margin-top: 0; height: 30px; box-shadow: 0 8px 6px -6px black;">
 
                                                 <asp:RadioButtonList ID="RadioButtonListBuscarEn" runat="server" Font-Bold="true" Font-Names="Arial" RepeatDirection="Horizontal">
                                                     <%--<asp:ListItem   Text="EXPEDIENTES" Value="1" Selected="True"  >
                                                     
                                                     </asp:ListItem>--%>
-                                                    <asp:ListItem Text="MINUTARIO Y CERTIFICACIONES" Value="2" Selected="True">
+                                                    <asp:ListItem Text="CORRESPONDENCIA" Value="2" Selected="True">
                                                     
                                                     </asp:ListItem>
                                                 </asp:RadioButtonList>

@@ -180,22 +180,6 @@ namespace SubSonicDB
 		#endregion
 		
 		
-		#region PrimaryKey Methods		
-		
-        protected override void SetPrimaryKey(object oValue)
-        {
-            base.SetPrimaryKey(oValue);
-            
-            SetPKValues();
-        }
-        
-		
-		public SubSonicDB.CatUsuarioCollection CatUsuarios()
-		{
-			return new SubSonicDB.CatUsuarioCollection().Where(CatUsuario.Columns.IDTipoPlaza, Id).Load();
-		}
-		#endregion
-		
 			
 		
 		//no foreign key tables defined (0)
@@ -275,18 +259,10 @@ namespace SubSonicDB
 		
 		#region Update PK Collections
 		
-        public void SetPKValues()
-        {
-}
         #endregion
     
         #region Deep Save
 		
-        public void DeepSave()
-        {
-            Save();
-            
-}
         #endregion
 	}
 }

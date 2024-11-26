@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Telerik.Web.UI;
+
 
 namespace WebApplication2
 {
@@ -15,7 +13,7 @@ namespace WebApplication2
         {
             SubSonicDB.Expediente ss = SubSonicDB.Expediente.FetchByID(ssSesiones.VerExpediente);
 
-            Label2.Text = "<br><br><strong>" + "Expediente Técnico:  " + ss.Descripcion + "</strong><br>";
+            Label2.Text = "<br><br><strong>" + "FOLIO:  " + ss.Descripcion + "</strong><br>";
         }
         protected void RadGrid1_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
         {
@@ -30,7 +28,6 @@ namespace WebApplication2
                 ssAdd.AgregarElemento(ssTio.Id.ToString(), ssTio.Descripcion, "X");
                 ssClassReporte.Add(ssAdd);
             }
-
             SubSonicDB.ViewReporteInventarioExpedienteCollection ssReporteExpe = new SubSonicDB.ViewReporteInventarioExpedienteCollection()
              .Where(SubSonicDB.ViewReporteInventarioExpediente.Columns.IDExpediente, ssSesiones.VerExpediente)
              .Load();
@@ -43,13 +40,7 @@ namespace WebApplication2
                 }
             }
             RadGrid1.DataSource = ssClassReporte;
-
         }
-
-
-
-
-
         protected void RadButton1_Click(object sender, EventArgs e)
         {
             RadGrid1.Rebind();

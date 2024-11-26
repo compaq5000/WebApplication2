@@ -79,7 +79,7 @@ namespace SubSonicDB
 	    /// Inserts a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Nombre,string Nom,string Paterno,string Materno,bool? Status,string Passw,string Usuario,int? IDTipoUser,string Imagen,string Extension,int? Skin,string Correo,string Noempleado,decimal? Sueldo,string Rfc,DateTime? FechaIngreso,string Calle,string Colonila,string NoCalle,string Celular,string TelCasa,string NombreContacto,string TelContacto,int? IDTipoPlaza)
+	    public void Insert(string Nombre,string Nom,string Paterno,string Materno,bool? Status,string Passw,string Usuario,int? IDTipoUser,string Imagen,string Extension,int? Skin,string Correo,string Noempleado,decimal? Sueldo,string Rfc,DateTime? FechaIngreso,string Calle,string Colonila,string NoCalle,string Celular,string TelCasa,string NombreContacto,string TelContacto,int? IDTipoPlaza,int? IDMunicipio)
 	    {
 		    CatUsuario item = new CatUsuario();
 		    
@@ -131,6 +131,8 @@ namespace SubSonicDB
             
             item.IDTipoPlaza = IDTipoPlaza;
             
+            item.IDMunicipio = IDMunicipio;
+            
 	    
 		    item.Save(UserName);
 	    }
@@ -139,7 +141,7 @@ namespace SubSonicDB
 	    /// Updates a record, can be used with the Object Data Source
 	    /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Nombre,string Nom,string Paterno,string Materno,bool? Status,string Passw,string Usuario,int? IDTipoUser,string Imagen,string Extension,int? Skin,string Correo,string Noempleado,decimal? Sueldo,string Rfc,DateTime? FechaIngreso,string Calle,string Colonila,string NoCalle,string Celular,string TelCasa,string NombreContacto,string TelContacto,int? IDTipoPlaza)
+	    public void Update(int Id,string Nombre,string Nom,string Paterno,string Materno,bool? Status,string Passw,string Usuario,int? IDTipoUser,string Imagen,string Extension,int? Skin,string Correo,string Noempleado,decimal? Sueldo,string Rfc,DateTime? FechaIngreso,string Calle,string Colonila,string NoCalle,string Celular,string TelCasa,string NombreContacto,string TelContacto,int? IDTipoPlaza,int? IDMunicipio)
 	    {
 		    CatUsuario item = new CatUsuario();
 	        item.MarkOld();
@@ -194,6 +196,8 @@ namespace SubSonicDB
 			item.TelContacto = TelContacto;
 				
 			item.IDTipoPlaza = IDTipoPlaza;
+				
+			item.IDMunicipio = IDMunicipio;
 				
 	        item.Save(UserName);
 	    }

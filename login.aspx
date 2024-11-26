@@ -39,7 +39,7 @@ function OnKeyPress(sender, eventArgs)
                             <td style="width: 33%">
                                 <asp:Image ID="Image1" runat="server" ImageUrl="~/IMG/login/escudo.png" /></td>
                             <td style="width: 33%; text-align: center; font-family:'Century Gothic'; font-size:large">
-                                <label runat="server" id="LABELTEXTO"  > SECRETARIADO EJECUTIVO DEL SISTEMA ESTATAL DE SEGURIDAD PÚBLICA</label></td>
+                                <label runat="server" id="LABELTEXTO"  > SISTEMA ESTATAL PARA SEGUIMIENTO Y EJECUCIÓN DE PROGRAMAS DE SEGURIDAD PÚBLICA FORTAMUN</label></td>
                             <td style="width: 33%; text-align: right">
                                 &nbsp;</td>
                         </tr>

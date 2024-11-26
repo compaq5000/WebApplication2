@@ -21,6 +21,10 @@ namespace SubSonicDB
         
 		public static string ArchivoCorrespondencium = @"ArchivoCorrespondencia";
         
+		public static string CatMunicipioFortamun = @"Cat_Municipio_fortamun";
+        
+		public static string CatTipoContactoFortamun = @"Cat_TipoContacto_fortamun";
+        
 		public static string CatAbogadoActor = @"CatAbogadoActor";
         
 		public static string CatAcceso = @"CatAcceso";
@@ -35,41 +39,29 @@ namespace SubSonicDB
         
 		public static string CatAutocaso = @"CatAutocaso";
         
-		public static string CatCapituloInventario = @"CatCapitulo_Inventarios";
-        
 		public static string CatCarpetum = @"CatCarpeta";
         
 		public static string CatCategoriaRh = @"CatCategoria_RH";
         
-		public static string CatConceptoInventario = @"CatConcepto_Inventarios";
-        
 		public static string CatDemandado = @"CatDemandado";
-        
-		public static string CatDepeEjecutoriaInventario = @"CatDepeEjecutoria_Inventarios";
         
 		public static string CatDestinoCorrespondencium = @"CatDestinoCorrespondencia";
         
-		public static string CatEjeInvetario = @"CatEje_invetario";
-        
-		public static string CatEjercicioInventario = @"CatEjercicio_Inventarios";
-        
 		public static string CatEstatusCorrespondencium = @"CatEstatusCorrespondencia";
         
-		public static string CatExpedienteTecnicoInventario = @"CatExpedienteTecnico_Inventarios";
+		public static string CatJefeAdscripcionRH = @"CatJefeAdscripcionRH";
         
 		public static string CatOrigenCorrespondencium = @"CatOrigenCorrespondencia";
         
-		public static string CatPartidaEspecificaInventario = @"CatPartidaEspecifica_Inventarios";
-        
-		public static string CatPartidaGenericaInvenatario = @"CatPartidaGenerica_Invenatarios";
-        
 		public static string CatPeriodoVAcaionesRh = @"CatPeriodoVAcaiones_RH";
         
-		public static string CatProgramaPrioridadNacionalInventario = @"CatProgramaPrioridadNacional_inventarios";
+		public static string CatRHJustificar = @"CatRHJustificar";
+        
+		public static string CatRHTipoInsidencium = @"CatRHTipoInsidencia";
         
 		public static string CatStatusMinutum = @"CatStatusMinuta";
         
-		public static string CatSubprogramaInvenatario = @"CatSubprograma_Invenatarios";
+		public static string CatStatusTitular = @"CatStatusTitular";
         
 		public static string CatTipoArchivoInventario = @"CatTipoArchivo__Inventarios";
         
@@ -82,8 +74,6 @@ namespace SubSonicDB
 		public static string CatTipoPermisoRH = @"CatTipoPermisoRH";
         
 		public static string CatTipoPlazaRh = @"CatTipoPlaza_RH";
-        
-		public static string CatTipoRecursoInventario = @"CatTipoRecurso_Inventarios";
         
 		public static string CatTipoUser = @"CatTipoUser";
         
@@ -100,6 +90,8 @@ namespace SubSonicDB
 		public static string HistirlaExpediente = @"HistirlaExpediente";
         
 		public static string Historialnavegacion = @"Historialnavegacion";
+        
+		public static string Imprimirinsidencia = @"imprimirinsidencias";
         
 		public static string RelAcumulado = @"RelAcumulado";
         
@@ -119,6 +111,10 @@ namespace SubSonicDB
         
 		public static string RelTipoPermisoRH = @"RelTipoPermisoRH";
         
+		public static string SoporteCatServicio = @"Soporte_Cat_Servicio";
+        
+		public static string SoporteTranServicio = @"Soporte_Tran_servicio";
+        
 		public static string TablaExiste = @"TablaExiste";
         
 		public static string TableBitacora = @"TableBitacora";
@@ -137,9 +133,17 @@ namespace SubSonicDB
         
 		public static string TemTipojuicio = @"TemTipojuicio";
         
+		public static string TitularesRH = @"TitularesRH";
+        
 		public static string TranPermiso = @"TRAN__PERMISOS";
         
+		public static string TranContactoFortamun = @"Tran_Contacto_fortamun";
+        
+		public static string TranInsidenciasRH = @"TranInsidenciasRH";
+        
 		public static string TranMinutum = @"TranMinuta";
+        
+		public static string TranTitularesRH = @"TranTitularesRH";
         
 	}
 	#endregion
@@ -152,6 +156,14 @@ namespace SubSonicDB
         
 		public static TableSchema.Table ArchivoCorrespondencium{
             get { return DataService.GetSchema("ArchivoCorrespondencia","Default"); }
+		}
+        
+		public static TableSchema.Table CatMunicipioFortamun{
+            get { return DataService.GetSchema("Cat_Municipio_fortamun","Default"); }
+		}
+        
+		public static TableSchema.Table CatTipoContactoFortamun{
+            get { return DataService.GetSchema("Cat_TipoContacto_fortamun","Default"); }
 		}
         
 		public static TableSchema.Table CatAbogadoActor{
@@ -182,10 +194,6 @@ namespace SubSonicDB
             get { return DataService.GetSchema("CatAutocaso","Default"); }
 		}
         
-		public static TableSchema.Table CatCapituloInventario{
-            get { return DataService.GetSchema("CatCapitulo_Inventarios","Default"); }
-		}
-        
 		public static TableSchema.Table CatCarpetum{
             get { return DataService.GetSchema("CatCarpeta","Default"); }
 		}
@@ -194,64 +202,44 @@ namespace SubSonicDB
             get { return DataService.GetSchema("CatCategoria_RH","Default"); }
 		}
         
-		public static TableSchema.Table CatConceptoInventario{
-            get { return DataService.GetSchema("CatConcepto_Inventarios","Default"); }
-		}
-        
 		public static TableSchema.Table CatDemandado{
             get { return DataService.GetSchema("CatDemandado","Default"); }
-		}
-        
-		public static TableSchema.Table CatDepeEjecutoriaInventario{
-            get { return DataService.GetSchema("CatDepeEjecutoria_Inventarios","Default"); }
 		}
         
 		public static TableSchema.Table CatDestinoCorrespondencium{
             get { return DataService.GetSchema("CatDestinoCorrespondencia","Default"); }
 		}
         
-		public static TableSchema.Table CatEjeInvetario{
-            get { return DataService.GetSchema("CatEje_invetario","Default"); }
-		}
-        
-		public static TableSchema.Table CatEjercicioInventario{
-            get { return DataService.GetSchema("CatEjercicio_Inventarios","Default"); }
-		}
-        
 		public static TableSchema.Table CatEstatusCorrespondencium{
             get { return DataService.GetSchema("CatEstatusCorrespondencia","Default"); }
 		}
         
-		public static TableSchema.Table CatExpedienteTecnicoInventario{
-            get { return DataService.GetSchema("CatExpedienteTecnico_Inventarios","Default"); }
+		public static TableSchema.Table CatJefeAdscripcionRH{
+            get { return DataService.GetSchema("CatJefeAdscripcionRH","Default"); }
 		}
         
 		public static TableSchema.Table CatOrigenCorrespondencium{
             get { return DataService.GetSchema("CatOrigenCorrespondencia","Default"); }
 		}
         
-		public static TableSchema.Table CatPartidaEspecificaInventario{
-            get { return DataService.GetSchema("CatPartidaEspecifica_Inventarios","Default"); }
-		}
-        
-		public static TableSchema.Table CatPartidaGenericaInvenatario{
-            get { return DataService.GetSchema("CatPartidaGenerica_Invenatarios","Default"); }
-		}
-        
 		public static TableSchema.Table CatPeriodoVAcaionesRh{
             get { return DataService.GetSchema("CatPeriodoVAcaiones_RH","Default"); }
 		}
         
-		public static TableSchema.Table CatProgramaPrioridadNacionalInventario{
-            get { return DataService.GetSchema("CatProgramaPrioridadNacional_inventarios","Default"); }
+		public static TableSchema.Table CatRHJustificar{
+            get { return DataService.GetSchema("CatRHJustificar","Default"); }
+		}
+        
+		public static TableSchema.Table CatRHTipoInsidencium{
+            get { return DataService.GetSchema("CatRHTipoInsidencia","Default"); }
 		}
         
 		public static TableSchema.Table CatStatusMinutum{
             get { return DataService.GetSchema("CatStatusMinuta","Default"); }
 		}
         
-		public static TableSchema.Table CatSubprogramaInvenatario{
-            get { return DataService.GetSchema("CatSubprograma_Invenatarios","Default"); }
+		public static TableSchema.Table CatStatusTitular{
+            get { return DataService.GetSchema("CatStatusTitular","Default"); }
 		}
         
 		public static TableSchema.Table CatTipoArchivoInventario{
@@ -276,10 +264,6 @@ namespace SubSonicDB
         
 		public static TableSchema.Table CatTipoPlazaRh{
             get { return DataService.GetSchema("CatTipoPlaza_RH","Default"); }
-		}
-        
-		public static TableSchema.Table CatTipoRecursoInventario{
-            get { return DataService.GetSchema("CatTipoRecurso_Inventarios","Default"); }
 		}
         
 		public static TableSchema.Table CatTipoUser{
@@ -312,6 +296,10 @@ namespace SubSonicDB
         
 		public static TableSchema.Table Historialnavegacion{
             get { return DataService.GetSchema("Historialnavegacion","Default"); }
+		}
+        
+		public static TableSchema.Table Imprimirinsidencia{
+            get { return DataService.GetSchema("imprimirinsidencias","Default"); }
 		}
         
 		public static TableSchema.Table RelAcumulado{
@@ -350,6 +338,14 @@ namespace SubSonicDB
             get { return DataService.GetSchema("RelTipoPermisoRH","Default"); }
 		}
         
+		public static TableSchema.Table SoporteCatServicio{
+            get { return DataService.GetSchema("Soporte_Cat_Servicio","Default"); }
+		}
+        
+		public static TableSchema.Table SoporteTranServicio{
+            get { return DataService.GetSchema("Soporte_Tran_servicio","Default"); }
+		}
+        
 		public static TableSchema.Table TablaExiste{
             get { return DataService.GetSchema("TablaExiste","Default"); }
 		}
@@ -386,12 +382,28 @@ namespace SubSonicDB
             get { return DataService.GetSchema("TemTipojuicio","Default"); }
 		}
         
+		public static TableSchema.Table TitularesRH{
+            get { return DataService.GetSchema("TitularesRH","Default"); }
+		}
+        
 		public static TableSchema.Table TranPermiso{
             get { return DataService.GetSchema("TRAN__PERMISOS","Default"); }
 		}
         
+		public static TableSchema.Table TranContactoFortamun{
+            get { return DataService.GetSchema("Tran_Contacto_fortamun","Default"); }
+		}
+        
+		public static TableSchema.Table TranInsidenciasRH{
+            get { return DataService.GetSchema("TranInsidenciasRH","Default"); }
+		}
+        
 		public static TableSchema.Table TranMinutum{
             get { return DataService.GetSchema("TranMinuta","Default"); }
+		}
+        
+		public static TableSchema.Table TranTitularesRH{
+            get { return DataService.GetSchema("TranTitularesRH","Default"); }
 		}
         
 	
@@ -417,15 +429,25 @@ namespace SubSonicDB
         
 		public static string ViewCorrespondenciaAbrir = @"View_CorrespondenciaAbrir";
         
+		public static string ViewEnlacesFortamun = @"View_EnlacesFortamun";
+        
 		public static string ViewExpedienteExiste = @"View_ExpedienteExiste";
         
 		public static string ViewGraficar = @"View_Graficar";
+        
+		public static string ViewHistorialArchivoCorrespondencium = @"View_HistorialArchivoCorrespondencia";
+        
+		public static string ViewImprimirPase = @"View_ImprimirPases";
         
 		public static string ViewReporteInventarioExpediente = @"View_ReporteInventarioExpediente";
         
 		public static string ViewRetornaCorrespondencium = @"View_RetornaCorrespondencia";
         
 		public static string ViewRHDetalleUsuario = @"View_RHDetalleUsuarios";
+        
+		public static string ViewRHJustificante = @"View_RHJustificantes";
+        
+		public static string ViewSoporteTecnico = @"View_SoporteTecnico";
         
 		public static string ViewUserActualiza = @"View_UserActualiza";
         

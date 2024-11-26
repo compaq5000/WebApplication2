@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
@@ -44,18 +39,18 @@ namespace WebApplication2
                     ssSesiones.IDTipoUser = ssUsuarios[0].IDTipoUser.ToString();
                     ssSesiones.IDUsua = ssUsuarios[0].Id.ToString();
                     ssSesiones.ExtensionUsua = ssUsuarios[0].Extension.ToString();
+                    ssSesiones.IDMunicipio = ssUsuarios[0].IDMunicipio.ToString();
                     ssSesiones.Bitacora(Convert.ToInt32(ssSesiones.Usua), 1, "ACCEDE AL SISTEMA");
                     Response.Redirect("~/final.aspx");
                 }
             }
             else
             {
-                ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
+             //   ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
                 RadTextBoxUsuario.Focus();
                 Response.Redirect("~/login.aspx");
             }
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             SubSonicDB.CatUsuarioCollection ssUsuarios = new SubSonicDB.CatUsuarioCollection()
@@ -77,7 +72,7 @@ namespace WebApplication2
             }
             else
             {
-                ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
+               // ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
                 RadTextBoxUsuario.Focus();
             }
         }

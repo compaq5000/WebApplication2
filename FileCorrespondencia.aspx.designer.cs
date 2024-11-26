@@ -159,15 +159,6 @@ namespace WebApplication2
         protected global::Telerik.Web.UI.RadButton Button2;
 
         /// <summary>
-        /// Control CheckBoxRegresaCorresp.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBoxRegresaCorresp;
-
-        /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>

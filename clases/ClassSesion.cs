@@ -648,7 +648,26 @@ public class ClassSesion : System.Web.UI.Page
             Session["Total"] = value;
         }
     }
-
+    public object IDMunicipio
+    {
+        get
+        {
+            try
+            {
+                object o = Session["IDMunicipio"];
+                return o;
+            }
+            catch
+            {
+                System.Web.HttpContext.Current.Response.Redirect("~/LogOff.aspx");
+                return null;
+            }
+        }
+        set
+        {
+            Session["IDMunicipio"] = value;
+        }
+    }
 
 
     public object from
@@ -855,7 +874,7 @@ public class ClassSesion : System.Web.UI.Page
         ssBitacora.Status = true;
         ssBitacora.Ip=this.Ip;
         ssBitacora.Mac = macAddr;
-        ssBitacora.Save();
+     //   ssBitacora.Save();
 
 
      

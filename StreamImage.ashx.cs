@@ -3,9 +3,6 @@ using System;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.IO;
-using System.Drawing.Imaging;
 
 public class StreamImage : IHttpHandler {
 

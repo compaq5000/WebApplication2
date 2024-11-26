@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.IO;
+
 
 
 namespace WebApplication2
 {
-   
+
 
     public partial class UploadCorrespondencia : System.Web.UI.Page
     {
@@ -41,13 +38,14 @@ namespace WebApplication2
                         // string NombreArchivo = Request.QueryString["ID"].Remove(0,1);
                         string NombreArchivo = Request.QueryString["ID"];
                         SubSonicDB.ArchivoCorrespondencium ssArchivo = new SubSonicDB.ArchivoCorrespondencium();
-                        ssArchivo.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower(); ;
+                        ssArchivo.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower(); 
                         ssArchivo.Extencion = fileExtension;
                         ssArchivo.Status = true;
                         ssArchivo.IDExpediente = Convert.ToInt32(NombreArchivo);
                         ssArchivo.IDTipo = 1;
                         ssArchivo.DateX = DateTime.Now;
                         ssArchivo.IDUserCarga = Convert.ToInt32(ssSesiones.IDUsua);
+                        
                         ssArchivo.Save();
 
                         FileUpload1.SaveAs(path + ssArchivo.Id + fileExtension);
@@ -75,25 +73,12 @@ namespace WebApplication2
             }
             else
             {
-
                 //string NombreArchivo = Request.QueryString["ID"];
                 //UltimaActualizacion(Convert.ToInt32(ssSesiones.Usua), Convert.ToInt32(NombreArchivo));
 
-
-
-
             }
-
-
-
-
-
-
-
-
             //crear el archivo de correspondencia
             string path1 = Server.MapPath("~/files/ArchivoDigital/" + Request.QueryString["ID"] + "/");
-
             if (Directory.Exists(path1))
             {
             }
@@ -101,17 +86,6 @@ namespace WebApplication2
             {
                 Directory.CreateDirectory(path1);
             }
-
-
-
-
-
-
-
-
         }
-
-
-
     }
 }
