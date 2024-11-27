@@ -11,7 +11,7 @@ namespace WebApplication2
         {
             RadWindow1.VisibleOnPageLoad = false;
             RadWindow1.Visible = false;
-            if (!IsPostBack) 
+            if (!IsPostBack)
             {
                 RadComboBoxJUSTIFI.Visible = false;
                 RadDatePicker1.SelectedDate = DateTime.Now;
@@ -33,7 +33,7 @@ namespace WebApplication2
             foreach (SubSonicDB.CatRHJustificar ssJustificar in ssJustificantes)
             {
                 RadComboBoxItem add = new RadComboBoxItem(ssJustificar.Descripcion, ssJustificar.Id.ToString());
-             RadComboBoxJUSTIFI.Items.Add(add);
+                RadComboBoxJUSTIFI.Items.Add(add);
             }
         }
         public void FillTipos()
@@ -43,16 +43,16 @@ namespace WebApplication2
                 .Load();
             foreach (SubSonicDB.CatRHTipoInsidencium ssTipo in ssTipos)
             {
-                RadComboBoxItem add = new RadComboBoxItem(ssTipo.Descripcion,ssTipo.Id.ToString());
+                RadComboBoxItem add = new RadComboBoxItem(ssTipo.Descripcion, ssTipo.Id.ToString());
                 RadComboBoxtIPO.Items.Add(add);
             }
-           
+
         }
         protected void RadGrid1_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
         {
             SubSonicDB.ViewRHJustificanteCollection ssJustificantes = new SubSonicDB.ViewRHJustificanteCollection()
-                .Where(SubSonicDB.ViewRHJustificante.Columns.Expr1,ssSesiones.VerExpediente)
-                .Where(SubSonicDB.ViewRHJustificante.Columns.Status,true)
+                .Where(SubSonicDB.ViewRHJustificante.Columns.Expr1, ssSesiones.VerExpediente)
+                .Where(SubSonicDB.ViewRHJustificante.Columns.Status, true)
                 .OrderByDesc(SubSonicDB.ViewRHJustificante.Columns.Id)
                 //.Where(SubSonicDB.ViewRHJustificante.Columns.Idtipoinsid,2)
                 .Load();
@@ -74,7 +74,8 @@ namespace WebApplication2
                         //ENTRA PARA ELIMINAR 
                         SubSonicDB.TranInsidenciasRH ssEditar = SubSonicDB.TranInsidenciasRH.FetchByID(g.Replace('?', ' '));
 
-                        if (ssEditar.Autorizado!=true ) {
+                        if (ssEditar.Autorizado != true)
+                        {
 
                             ssEditar.Status = false;
                             ssEditar.Save();
@@ -90,8 +91,9 @@ namespace WebApplication2
                     }
                     else
                     {
-                        if (words[1]=="2") {
-                          //  string _open = "WebForm3.aspx";
+                        if (words[1] == "2")
+                        {
+                            //  string _open = "WebForm3.aspx";
                             ssSesiones.to = words[0];
 
                             RadWindow1.NavigateUrl = "~/WebForm3.aspx";
@@ -102,11 +104,11 @@ namespace WebApplication2
                             RadWindow1.Width = 1400;
                             RadWindow1.Height = 900;
 
-                          //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
+                            //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
                         }
-                        if (words[1]=="1")
+                        if (words[1] == "1")
                         {
-                         //   string _open = "WebForm2.aspx";
+                            //   string _open = "WebForm2.aspx";
                             ssSesiones.to = words[0];
                             RadWindow1.NavigateUrl = "~/WebForm2.aspx";
                             RadWindow1.VisibleOnPageLoad = true;
@@ -117,7 +119,7 @@ namespace WebApplication2
                             RadWindow1.Height = 900;
 
 
-                          //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
+                            //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
                         }
                     }
                     // Response.Redirect("~/WebForm2.aspx");
@@ -132,7 +134,7 @@ namespace WebApplication2
         protected void RadButton1_Click(object sender, EventArgs e)
         {
             SubSonicDB.TranInsidenciasRH ssNew = new SubSonicDB.TranInsidenciasRH();
-            ssNew.IDUser =Convert.ToInt32( ssSesiones.VerExpediente);
+            ssNew.IDUser = Convert.ToInt32(ssSesiones.VerExpediente);
             ssNew.Fecha = RadDatePicker1.SelectedDate;
             ssNew.Salida = RadTimePicker1.SelectedTime.ToString();
             ssNew.Entrada = RadTimePicker2.SelectedTime.ToString();
@@ -140,7 +142,7 @@ namespace WebApplication2
             //ssNew.IDJustificar = null;
             ssNew.Status = true;
             ssNew.IDJustificar = Convert.ToInt32(RadComboBoxJUSTIFI.SelectedValue);
-            ssNew.Idtipoinsid =Convert.ToInt32(RadComboBoxtIPO.SelectedValue);
+            ssNew.Idtipoinsid = Convert.ToInt32(RadComboBoxtIPO.SelectedValue);
             ssNew.Save();
             RadGrid2.Rebind();
             TextBoxAsunto.Text = "";
@@ -148,7 +150,8 @@ namespace WebApplication2
         protected void RadComboBoxtIPO_SelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
 
-            if (RadComboBoxtIPO.SelectedValue=="2") {
+            if (RadComboBoxtIPO.SelectedValue == "2")
+            {
 
                 //PASE DE SALIDA
                 Label8.Visible = false;

@@ -26,14 +26,14 @@ namespace WebApplication2
         {
             SubSonicDB.CatUsuarioCollection ssUsuarios = new SubSonicDB.CatUsuarioCollection()
                      .Where(SubSonicDB.CatUsuario.Columns.Usuario, RadTextBoxUsuario.Text)
-                     .Where(SubSonicDB.CatUsuario.Columns.Status,true)
+                     .Where(SubSonicDB.CatUsuario.Columns.Status, true)
                      .Load();
             ssSesiones.Ip = Request.UserHostAddress;
             if (ssUsuarios.Count > 0)
             {
                 if (ssUsuarios[0].Passw == RadTextBoxpassw.Text)
                 {
-                  
+
                     ssSesiones.Usua = ssUsuarios[0].Id.ToString();
                     ssSesiones.TipoUser = ssUsuarios[0].IDTipoUser.ToString();
                     ssSesiones.IDTipoUser = ssUsuarios[0].IDTipoUser.ToString();
@@ -46,7 +46,7 @@ namespace WebApplication2
             }
             else
             {
-             //   ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
+                //   ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
                 RadTextBoxUsuario.Focus();
                 Response.Redirect("~/login.aspx");
             }
@@ -72,7 +72,7 @@ namespace WebApplication2
             }
             else
             {
-               // ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
+                // ssSesiones.Bitacora(1017, 22, "ACCESO NEGADO");
                 RadTextBoxUsuario.Focus();
             }
         }

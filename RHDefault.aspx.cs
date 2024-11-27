@@ -17,7 +17,7 @@ namespace WebApplication2
             RadWindow1.VisibleOnPageLoad = false;
             RadWindow1.Visible = false;
 
-            if(ssSesiones.IDTipoUser.ToString()=="3" )
+            if (ssSesiones.IDTipoUser.ToString() == "3")
             {
                 RadSlidingPane1.Visible = true;
             }
@@ -122,12 +122,12 @@ namespace WebApplication2
                         .Where(SubSonicDB.ViewRHDetalleUsuario.Columns.Busqueda, SubSonic.Comparison.Like, "%" + TextBoxBusca.Text + "%")
                         .Load();
                     RadGrid2.DataSource = ssUsuarios;
-                } 
-                else if (ssSesiones.IDTipoUser.ToString()=="4")
+                }
+                else if (ssSesiones.IDTipoUser.ToString() == "4")
                 {
                     SubSonicDB.ViewRHDetalleUsuarioCollection ssUsuarios = new SubSonicDB.ViewRHDetalleUsuarioCollection()
                             .Where(SubSonicDB.ViewRHDetalleUsuario.Columns.Busqueda, SubSonic.Comparison.Like, "%" + TextBoxBusca.Text + "%")
-                            .Where(SubSonicDB.ViewRHDetalleUsuario.Columns.Expr2,ssSesiones.IDAdcripcion)
+                            .Where(SubSonicDB.ViewRHDetalleUsuario.Columns.Expr2, ssSesiones.IDAdcripcion)
                             .Load();
                     RadGrid2.DataSource = ssUsuarios;
 
@@ -410,15 +410,16 @@ namespace WebApplication2
                    .Load();
                 RadGrid1.DataSource = ssJustificantes;
             }
-            if(Convert.ToInt32(ssSesiones.IDTipoUser) == 4) {
+            if (Convert.ToInt32(ssSesiones.IDTipoUser) == 4)
+            {
                 //en caso de que seas jefe de un departamento
                 SubSonicDB.ViewRHJustificanteCollection ssJustificantes = new SubSonicDB.ViewRHJustificanteCollection()
-                  .Where(SubSonicDB.ViewRHJustificante.Columns.IDacrip,ssSesiones.IDAdcripcion)
+                  .Where(SubSonicDB.ViewRHJustificante.Columns.IDacrip, ssSesiones.IDAdcripcion)
                   .Where(SubSonicDB.ViewRHJustificante.Columns.Status, true)
                   .OrderByDesc(SubSonicDB.ViewRHJustificante.Columns.Id)
                   .Load();
                 RadGrid1.DataSource = ssJustificantes;
-            }         
+            }
         }
         protected void RadGrid22_ItemCommand(object sender, GridCommandEventArgs e)
         {
@@ -471,7 +472,7 @@ namespace WebApplication2
                             }
                             if (words[1] == "1")
                             {
-                               // string _open = "WebForm2.aspx";
+                                // string _open = "WebForm2.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm2.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;

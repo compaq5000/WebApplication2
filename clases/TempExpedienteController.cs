@@ -1,16 +1,6 @@
-using System; 
-using System.Text; 
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Collections;
-using System.Collections.Generic;
+using SubSonic;
+using System;
 using System.ComponentModel;
-using System.Configuration; 
-using System.Xml; 
-using System.Xml.Serialization;
-using SubSonic; 
-using SubSonic.Utilities;
 namespace SubSonicDB
 {
     /// <summary>
@@ -26,18 +16,18 @@ namespace SubSonicDB
         {
             get
             {
-				if (userName.Length == 0) 
-				{
-    				if (System.Web.HttpContext.Current != null)
-    				{
-						userName=System.Web.HttpContext.Current.User.Identity.Name;
-					}
-					else
-					{
-						userName=System.Threading.Thread.CurrentPrincipal.Identity.Name;
-					}
-				}
-				return userName;
+                if (userName.Length == 0)
+                {
+                    if (System.Web.HttpContext.Current != null)
+                    {
+                        userName = System.Web.HttpContext.Current.User.Identity.Name;
+                    }
+                    else
+                    {
+                        userName = System.Threading.Thread.CurrentPrincipal.Identity.Name;
+                    }
+                }
+                return userName;
             }
         }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
@@ -54,12 +44,12 @@ namespace SubSonicDB
             TempExpedienteCollection coll = new TempExpedienteCollection().Where("ID", Id).Load();
             return coll;
         }
-		
-		[DataObjectMethod(DataObjectMethodType.Select, false)]
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public TempExpedienteCollection FetchByQuery(Query qry)
         {
             TempExpedienteCollection coll = new TempExpedienteCollection();
-            coll.LoadAndCloseReader(qry.ExecuteReader()); 
+            coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
@@ -72,114 +62,114 @@ namespace SubSonicDB
         {
             return (TempExpediente.Destroy(Id) == 1);
         }
-        
-        
-    	
-	    /// <summary>
-	    /// Inserts a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+
+        /// <summary>
+        /// Inserts a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Idcarpeta,string Ruta,string NombreExpe,string NoEXPEDIENTE,int? Idactor,string Nombredelactor,int? Idabogado,string Abogadodelactor,int? Iddemandado,string Demandado,int? Idautoridadconocecaso,string Autoridadconocecaso,string Causamotivajuicio,int? Idtipojuicio,string Tipojuicio,string Etapa,string Dependencia,string Fecha,string Observaciones,string Monto)
-	    {
-		    TempExpediente item = new TempExpediente();
-		    
+        public void Insert(string Idcarpeta, string Ruta, string NombreExpe, string NoEXPEDIENTE, int? Idactor, string Nombredelactor, int? Idabogado, string Abogadodelactor, int? Iddemandado, string Demandado, int? Idautoridadconocecaso, string Autoridadconocecaso, string Causamotivajuicio, int? Idtipojuicio, string Tipojuicio, string Etapa, string Dependencia, string Fecha, string Observaciones, string Monto)
+        {
+            TempExpediente item = new TempExpediente();
+
             item.Idcarpeta = Idcarpeta;
-            
+
             item.Ruta = Ruta;
-            
+
             item.NombreExpe = NombreExpe;
-            
+
             item.NoEXPEDIENTE = NoEXPEDIENTE;
-            
+
             item.Idactor = Idactor;
-            
+
             item.Nombredelactor = Nombredelactor;
-            
+
             item.Idabogado = Idabogado;
-            
+
             item.Abogadodelactor = Abogadodelactor;
-            
+
             item.Iddemandado = Iddemandado;
-            
+
             item.Demandado = Demandado;
-            
+
             item.Idautoridadconocecaso = Idautoridadconocecaso;
-            
+
             item.Autoridadconocecaso = Autoridadconocecaso;
-            
+
             item.Causamotivajuicio = Causamotivajuicio;
-            
+
             item.Idtipojuicio = Idtipojuicio;
-            
+
             item.Tipojuicio = Tipojuicio;
-            
+
             item.Etapa = Etapa;
-            
+
             item.Dependencia = Dependencia;
-            
+
             item.Fecha = Fecha;
-            
+
             item.Observaciones = Observaciones;
-            
+
             item.Monto = Monto;
-            
-	    
-		    item.Save(UserName);
-	    }
-    	
-	    /// <summary>
-	    /// Updates a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+            item.Save(UserName);
+        }
+
+        /// <summary>
+        /// Updates a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(string Idcarpeta,string Ruta,string NombreExpe,string NoEXPEDIENTE,int? Idactor,string Nombredelactor,int? Idabogado,string Abogadodelactor,int? Iddemandado,string Demandado,int? Idautoridadconocecaso,string Autoridadconocecaso,string Causamotivajuicio,int? Idtipojuicio,string Tipojuicio,string Etapa,string Dependencia,string Fecha,string Observaciones,string Monto,int Id)
-	    {
-		    TempExpediente item = new TempExpediente();
-	        item.MarkOld();
-	        item.IsLoaded = true;
-		    
-			item.Idcarpeta = Idcarpeta;
-				
-			item.Ruta = Ruta;
-				
-			item.NombreExpe = NombreExpe;
-				
-			item.NoEXPEDIENTE = NoEXPEDIENTE;
-				
-			item.Idactor = Idactor;
-				
-			item.Nombredelactor = Nombredelactor;
-				
-			item.Idabogado = Idabogado;
-				
-			item.Abogadodelactor = Abogadodelactor;
-				
-			item.Iddemandado = Iddemandado;
-				
-			item.Demandado = Demandado;
-				
-			item.Idautoridadconocecaso = Idautoridadconocecaso;
-				
-			item.Autoridadconocecaso = Autoridadconocecaso;
-				
-			item.Causamotivajuicio = Causamotivajuicio;
-				
-			item.Idtipojuicio = Idtipojuicio;
-				
-			item.Tipojuicio = Tipojuicio;
-				
-			item.Etapa = Etapa;
-				
-			item.Dependencia = Dependencia;
-				
-			item.Fecha = Fecha;
-				
-			item.Observaciones = Observaciones;
-				
-			item.Monto = Monto;
-				
-			item.Id = Id;
-				
-	        item.Save(UserName);
-	    }
+        public void Update(string Idcarpeta, string Ruta, string NombreExpe, string NoEXPEDIENTE, int? Idactor, string Nombredelactor, int? Idabogado, string Abogadodelactor, int? Iddemandado, string Demandado, int? Idautoridadconocecaso, string Autoridadconocecaso, string Causamotivajuicio, int? Idtipojuicio, string Tipojuicio, string Etapa, string Dependencia, string Fecha, string Observaciones, string Monto, int Id)
+        {
+            TempExpediente item = new TempExpediente();
+            item.MarkOld();
+            item.IsLoaded = true;
+
+            item.Idcarpeta = Idcarpeta;
+
+            item.Ruta = Ruta;
+
+            item.NombreExpe = NombreExpe;
+
+            item.NoEXPEDIENTE = NoEXPEDIENTE;
+
+            item.Idactor = Idactor;
+
+            item.Nombredelactor = Nombredelactor;
+
+            item.Idabogado = Idabogado;
+
+            item.Abogadodelactor = Abogadodelactor;
+
+            item.Iddemandado = Iddemandado;
+
+            item.Demandado = Demandado;
+
+            item.Idautoridadconocecaso = Idautoridadconocecaso;
+
+            item.Autoridadconocecaso = Autoridadconocecaso;
+
+            item.Causamotivajuicio = Causamotivajuicio;
+
+            item.Idtipojuicio = Idtipojuicio;
+
+            item.Tipojuicio = Tipojuicio;
+
+            item.Etapa = Etapa;
+
+            item.Dependencia = Dependencia;
+
+            item.Fecha = Fecha;
+
+            item.Observaciones = Observaciones;
+
+            item.Monto = Monto;
+
+            item.Id = Id;
+
+            item.Save(UserName);
+        }
     }
 }

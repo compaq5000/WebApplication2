@@ -1,10 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using Telerik.Web.UI;
-using System.Threading;
-using System.IO;
 namespace WebApplication2
 {
     public partial class FileCorrespondencia : System.Web.UI.Page
@@ -65,7 +64,7 @@ namespace WebApplication2
             DropDownListTipoARchivo.Text = "";
 
 
-         //   List<ClassReporte> ssClassReporte = new List<ClassReporte>();
+            //   List<ClassReporte> ssClassReporte = new List<ClassReporte>();
 
             SubSonicDB.CatTipoArchivoInventarioCollection ssInventarios = new SubSonicDB.CatTipoArchivoInventarioCollection()
                 .Where(SubSonicDB.CatTipoArchivoInventario.Columns.Status, true)
@@ -77,8 +76,8 @@ namespace WebApplication2
                 //     ssClassReporte.Add(ssAdd);
 
 
-                    ListItem listItem = new ListItem(ssTio.Descripcion, ssTio.Id.ToString());
-                    DropDownListTipoARchivo.Items.Add(listItem);
+                ListItem listItem = new ListItem(ssTio.Descripcion, ssTio.Id.ToString());
+                DropDownListTipoARchivo.Items.Add(listItem);
 
 
             }
@@ -264,7 +263,8 @@ namespace WebApplication2
 
 
             }
-            else {
+            else
+            {
 
                 ///ESTE ES EL CASO DE QUE AL QUE SE LE ENVIO NO LE CORRESPONDE EL TEMA ATENDERLO Y LO DETALLA 
                 string NombreArchivo = classSesion.VerExpediente.ToString();
@@ -283,12 +283,12 @@ namespace WebApplication2
                 ssExpedientes.IDInventario = Convert.ToInt32(DropDownListTipoARchivo.SelectedValue);
                 ssExpedientes.Save();
                 //FileUpload1.SaveAs(path + ssExpedientes.Id + fileExtension);
-               
+
                 Label1.Text = "Se han cargado correctamente";
                 Label1.Visible = true;
                 SubSonicDB.Expediente ssExpeDien = SubSonicDB.Expediente.FetchByID(classSesion.VerExpediente);
                 ssExpeDien.IDStatusCorrespondencia = 12;
-             // ssExpeDien.Save();
+                // ssExpeDien.Save();
                 RadGrid2.Rebind();
                 TextBox1.Text = "";
 
@@ -326,15 +326,17 @@ namespace WebApplication2
 
             SubSonicDB.ArchivoCorrespondencium ValorClave = SubSonicDB.ArchivoCorrespondencium.FetchByID(n.ToString());
 
-            if (ValorClave.Extencion == ".note") {
+            if (ValorClave.Extencion == ".note")
+            {
 
                 return false;
             }
-            else {
+            else
+            {
 
                 return true;
             }
-        
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)

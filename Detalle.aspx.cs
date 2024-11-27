@@ -15,7 +15,7 @@ namespace WebApplication2
             SubSonicDB.CatDestinoCorrespondencium ssExistedestino = SubSonicDB.CatDestinoCorrespondencium.FetchByID(ssExiste.IDDestinoCorrespondencia);
             LabelDestino.Text = ssExistedestino.Descripcion;
             Labelfolio.Text = ssExiste.Descripcion;
-            LabelPaginas.Text =ssExiste.Paginas + " Paginas.";
+            LabelPaginas.Text = ssExiste.Paginas + " Paginas.";
             LabelRemitente.Text = ssExiste.CatOrigenCorrespondencium.Descripcion;
             TextBoxBservaciones.Text = ssExiste.Causa;
             TextBoxCorrespondenciaFecha.SelectedDate = ssExiste.Fechaconoce;

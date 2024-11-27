@@ -1,6 +1,4 @@
-﻿
-using System;
-using Telerik.Web.UI;
+﻿using Telerik.Web.UI;
 
 // The upload configuration object is passed from the page to the custom handler.
 // You can customize it to include custom properties by extending the AsyncUploadConfiguration class.
@@ -15,7 +13,7 @@ public class SampleAsyncUploadConfiguration : AsyncUploadConfiguration
             return userID;
         }
 
-        set 
+        set
         {
             userID = value;
         }

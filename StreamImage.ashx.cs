@@ -1,10 +1,11 @@
 ﻿
 using System;
-using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
-public class StreamImage : IHttpHandler {
+public class StreamImage : IHttpHandler
+{
 
     public void ProcessRequest(HttpContext context)
     {
@@ -30,14 +31,14 @@ public class StreamImage : IHttpHandler {
         using (SqlConnection conn = new SqlConnection(connectionString))
         {
             string cmdText = "SELECT ImageData FROM AsyncUploadImages WHERE ImageID = @ImageID;";
-            
+
             SqlCommand cmd = new SqlCommand(cmdText, conn);
             SqlParameter idParam = new SqlParameter("@ImageID", SqlDbType.Int);
             idParam.Value = id;
-            
+
             cmd.Parameters.Add(idParam);
             conn.Open();
-            
+
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.Read())
@@ -48,12 +49,13 @@ public class StreamImage : IHttpHandler {
                 else
                 {
                     throw new ArgumentException("Invalid ID");
-                }                
+                }
             }
         }
     }
- 
-    public bool IsReusable {
+
+    public bool IsReusable
+    {
         get
         {
             return false;

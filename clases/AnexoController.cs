@@ -1,16 +1,6 @@
-using System; 
-using System.Text; 
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Collections;
-using System.Collections.Generic;
+using SubSonic;
+using System;
 using System.ComponentModel;
-using System.Configuration; 
-using System.Xml; 
-using System.Xml.Serialization;
-using SubSonic; 
-using SubSonic.Utilities;
 namespace SubSonicDB
 {
     /// <summary>
@@ -26,18 +16,18 @@ namespace SubSonicDB
         {
             get
             {
-				if (userName.Length == 0) 
-				{
-    				if (System.Web.HttpContext.Current != null)
-    				{
-						userName=System.Web.HttpContext.Current.User.Identity.Name;
-					}
-					else
-					{
-						userName=System.Threading.Thread.CurrentPrincipal.Identity.Name;
-					}
-				}
-				return userName;
+                if (userName.Length == 0)
+                {
+                    if (System.Web.HttpContext.Current != null)
+                    {
+                        userName = System.Web.HttpContext.Current.User.Identity.Name;
+                    }
+                    else
+                    {
+                        userName = System.Threading.Thread.CurrentPrincipal.Identity.Name;
+                    }
+                }
+                return userName;
             }
         }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
@@ -54,12 +44,12 @@ namespace SubSonicDB
             AnexoCollection coll = new AnexoCollection().Where("ID", Id).Load();
             return coll;
         }
-		
-		[DataObjectMethod(DataObjectMethodType.Select, false)]
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public AnexoCollection FetchByQuery(Query qry)
         {
             AnexoCollection coll = new AnexoCollection();
-            coll.LoadAndCloseReader(qry.ExecuteReader()); 
+            coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
@@ -72,42 +62,42 @@ namespace SubSonicDB
         {
             return (Anexo.Destroy(Id) == 1);
         }
-        
-        
-    	
-	    /// <summary>
-	    /// Inserts a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+
+        /// <summary>
+        /// Inserts a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Descripcion,int? Pertenece)
-	    {
-		    Anexo item = new Anexo();
-		    
+        public void Insert(string Descripcion, int? Pertenece)
+        {
+            Anexo item = new Anexo();
+
             item.Descripcion = Descripcion;
-            
+
             item.Pertenece = Pertenece;
-            
-	    
-		    item.Save(UserName);
-	    }
-    	
-	    /// <summary>
-	    /// Updates a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+            item.Save(UserName);
+        }
+
+        /// <summary>
+        /// Updates a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int Id,string Descripcion,int? Pertenece)
-	    {
-		    Anexo item = new Anexo();
-	        item.MarkOld();
-	        item.IsLoaded = true;
-		    
-			item.Id = Id;
-				
-			item.Descripcion = Descripcion;
-				
-			item.Pertenece = Pertenece;
-				
-	        item.Save(UserName);
-	    }
+        public void Update(int Id, string Descripcion, int? Pertenece)
+        {
+            Anexo item = new Anexo();
+            item.MarkOld();
+            item.IsLoaded = true;
+
+            item.Id = Id;
+
+            item.Descripcion = Descripcion;
+
+            item.Pertenece = Pertenece;
+
+            item.Save(UserName);
+        }
     }
 }

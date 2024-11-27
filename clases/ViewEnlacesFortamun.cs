@@ -1,24 +1,18 @@
-using System; 
-using System.Text; 
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Collections;
-using System.Collections.Generic;
+using SubSonic;
+using System;
 using System.ComponentModel;
-using System.Configuration; 
-using System.Xml; 
+using System.Data;
+using System.Xml;
 using System.Xml.Serialization;
-using SubSonic; 
-using SubSonic.Utilities;
-namespace SubSonicDB{
+namespace SubSonicDB
+{
     /// <summary>
     /// Strongly-typed collection for the ViewEnlacesFortamun class.
     /// </summary>
     [Serializable]
     public partial class ViewEnlacesFortamunCollection : ReadOnlyList<ViewEnlacesFortamun, ViewEnlacesFortamunCollection>
-    {        
-        public ViewEnlacesFortamunCollection() {}
+    {
+        public ViewEnlacesFortamunCollection() { }
     }
     /// <summary>
     /// This is  Read-only wrapper class for the View_EnlacesFortamun view.
@@ -26,15 +20,15 @@ namespace SubSonicDB{
     [Serializable]
     public partial class ViewEnlacesFortamun : ReadOnlyRecord<ViewEnlacesFortamun>, IReadOnlyRecord
     {
-    
-	    #region Default Settings
-	    protected static void SetSQLProps() 
-	    {
-		    GetTableSchema();
-	    }
-	    #endregion
+
+        #region Default Settings
+        protected static void SetSQLProps()
+        {
+            GetTableSchema();
+        }
+        #endregion
         #region Schema Accessor
-	    public static TableSchema.Table Schema
+        public static TableSchema.Table Schema
         {
             get
             {
@@ -45,17 +39,17 @@ namespace SubSonicDB{
                 return BaseSchema;
             }
         }
-    	
-        private static void GetTableSchema() 
+
+        private static void GetTableSchema()
         {
-            if(!IsSchemaInitialized)
+            if (!IsSchemaInitialized)
             {
                 //Schema declaration
                 TableSchema.Table schema = new TableSchema.Table("View_EnlacesFortamun", TableType.View, DataService.GetInstance("Default"));
                 schema.Columns = new TableSchema.TableColumnCollection();
                 schema.SchemaName = @"dbo";
                 //columns
-                
+
                 TableSchema.TableColumn colvarIDMpio = new TableSchema.TableColumn(schema);
                 colvarIDMpio.ColumnName = "IDMpio";
                 colvarIDMpio.DataType = DbType.Int32;
@@ -65,9 +59,9 @@ namespace SubSonicDB{
                 colvarIDMpio.IsPrimaryKey = false;
                 colvarIDMpio.IsForeignKey = false;
                 colvarIDMpio.IsReadOnly = false;
-                
+
                 schema.Columns.Add(colvarIDMpio);
-                
+
                 TableSchema.TableColumn colvarId = new TableSchema.TableColumn(schema);
                 colvarId.ColumnName = "ID";
                 colvarId.DataType = DbType.Int32;
@@ -77,9 +71,9 @@ namespace SubSonicDB{
                 colvarId.IsPrimaryKey = false;
                 colvarId.IsForeignKey = false;
                 colvarId.IsReadOnly = false;
-                
+
                 schema.Columns.Add(colvarId);
-                
+
                 TableSchema.TableColumn colvarNombre = new TableSchema.TableColumn(schema);
                 colvarNombre.ColumnName = "Nombre";
                 colvarNombre.DataType = DbType.String;
@@ -89,9 +83,9 @@ namespace SubSonicDB{
                 colvarNombre.IsPrimaryKey = false;
                 colvarNombre.IsForeignKey = false;
                 colvarNombre.IsReadOnly = false;
-                
+
                 schema.Columns.Add(colvarNombre);
-                
+
                 TableSchema.TableColumn colvarTipoContacto = new TableSchema.TableColumn(schema);
                 colvarTipoContacto.ColumnName = "TipoContacto";
                 colvarTipoContacto.DataType = DbType.String;
@@ -101,9 +95,9 @@ namespace SubSonicDB{
                 colvarTipoContacto.IsPrimaryKey = false;
                 colvarTipoContacto.IsForeignKey = false;
                 colvarTipoContacto.IsReadOnly = false;
-                
+
                 schema.Columns.Add(colvarTipoContacto);
-                
+
                 TableSchema.TableColumn colvarDescripcion = new TableSchema.TableColumn(schema);
                 colvarDescripcion.ColumnName = "Descripcion";
                 colvarDescripcion.DataType = DbType.String;
@@ -113,158 +107,160 @@ namespace SubSonicDB{
                 colvarDescripcion.IsPrimaryKey = false;
                 colvarDescripcion.IsForeignKey = false;
                 colvarDescripcion.IsReadOnly = false;
-                
+
                 schema.Columns.Add(colvarDescripcion);
-                
-                
+
+
                 BaseSchema = schema;
                 //add this schema to the provider
                 //so we can query it later
-                DataService.Providers["Default"].AddSchema("View_EnlacesFortamun",schema);
+                DataService.Providers["Default"].AddSchema("View_EnlacesFortamun", schema);
             }
         }
         #endregion
-        
+
         #region Query Accessor
-	    public static Query CreateQuery()
-	    {
-		    return new Query(Schema);
-	    }
-	    #endregion
-	    
-	    #region .ctors
-	    public ViewEnlacesFortamun()
-	    {
+        public static Query CreateQuery()
+        {
+            return new Query(Schema);
+        }
+        #endregion
+
+        #region .ctors
+        public ViewEnlacesFortamun()
+        {
             SetSQLProps();
             SetDefaults();
             MarkNew();
         }
         public ViewEnlacesFortamun(bool useDatabaseDefaults)
-	    {
-		    SetSQLProps();
-		    if(useDatabaseDefaults)
-		    {
-				ForceDefaults();
-			}
-			MarkNew();
-	    }
-	    
-	    public ViewEnlacesFortamun(object keyID)
-	    {
-		    SetSQLProps();
-		    LoadByKey(keyID);
-	    }
-    	 
-	    public ViewEnlacesFortamun(string columnName, object columnValue)
         {
             SetSQLProps();
-            LoadByParam(columnName,columnValue);
+            if (useDatabaseDefaults)
+            {
+                ForceDefaults();
+            }
+            MarkNew();
         }
-        
-	    #endregion
-	    
-	    #region Props
-	    
-          
+
+        public ViewEnlacesFortamun(object keyID)
+        {
+            SetSQLProps();
+            LoadByKey(keyID);
+        }
+
+        public ViewEnlacesFortamun(string columnName, object columnValue)
+        {
+            SetSQLProps();
+            LoadByParam(columnName, columnValue);
+        }
+
+        #endregion
+
+        #region Props
+
+
         [XmlAttribute("IDMpio")]
         [Bindable(true)]
-        public int IDMpio 
-	    {
-		    get
-		    {
-			    return GetColumnValue<int>("IDMpio");
-		    }
-            set 
-		    {
-			    SetColumnValue("IDMpio", value);
+        public int IDMpio
+        {
+            get
+            {
+                return GetColumnValue<int>("IDMpio");
+            }
+            set
+            {
+                SetColumnValue("IDMpio", value);
             }
         }
-	      
+
         [XmlAttribute("Id")]
         [Bindable(true)]
-        public int Id 
-	    {
-		    get
-		    {
-			    return GetColumnValue<int>("ID");
-		    }
-            set 
-		    {
-			    SetColumnValue("ID", value);
+        public int Id
+        {
+            get
+            {
+                return GetColumnValue<int>("ID");
+            }
+            set
+            {
+                SetColumnValue("ID", value);
             }
         }
-	      
+
         [XmlAttribute("Nombre")]
         [Bindable(true)]
-        public string Nombre 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("Nombre");
-		    }
-            set 
-		    {
-			    SetColumnValue("Nombre", value);
+        public string Nombre
+        {
+            get
+            {
+                return GetColumnValue<string>("Nombre");
+            }
+            set
+            {
+                SetColumnValue("Nombre", value);
             }
         }
-	      
+
         [XmlAttribute("TipoContacto")]
         [Bindable(true)]
-        public string TipoContacto 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("TipoContacto");
-		    }
-            set 
-		    {
-			    SetColumnValue("TipoContacto", value);
+        public string TipoContacto
+        {
+            get
+            {
+                return GetColumnValue<string>("TipoContacto");
+            }
+            set
+            {
+                SetColumnValue("TipoContacto", value);
             }
         }
-	      
+
         [XmlAttribute("Descripcion")]
         [Bindable(true)]
-        public string Descripcion 
-	    {
-		    get
-		    {
-			    return GetColumnValue<string>("Descripcion");
-		    }
-            set 
-		    {
-			    SetColumnValue("Descripcion", value);
+        public string Descripcion
+        {
+            get
+            {
+                return GetColumnValue<string>("Descripcion");
+            }
+            set
+            {
+                SetColumnValue("Descripcion", value);
             }
         }
-	    
-	    #endregion
-    
-	    #region Columns Struct
-	    public struct Columns
-	    {
-		    
-		    
+
+        #endregion
+
+        #region Columns Struct
+        public struct Columns
+        {
+
+
             public static string IDMpio = @"IDMpio";
-            
+
             public static string Id = @"ID";
-            
+
             public static string Nombre = @"Nombre";
-            
+
             public static string TipoContacto = @"TipoContacto";
-            
+
             public static string Descripcion = @"Descripcion";
-            
-	    }
-	    #endregion
-	    
-	    
-	    #region IAbstractRecord Members
-        public new CT GetColumnValue<CT>(string columnName) {
+
+        }
+        #endregion
+
+
+        #region IAbstractRecord Members
+        public new CT GetColumnValue<CT>(string columnName)
+        {
             return base.GetColumnValue<CT>(columnName);
         }
-        public object GetColumnValue(string columnName) {
+        public object GetColumnValue(string columnName)
+        {
             return base.GetColumnValue<object>(columnName);
         }
         #endregion
-	    
+
     }
 }

@@ -77,7 +77,8 @@ namespace WebApplication2
                             ssEditar.Status = false;
                             ssEditar.Save();
                         }
-                        else {
+                        else
+                        {
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('No es permitido eliminar un registro autorizado. ');</script>", false);
                         }
                         RadGrid2.Rebind();
@@ -89,7 +90,7 @@ namespace WebApplication2
                         {
                             if (words[1] == "2")
                             {
-                               // string _open = "WebForm3.aspx";
+                                // string _open = "WebForm3.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm3.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;
@@ -102,7 +103,7 @@ namespace WebApplication2
                             }
                             if (words[1] == "1")
                             {
-                               // string _open = "WebForm2.aspx";
+                                // string _open = "WebForm2.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm2.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;
@@ -111,10 +112,11 @@ namespace WebApplication2
                                 RadWindow1.Title = "Expediente";
                                 RadWindow1.Width = 1400;
                                 RadWindow1.Height = 900;
-                               //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
+                                //  Response.Write("<script> window.open('" + _open + "','_blank'); </script>");
                             }
                         }
-                        else {
+                        else
+                        {
                             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Aún no ha sido autorizado. ');</script>", false);
                         }
                     }
@@ -146,7 +148,8 @@ namespace WebApplication2
                 RadGrid2.Rebind();
                 TextBoxAsunto.Text = "";
             }
-            catch {
+            catch
+            {
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('El pase no pudo ser creado. ');</script>", false);
 

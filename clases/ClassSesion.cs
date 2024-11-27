@@ -1,20 +1,15 @@
-﻿using System.Net.NetworkInformation;
-using System.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.IO;
-using System.Net;
+using System.Linq;
 using System.Net.Mail;
+using System.Net.NetworkInformation;
 
 /// <summary>
 /// Summary description for ClassSesion
 /// </summary>
 public class ClassSesion : System.Web.UI.Page
 {
-   // object Narra;
+    // object Narra;
 
     public ClassSesion()
     {
@@ -582,7 +577,7 @@ public class ClassSesion : System.Web.UI.Page
 
 
 
-                
+
                 object o = ssAdcrio[0].IDAdscripcion;
                 return o;
             }
@@ -756,7 +751,7 @@ public class ClassSesion : System.Web.UI.Page
     }
     public bool EnviarCorreo()
     {
-        List <int> h = (List<int>) this.to;
+        List<int> h = (List<int>)this.to;
         try
         {
             foreach (int x in h)
@@ -766,12 +761,12 @@ public class ClassSesion : System.Web.UI.Page
                 SmtpClient SmtpServer = new SmtpClient("smtp.live.com");
                 var mail = new MailMessage();
                 mail.From = new MailAddress(from);
-               // mail.CC = "coralmartines88@gmail.com";
+                // mail.CC = "coralmartines88@gmail.com";
                 mail.To.Add(ssUser.Correo);
                 mail.Subject = "📜 CORRESPONDENCIA: " + sujestig;
                 mail.IsBodyHtml = true;
                 mail.Body = "<img src ='https://lh3.googleusercontent.com/proxy/8L6Y1DXOVN7ovc6rKST1zc6x1-p9MnQcpjH3HoabSYQs2yTnjDDTydjymyZBesG-C7yaV1Cnol9TT1PC0SjixS_xxZIrANN5-HfL9LA2rJyRtQBU9lg' ><br>" +
-                      "<strong>"+ OficeQueEnvia+"</strong>"+ "<hr>" + MyBody+ "<br>Consúltalo:<br> <a href='http://juridico.guerrero.gob.mx/'> Estoy conectado a la red de palacio.</a><br><br>Consúltalo:<br> <a href='http://correspondencia.hopto.org/'> Estoy fuera de la red de palacio.</a><br><br>Si no recuerdas tu cuenta comunicate a este numero:7471098624";
+                      "<strong>" + OficeQueEnvia + "</strong>" + "<hr>" + MyBody + "<br>Consúltalo:<br> <a href='http://juridico.guerrero.gob.mx/'> Estoy conectado a la red de palacio.</a><br><br>Consúltalo:<br> <a href='http://correspondencia.hopto.org/'> Estoy fuera de la red de palacio.</a><br><br>Si no recuerdas tu cuenta comunicate a este numero:7471098624";
                 mail.Priority = System.Net.Mail.MailPriority.High;
                 SmtpServer.Port = 587;
                 SmtpServer.UseDefaultCredentials = false;
@@ -807,7 +802,7 @@ public class ClassSesion : System.Web.UI.Page
                 SmtpServer.Credentials = new System.Net.NetworkCredential("compaq5000@hotmail.com", "Ivan2610");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
-              
+
 
             }
             return true;
@@ -831,10 +826,10 @@ public class ClassSesion : System.Web.UI.Page
             var mail = new MailMessage();
             mail.From = new MailAddress(from);
             mail.To.Add(ssUser.Correo);
-           // mail.CC.Add("ENDIOLA73@hotmail.com");
+            // mail.CC.Add("ENDIOLA73@hotmail.com");
             mail.Subject = "📜 CORRESPONDENCIA: " + sujestig;
             mail.IsBodyHtml = true;
-            mail.Body = OficeQueEnvia + ": <hr>" + MyBody+ "<hr>Puedes consultar tu correspondencia Desde la red de palacio: http://juridico.guerrero.gob.mx <hr>Fuera de la red de palacio: http://correspondencia.hopto.org/ ";
+            mail.Body = OficeQueEnvia + ": <hr>" + MyBody + "<hr>Puedes consultar tu correspondencia Desde la red de palacio: http://juridico.guerrero.gob.mx <hr>Fuera de la red de palacio: http://correspondencia.hopto.org/ ";
             mail.Priority = System.Net.Mail.MailPriority.High;
             SmtpServer.Port = 587;
             SmtpServer.UseDefaultCredentials = false;
@@ -861,7 +856,7 @@ public class ClassSesion : System.Web.UI.Page
          ).FirstOrDefault();
 
 
-       
+
 
         // Strip the domain off of the result
         //Response.Write(Request.UserHostAddress + "<br>" + macAddr + "<br>");
@@ -872,12 +867,12 @@ public class ClassSesion : System.Web.UI.Page
         ssBitacora.IDUser = IDUser;
         ssBitacora.Fecha = DateTime.Now;
         ssBitacora.Status = true;
-        ssBitacora.Ip=this.Ip;
+        ssBitacora.Ip = this.Ip;
         ssBitacora.Mac = macAddr;
-     //   ssBitacora.Save();
+        //   ssBitacora.Save();
 
 
-     
+
 
     }
     public string Ip
@@ -1193,8 +1188,8 @@ public class ClassSesion : System.Web.UI.Page
             //a[0] = "~/" + ssSeccion.Nombre + "/NOVEDAD/" + ssRegion.Nombre + "/" + ssSector.Nombre + "/" + Session["ParteNovedadID"];
             //return a;
             string[] a = new string[1];
-           
-            a[0] = "~/Minutario/"+ this.GetIDFolioMinuta;
+
+            a[0] = "~/Minutario/" + this.GetIDFolioMinuta;
             return a;
         }
     }
@@ -1206,11 +1201,11 @@ public class ClassSesion : System.Web.UI.Page
             try
             {
                 SubSonicDB.TranMinutum ssNewMinuta = new SubSonicDB.TranMinutum();
-                ssNewMinuta.IDUser =Convert.ToInt32(this.IDUsua);
+                ssNewMinuta.IDUser = Convert.ToInt32(this.IDUsua);
                 ssNewMinuta.Staus = true;
                 ///ssNewMinuta.Para=
                 ssNewMinuta.Save();
-               this.GetIDFolioMinuta= ssNewMinuta.Id;
+                this.GetIDFolioMinuta = ssNewMinuta.Id;
                 object o = ssNewMinuta.Id;
                 return o;
             }
@@ -1256,7 +1251,7 @@ public class ClassSesion : System.Web.UI.Page
             }
             catch
             {
-              //  System.Web.HttpContext.Current.Response.Redirect("~/LogOff.aspx");
+                //  System.Web.HttpContext.Current.Response.Redirect("~/LogOff.aspx");
                 return null;
             }
         }

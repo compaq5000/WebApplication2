@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Net;
 using System.IO;
-using System.Windows;
-using Telerik.Pdf;
-using Telerik.Web.UI;
-using System.Web;
+using System.Net;
 
 namespace WebApplication2
 {
@@ -28,11 +24,11 @@ namespace WebApplication2
             }
             string g = ssSesiones.VerExpediente;
             SubSonicDB.Expediente ssexpediente = SubSonicDB.Expediente.FetchByID(g);
-            
+
             SubSonicDB.ArchivoCorrespondenciumCollection ssexpediente1 = new SubSonicDB.ArchivoCorrespondenciumCollection()
                 .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, ssSesiones.VerExpediente)
-                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo,1)
-                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status,true)
+                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo, 1)
+                .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status, true)
                 .Load();
             try
             {

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 /// <summary>
 /// Descripción breve de ClassReporte
@@ -44,7 +41,7 @@ public class ClassReporte
     {
         this.ID = Id;
         this.DESCRIPCION = Descripcion;
-       // this.IDEXPEDIENTE = IdExpediente;
+        // this.IDEXPEDIENTE = IdExpediente;
         this.STATUS = Status;
 
         //this.StatusContestados = StatusContestadosAdd;
@@ -56,7 +53,7 @@ public class ClassReporte
     public void ChangeStatus(string Status)
     {
         this.STATUS = Status;
-    
+
     }
 
 }

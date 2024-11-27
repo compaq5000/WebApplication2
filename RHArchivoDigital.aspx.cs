@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Telerik.Web.UI;
-using System.Threading;
-using System.IO;
 
 
 namespace WebApplication2
@@ -209,7 +209,7 @@ namespace WebApplication2
                         ssExpedientes.Save();
                         // VerificarSiExiste(ssExpedientes.Descripcion, fileExtension);
                         //  String fileExtensions = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
-                        FileUpload1.SaveAs(path+ + ssExpedientes.Id + fileExtension);
+                        FileUpload1.SaveAs(path + +ssExpedientes.Id + fileExtension);
                         // Button1.Visible = false;
                         Label1.Text = "Se han cargado correctamente";
                         Label1.Visible = true;
@@ -224,7 +224,7 @@ namespace WebApplication2
 
 
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);

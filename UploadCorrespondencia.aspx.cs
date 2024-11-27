@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Web.UI;
 using System.IO;
+using System.Web.UI;
 
 
 
@@ -38,14 +38,14 @@ namespace WebApplication2
                         // string NombreArchivo = Request.QueryString["ID"].Remove(0,1);
                         string NombreArchivo = Request.QueryString["ID"];
                         SubSonicDB.ArchivoCorrespondencium ssArchivo = new SubSonicDB.ArchivoCorrespondencium();
-                        ssArchivo.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower(); 
+                        ssArchivo.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
                         ssArchivo.Extencion = fileExtension;
                         ssArchivo.Status = true;
                         ssArchivo.IDExpediente = Convert.ToInt32(NombreArchivo);
                         ssArchivo.IDTipo = 1;
                         ssArchivo.DateX = DateTime.Now;
                         ssArchivo.IDUserCarga = Convert.ToInt32(ssSesiones.IDUsua);
-                        
+
                         ssArchivo.Save();
 
                         FileUpload1.SaveAs(path + ssArchivo.Id + fileExtension);

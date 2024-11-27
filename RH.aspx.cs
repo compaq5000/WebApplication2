@@ -34,7 +34,7 @@ namespace WebApplication2
             }
             if (e.Item.Value == "newuser")
             {
-            
+
                 RadWindow1.NavigateUrl = "~/NewUser.aspx";
                 RadWindow1.VisibleOnPageLoad = true;
                 RadWindow1.Visible = true;
@@ -183,7 +183,7 @@ namespace WebApplication2
             /************************************************JEFE DIRECTO***********************************************/
             SubSonicDB.CatJefeAdscripcionRHCollection ssJefe = new SubSonicDB.CatJefeAdscripcionRHCollection()
                 .Where(SubSonicDB.CatJefeAdscripcionRH.Columns.IDAdscripcion, ssAdscripcion[0].IDAdscripcion)
-                .Where(SubSonicDB.CatJefeAdscripcionRH.Columns.Status,true)
+                .Where(SubSonicDB.CatJefeAdscripcionRH.Columns.Status, true)
                 .Load();
 
             LabelJefe.Text = ssJefe[0].Descripcion;

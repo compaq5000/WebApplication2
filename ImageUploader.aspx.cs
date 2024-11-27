@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Web.UI;
 using Telerik.Web.UI;
 
-public partial class ImageUploader : System.Web.UI.Page 
+public partial class ImageUploader : System.Web.UI.Page
 {
     public const int UserID = 1;
-  
+
     protected void Page_Load(object sender, EventArgs e)
     {
         // Populate the default (base) upload configuration into an object of type SampleAsyncUploadConfiguration
         SampleAsyncUploadConfiguration config =
             RadAsyncUpload1.CreateDefaultUploadConfiguration<SampleAsyncUploadConfiguration>();
-        
+
         // Populate any additional fields
         config.UserID = 1;
 

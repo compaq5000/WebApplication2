@@ -35,10 +35,10 @@ namespace WebApplication2
                 {
                     try
                     {
-                      
+
 
                         // string NombreArchivo = Request.QueryString["ID"].Remove(0,1);
-                       // string NombreUser;
+                        // string NombreUser;
                         SubSonicDB.CatUsuario ssUser = SubSonicDB.CatUsuario.FetchByID(ssSesiones.VerExpediente);
 
                         String fileExtensions = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();

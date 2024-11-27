@@ -210,10 +210,10 @@ namespace WebApplication2
             {
                 Telerik.Web.UI.RadComboBoxItem add = new RadComboBoxItem(ssTipoContacto.Descripcion, ssTipoContacto.Id.ToString());
                 RadComboBoxTipoContactoFortamun.Items.Add(add);
-            
+
             }
-        
-        
+
+
         }
         protected void RadAutoCompleteBoxTipoJuicio_Load(object sender, EventArgs e)
         {
@@ -573,11 +573,12 @@ namespace WebApplication2
             ////////////////////////////////////////////////////////////SI SE PRESIONA EL BOTON NAVEGAR ATRAS//////////////////////////////////////////////////////////////////////////////////
 
 
-            if (e.Item.Value== "Pases de Salida") {
+            if (e.Item.Value == "Pases de Salida")
+            {
                 Response.Redirect("~/PermisosyPases.aspx");
             }
-            
-            
+
+
             if (e.Item.Value == "RH")
             {
                 Response.Redirect("~/RHdefault.aspx");
@@ -775,7 +776,8 @@ namespace WebApplication2
                 FillCreate(ssSesiones.KEYcarpeta.ToString());
                 FillCORRESPONDENCIA(ssSesiones.KEYcarpeta.ToString());
             }
-            catch {
+            catch
+            {
 
 
                 System.Web.HttpContext.Current.Response.Redirect("~/LogOff.aspx");
@@ -919,7 +921,7 @@ namespace WebApplication2
                         }
                         else
                         {
-                           // string Archivo = "El archivo no existe";
+                            // string Archivo = "El archivo no existe";
                         }
                     }
                 }
@@ -1945,8 +1947,8 @@ namespace WebApplication2
             {//evita que se repita si es que quien lo guarda es el propio administrador
                 ListActorSAve.Add(Convert.ToInt32(1));//lo ve administrador
             }
-           
-            
+
+
             ListActorSAve.Add(Convert.ToInt32(ssSesiones.IDUsua));//lo quien creo el archivo
 
             for (int i = 0; i < RadAutoCompleteBoxUsuarios.Entries.Count; i++)
@@ -1990,7 +1992,7 @@ namespace WebApplication2
                 ssNewOrigen.Status = true;
                 ssNewOrigen.Save();
                 ListOrigenSAve.Add(ssNewOrigen.Id);
-            } 
+            }
             /**************************************Destino*****************************************/
             for (int i = 0; i < RadAutoCompleteBoxDestino.Entries.Count; i++)
             {
@@ -2252,9 +2254,10 @@ namespace WebApplication2
                 ssNewContactoFortamun.Save();
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente!. ');</script>", false);
 
-            
+
             }
-            catch {
+            catch
+            {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error. ');</script>", false);
             }
             RadTextBoxNombreContacto.Text = "";
@@ -2268,31 +2271,33 @@ namespace WebApplication2
         protected void RadGrid1_NeedDataSourContactos(object sender, GridNeedDataSourceEventArgs e)
         {
             SubSonicDB.ViewEnlacesFortamunCollection ss = new SubSonicDB.ViewEnlacesFortamunCollection()
-                .Where(SubSonicDB.ViewEnlacesFortamun.Columns.IDMpio,ssSesiones.IDMunicipio)
+                .Where(SubSonicDB.ViewEnlacesFortamun.Columns.IDMpio, ssSesiones.IDMunicipio)
                 .Load();
             RadGridContactos.DataSource = ss;
-           
-          
+
+
         }
 
         protected void RadButtonQuitar_Click(object sender, EventArgs e)
         {
 
 
-            try { 
-            if (RadGridContactos.SelectedItems.Count > 0)
+            try
             {
-                for (int i = 0; i < RadGridContactos.SelectedItems.Count; i++)
+                if (RadGridContactos.SelectedItems.Count > 0)
                 {
-                    SubSonicDB.TranContactoFortamun ssEliminar = SubSonicDB.TranContactoFortamun.FetchByID(Convert.ToString(RadGridContactos.SelectedItems[i].OwnerTableView.DataKeyValues[RadGridContactos.SelectedItems[i].ItemIndex]["Id"]));
-                    ssEliminar.Status = false;
-                    ssEliminar.Save();
-            
+                    for (int i = 0; i < RadGridContactos.SelectedItems.Count; i++)
+                    {
+                        SubSonicDB.TranContactoFortamun ssEliminar = SubSonicDB.TranContactoFortamun.FetchByID(Convert.ToString(RadGridContactos.SelectedItems[i].OwnerTableView.DataKeyValues[RadGridContactos.SelectedItems[i].ItemIndex]["Id"]));
+                        ssEliminar.Status = false;
+                        ssEliminar.Save();
+
+                    }
                 }
+                RadGridContactos.Rebind();
             }
-            RadGridContactos.Rebind();
-            }
-            catch {
+            catch
+            {
 
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ocurrio Un Error!. ');</script>", false);
 

@@ -20,7 +20,7 @@ namespace WebApplication2
             SubSonicDB.SoporteCatServicioCollection ssServicios = new SubSonicDB.SoporteCatServicioCollection()
                 .Where(SubSonicDB.SoporteCatServicio.Columns.Status, true)
                 .Load();
-            foreach(SubSonicDB.SoporteCatServicio ssServicio in ssServicios)
+            foreach (SubSonicDB.SoporteCatServicio ssServicio in ssServicios)
             {
                 Telerik.Web.UI.RadComboBoxItem add = new Telerik.Web.UI.RadComboBoxItem(ssServicio.Descripcion, ssServicio.Id.ToString());
                 RadComboBoxServicio.Items.Add(add);
@@ -87,18 +87,18 @@ namespace WebApplication2
                     }
                     else
                     {
-                        SubSonicDB.TranInsidenciasRH ssMostrar = SubSonicDB.TranInsidenciasRH.FetchByID(Convert.ToInt32( words[0]));
+                        SubSonicDB.TranInsidenciasRH ssMostrar = SubSonicDB.TranInsidenciasRH.FetchByID(Convert.ToInt32(words[0]));
                         if (ssMostrar.Autorizado == true)
                         {
                             //    string _open = "WebForm3.aspx";
-                                ssSesiones.to = words[0];
-                                RadWindow1.NavigateUrl = "~/WebForm3.aspx";
-                                RadWindow1.VisibleOnPageLoad = true;
-                                RadWindow1.Visible = true;
-                                RadWindow1.VisibleStatusbar = false;
-                                RadWindow1.Title = "Expediente: ";
-                                RadWindow1.Width = 1400;
-                                RadWindow1.Height = 900;
+                            ssSesiones.to = words[0];
+                            RadWindow1.NavigateUrl = "~/WebForm3.aspx";
+                            RadWindow1.VisibleOnPageLoad = true;
+                            RadWindow1.Visible = true;
+                            RadWindow1.VisibleStatusbar = false;
+                            RadWindow1.Title = "Expediente: ";
+                            RadWindow1.Width = 1400;
+                            RadWindow1.Height = 900;
                         }
                         else
                         {
@@ -116,10 +116,10 @@ namespace WebApplication2
         {
             SubSonicDB.SoporteTranServicio ssNewSolicitud = new SubSonicDB.SoporteTranServicio();
             ssNewSolicitud.Descripcion = TextBoxDescripcion.Text;
-            ssNewSolicitud.IDUser =Convert.ToInt32(ssSesiones.IDUsua);
+            ssNewSolicitud.IDUser = Convert.ToInt32(ssSesiones.IDUsua);
             ssNewSolicitud.FechaAlta = DateTime.Now;
             ssNewSolicitud.Status = true;
-            ssNewSolicitud.IDSoporte =Convert.ToInt32(RadComboBoxServicio.SelectedValue);
+            ssNewSolicitud.IDSoporte = Convert.ToInt32(RadComboBoxServicio.SelectedValue);
             ssNewSolicitud.Save();
             RadGrid2.Rebind();
         }

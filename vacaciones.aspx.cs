@@ -14,7 +14,7 @@ namespace WebApplication2
         {
             string g = ssSesiones.VerExpediente;
             SubSonicDB.ViewVacacionesRhCollection ssVacaciones = new SubSonicDB.ViewVacacionesRhCollection()
-                .Where(SubSonicDB.ViewVacacionesRh.Columns.IDUser,ssSesiones.VerExpediente)
+                .Where(SubSonicDB.ViewVacacionesRh.Columns.IDUser, ssSesiones.VerExpediente)
                 .Load();
             RadGrid2.DataSource = ssVacaciones;
         }

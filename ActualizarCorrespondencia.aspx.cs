@@ -38,12 +38,12 @@ namespace WebApplication2
                         SubSonicDB.ArchivoCorrespondencium ssNewDocumento = new SubSonicDB.ArchivoCorrespondencium();
                         ssNewDocumento.Nombre = System.IO.Path.GetFileNameWithoutExtension(FileUpload1.FileName).ToLower();
                         ssNewDocumento.Extencion = fileExtension;
-                        ssNewDocumento.Status=true;
-                        ssNewDocumento.IDExpediente=Convert.ToInt32(ssSesiones.VerExpediente);
-                        ssNewDocumento.DateX=DateTime.Now;
+                        ssNewDocumento.Status = true;
+                        ssNewDocumento.IDExpediente = Convert.ToInt32(ssSesiones.VerExpediente);
+                        ssNewDocumento.DateX = DateTime.Now;
                         ssNewDocumento.IDTipo = 1;
-                        ssNewDocumento.IDUserCarga =Convert.ToInt32( ssSesiones.IDUsua);
-                        ssNewDocumento.Save();  
+                        ssNewDocumento.IDUserCarga = Convert.ToInt32(ssSesiones.IDUsua);
+                        ssNewDocumento.Save();
 
                         SubSonicDB.ArchivoCorrespondencium ssArchivo = new SubSonicDB.ArchivoCorrespondencium();
                         ssArchivo.LoadByParam(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, NombreArchivo);
@@ -58,8 +58,8 @@ namespace WebApplication2
 
                         SubSonicDB.ArchivoCorrespondenciumCollection ssexpediente1 = new SubSonicDB.ArchivoCorrespondenciumCollection()
               .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDExpediente, ssSesiones.VerExpediente)
-              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo,1)
-              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status,true)
+              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.IDTipo, 1)
+              .Where(SubSonicDB.ArchivoCorrespondencium.Columns.Status, true)
               .Load();
 
 
@@ -71,7 +71,7 @@ namespace WebApplication2
 
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         // Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);
@@ -104,7 +104,7 @@ namespace WebApplication2
             //CREAR UNA VISTA CON LOS DATOS SOLICITADOS PARA LLENAR EL GRID CON LA ULTIMAACTUA
 
             SubSonicDB.ViewHistorialArchivoCorrespondenciumCollection ssExiste = new SubSonicDB.ViewHistorialArchivoCorrespondenciumCollection()
-                .Where(SubSonicDB.ViewHistorialArchivoCorrespondencium.Columns.IDExpediente,ssSesiones.VerExpediente)
+                .Where(SubSonicDB.ViewHistorialArchivoCorrespondencium.Columns.IDExpediente, ssSesiones.VerExpediente)
                 .OrderByDesc(SubSonicDB.ViewHistorialArchivoCorrespondencium.Columns.Id)
                 .Load();
             RadGrid2.DataSource = ssExiste;

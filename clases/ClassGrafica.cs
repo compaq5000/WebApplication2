@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 /// <summary>
 /// esta clase se guarda el estore procedure graficar para generar una grafica
@@ -41,18 +38,18 @@ public class ClassGrafica
     }
     public string StatusRecibidos
     {
-        set { _STATUSRECIBIDOS = value;}
+        set { _STATUSRECIBIDOS = value; }
         get { return _STATUSRECIBIDOS; }
     }
     public string StatusRevisados
     {
-        set { _STATUSREVISADO = value;}
-        get { return _STATUSREVISADO;}
+        set { _STATUSREVISADO = value; }
+        get { return _STATUSREVISADO; }
     }
     public string StatusContestados
     {
-        set { _STATUSCONTESTADO = value;}
-        get { return _STATUSCONTESTADO;}
+        set { _STATUSCONTESTADO = value; }
+        get { return _STATUSCONTESTADO; }
     }
     public string StatusPorRevisar
     {
@@ -65,7 +62,7 @@ public class ClassGrafica
         get { return _NOMBREUSER; }
     }
 
-    public void Elemento(string Pagina,string IdUserAdd, string StatusRecibidosAdd, string StatusRevisadosAdd, string StatusContestadosAdd, string StatusPorRevisarAdd, string Productividad )
+    public void Elemento(string Pagina, string IdUserAdd, string StatusRecibidosAdd, string StatusRevisadosAdd, string StatusContestadosAdd, string StatusPorRevisarAdd, string Productividad)
     {
         this.Pag = Pagina;
         this.IdUser = IdUserAdd;

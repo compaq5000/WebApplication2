@@ -1,16 +1,6 @@
-using System; 
-using System.Text; 
-using System.Data;
-using System.Data.SqlClient;
-using System.Data.Common;
-using System.Collections;
-using System.Collections.Generic;
+using SubSonic;
+using System;
 using System.ComponentModel;
-using System.Configuration; 
-using System.Xml; 
-using System.Xml.Serialization;
-using SubSonic; 
-using SubSonic.Utilities;
 namespace SubSonicDB
 {
     /// <summary>
@@ -26,18 +16,18 @@ namespace SubSonicDB
         {
             get
             {
-				if (userName.Length == 0) 
-				{
-    				if (System.Web.HttpContext.Current != null)
-    				{
-						userName=System.Web.HttpContext.Current.User.Identity.Name;
-					}
-					else
-					{
-						userName=System.Threading.Thread.CurrentPrincipal.Identity.Name;
-					}
-				}
-				return userName;
+                if (userName.Length == 0)
+                {
+                    if (System.Web.HttpContext.Current != null)
+                    {
+                        userName = System.Web.HttpContext.Current.User.Identity.Name;
+                    }
+                    else
+                    {
+                        userName = System.Threading.Thread.CurrentPrincipal.Identity.Name;
+                    }
+                }
+                return userName;
             }
         }
         [DataObjectMethod(DataObjectMethodType.Select, true)]
@@ -54,12 +44,12 @@ namespace SubSonicDB
             TemTipojuicioCollection coll = new TemTipojuicioCollection().Where("IDTipoJuicio", IDTipoJuicio).Load();
             return coll;
         }
-		
-		[DataObjectMethod(DataObjectMethodType.Select, false)]
+
+        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public TemTipojuicioCollection FetchByQuery(Query qry)
         {
             TemTipojuicioCollection coll = new TemTipojuicioCollection();
-            coll.LoadAndCloseReader(qry.ExecuteReader()); 
+            coll.LoadAndCloseReader(qry.ExecuteReader());
             return coll;
         }
         [DataObjectMethod(DataObjectMethodType.Delete, true)]
@@ -72,38 +62,38 @@ namespace SubSonicDB
         {
             return (TemTipojuicio.Destroy(IDTipoJuicio) == 1);
         }
-        
-        
-    	
-	    /// <summary>
-	    /// Inserts a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+
+        /// <summary>
+        /// Inserts a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Insert, true)]
-	    public void Insert(string Descripcion)
-	    {
-		    TemTipojuicio item = new TemTipojuicio();
-		    
+        public void Insert(string Descripcion)
+        {
+            TemTipojuicio item = new TemTipojuicio();
+
             item.Descripcion = Descripcion;
-            
-	    
-		    item.Save(UserName);
-	    }
-    	
-	    /// <summary>
-	    /// Updates a record, can be used with the Object Data Source
-	    /// </summary>
+
+
+            item.Save(UserName);
+        }
+
+        /// <summary>
+        /// Updates a record, can be used with the Object Data Source
+        /// </summary>
         [DataObjectMethod(DataObjectMethodType.Update, true)]
-	    public void Update(int IDTipoJuicio,string Descripcion)
-	    {
-		    TemTipojuicio item = new TemTipojuicio();
-	        item.MarkOld();
-	        item.IsLoaded = true;
-		    
-			item.IDTipoJuicio = IDTipoJuicio;
-				
-			item.Descripcion = Descripcion;
-				
-	        item.Save(UserName);
-	    }
+        public void Update(int IDTipoJuicio, string Descripcion)
+        {
+            TemTipojuicio item = new TemTipojuicio();
+            item.MarkOld();
+            item.IsLoaded = true;
+
+            item.IDTipoJuicio = IDTipoJuicio;
+
+            item.Descripcion = Descripcion;
+
+            item.Save(UserName);
+        }
     }
 }
