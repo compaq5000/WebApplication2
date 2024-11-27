@@ -63,7 +63,7 @@ namespace WebApplication2
 
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Se ha guardado correctamente');</script>", false);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // Label1.Text = "Ocurrió un error al cargar el archivo comuniquese al administrador del sistema";
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "customScript", "<script>alert('Ha ocurrido un error al guardar');</script>", false);

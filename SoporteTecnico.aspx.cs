@@ -90,7 +90,7 @@ namespace WebApplication2
                         SubSonicDB.TranInsidenciasRH ssMostrar = SubSonicDB.TranInsidenciasRH.FetchByID(Convert.ToInt32( words[0]));
                         if (ssMostrar.Autorizado == true)
                         {
-                                string _open = "WebForm3.aspx";
+                            //    string _open = "WebForm3.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm3.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;

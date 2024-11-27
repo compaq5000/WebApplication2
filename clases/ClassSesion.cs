@@ -14,7 +14,7 @@ using System.Net.Mail;
 /// </summary>
 public class ClassSesion : System.Web.UI.Page
 {
-    object Narra;
+   // object Narra;
 
     public ClassSesion()
     {

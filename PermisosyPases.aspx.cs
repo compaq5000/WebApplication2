@@ -89,7 +89,7 @@ namespace WebApplication2
                         {
                             if (words[1] == "2")
                             {
-                                string _open = "WebForm3.aspx";
+                               // string _open = "WebForm3.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm3.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;
@@ -102,7 +102,7 @@ namespace WebApplication2
                             }
                             if (words[1] == "1")
                             {
-                                string _open = "WebForm2.aspx";
+                               // string _open = "WebForm2.aspx";
                                 ssSesiones.to = words[0];
                                 RadWindow1.NavigateUrl = "~/WebForm2.aspx";
                                 RadWindow1.VisibleOnPageLoad = true;

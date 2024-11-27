@@ -919,7 +919,7 @@ namespace WebApplication2
                         }
                         else
                         {
-                            string Archivo = "El archivo no existe";
+                           // string Archivo = "El archivo no existe";
                         }
                     }
                 }
