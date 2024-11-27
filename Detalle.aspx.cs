@@ -1,5 +1,5 @@
 ﻿using System;
-
+///
 namespace WebApplication2
 {
     public partial class Detalle : System.Web.UI.Page
