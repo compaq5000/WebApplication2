@@ -249,6 +249,7 @@
     <Content Include="files\PERSONAL\2\74869.jpg" />
     <Content Include="files\PERSONAL\2\PROPUESTA 1.jpg" />
     <Content Include="FileUploadarchivo.aspx" />
+    <Content Include="Final - Copia.aspx" />
     <Content Include="Final.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Html5ReportViewer2.html" />
@@ -961,6 +962,13 @@
     <Compile Include="FileUploadarchivo.aspx.designer.cs">
       <DependentUpon>FileUploadarchivo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Final - Copia.aspx.cs">
+      <DependentUpon>Final - Copia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Final - Copia.aspx.designer.cs">
+      <DependentUpon>Final - Copia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Final.aspx.cs">
       <DependentUpon>Final.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1278,7 +1286,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
